@@ -7,9 +7,13 @@ const PORT = process.env.PORT || 8080;
 
 let app = express();
 
-hbs.registerPartials(__dirname + '/app/views/partials');
+hbs.registerPartials(__dirname + '/app/partials');
 app.set('view engine', 'hbs');
-app.set('views', __dirname + '/app/views');
+app.set('views', __dirname + '/public');
+
+hbs.registerHelper('getCurrentYear', () => {
+	return new Date().getFullYear();
+});
 
 app.use(express.static(__dirname + '/public'));
 

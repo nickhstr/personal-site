@@ -3,19 +3,35 @@ let express = require('express');
 let router = express.Router();
 
 router.get('/', (req, res) => {
-	res.render('home.hbs');
+	res.render('index.hbs', {
+		pageTitle: 'Home',
+		scriptSrc: 'home.js'
+	});
 });
 
 router.get('/about', (req, res) => {
-	res.render('about.hbs');
+	res.render('index.hbs', {
+		pageTitle: 'About',
+		scriptSrc: 'about.js'
+	});
 });
 
 router.get('/projects', (req, res) => {
-	res.render('projects.hbs');
+	res.render('index.hbs', {
+		pageTitle: 'Projects',
+		scriptSrc: 'projects.js'
+	});
 });
 
 router.get('/blog', (req, res) => {
-	res.render('blog.hbs');
+	res.render('index.hbs', {
+		pageTitle: 'Blog',
+		scriptSrc: 'blog.js'
+	});
+});
+
+router.get('/*', (req, res) => {
+	res.status(404).render('404.hbs');
 });
 
 module.exports = () => {
