@@ -1,0 +1,13 @@
+// Variables
+@import "variables";
+
+// Shared Component Styles
+@import "components/NavBar";
+@import "components/Logo";
+
+// Utility styles
+@import "utils";
+
+.app {
+	background: $primary-background-color;
+}

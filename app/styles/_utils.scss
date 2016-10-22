@@ -1,0 +1,14 @@
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex-center {
+	@extend .flex;
+	justify-content: center;
+}
+
+.flex-center-center {
+	@extend .flex-center;
+	align-items: center;
+}

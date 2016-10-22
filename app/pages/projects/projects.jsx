@@ -1,7 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var ProjectsApp = require('ProjectsApp');
+
+require('sharedStyles');
+
 ReactDOM.render(
-	<h1>Projects Page</h1>,
+	<ProjectsApp></ProjectsApp>,
 	document.getElementById('app')
 );

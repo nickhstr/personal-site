@@ -1,7 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var HomeApp = require('HomeApp');
+
+require('sharedStyles');
+
 ReactDOM.render(
-	<h1>Home Page</h1>,
+	<HomeApp></HomeApp>,
 	document.getElementById('app')
 );

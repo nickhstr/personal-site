@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const autoprefixer = require('autoprefixer');
+
 var entryDir = './app/pages/';
 
 module.exports = {
@@ -23,6 +25,9 @@ module.exports = {
 			'app/pages/projects/components',
 			'app/pages/blog/components'
 		],
+		alias: {
+			sharedStyles: 'app/styles/main.scss'
+		},
 		extensions: ['', '.js', '.jsx']
 	},
 	module: {
@@ -34,9 +39,16 @@ module.exports = {
 				},
 				test: /\.jsx?$/,
 				exlude: /(node_modules|bower_components)/
+			},
+			{
+				test: /\.scss$/,
+				loaders: ['style', 'css', 'postcss', 'sass']
 			}
 		]
 	},
+	postcss: [
+		autoprefixer({browsers: ['last 2 versions']})
+	],
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': {

@@ -1,7 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var BlogApp = require('BlogApp');
+
+require('sharedStyles');
+
 ReactDOM.render(
-	<h1>Blog Page</h1>,
+	<BlogApp></BlogApp>,
 	document.getElementById('app')
 );
