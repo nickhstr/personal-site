@@ -1,5 +1,6 @@
 var React = require('react');
 var Logo = require('Logo');
+var MenuButton = require('MenuButton');
 
 var NavBar = React.createClass({
 	render: function() {
@@ -12,6 +13,7 @@ var NavBar = React.createClass({
 						<li><a href="/blog">Blog</a></li>
 						<li><a href="/about">About</a></li>
 					</ul>
+					<MenuButton></MenuButton>
 				</nav>
 			</div>
 		);

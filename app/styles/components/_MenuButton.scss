@@ -1,0 +1,13 @@
+.menu-button {
+	width: 25px;
+	height: 25px;
+	padding: 0;
+	margin: 0 20px 0 0;
+	border: none;
+	cursor: pointer;
+	background: #fff;
+	display: none;
+	@media (max-width: 499px) {
+		display: inline-block;
+	}
+}
