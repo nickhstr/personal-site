@@ -20492,14 +20492,14 @@
 				null,
 				React.createElement(
 					'nav',
-					{ className: 'flex-center-center' },
-					React.createElement(Logo, null),
+					{ className: 'flex-between-center' },
+					React.createElement(Logo, { imgUrl: 'icons/icon-svg.svg', imgAlt: 'Nick\'s Logo' }),
 					React.createElement(
 						'ul',
-						{ className: 'navbar' },
+						null,
 						React.createElement(
 							'li',
-							{ className: 'navlink' },
+							null,
 							React.createElement(
 								'a',
 								{ href: '/projects' },
@@ -20508,7 +20508,7 @@
 						),
 						React.createElement(
 							'li',
-							{ className: 'navlink' },
+							null,
 							React.createElement(
 								'a',
 								{ href: '/blog' },
@@ -20517,7 +20517,7 @@
 						),
 						React.createElement(
 							'li',
-							{ className: 'navlink' },
+							null,
 							React.createElement(
 								'a',
 								{ href: '/about' },
@@ -20536,24 +20536,30 @@
 /* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var Logo = React.createClass({
-		displayName: 'Logo',
+		displayName: "Logo",
 
 		render: function render() {
-			var divStyle = {
-				display: 'inline-block'
-			};
+			var _props = this.props;
+			var imgUrl = _props.imgUrl;
+			var imgAlt = _props.imgAlt;
+
 			return React.createElement(
-				'div',
-				{ style: divStyle },
+				"div",
+				null,
 				React.createElement(
-					'a',
-					{ className: 'logo', href: '/' },
-					'Nick Hester'
+					"a",
+					{ className: "logo", href: "/" },
+					React.createElement("img", { src: imgUrl, alt: imgAlt }),
+					React.createElement(
+						"span",
+						null,
+						"Nick Hester"
+					)
 				)
 			);
 		}
@@ -20596,7 +20602,7 @@
 
 
 	// module
-	exports.push([module.id, ".navbar > * {\n  list-style-type: none;\n  text-transform: uppercase; }\n\n.navbar {\n  padding: 10px; }\n\n.navlink {\n  color: #000;\n  display: inline-block;\n  padding: 0 5px; }\n\n.navlink a {\n  text-decoration: none; }\n\n.navlink a:visited {\n  color: inherit; }\n\n.logo {\n  display: inline-block;\n  color: #fff;\n  background: #e1375c;\n  text-decoration: none;\n  text-transform: uppercase;\n  padding: 5px 10px; }\n\n.logo:visited {\n  color: #fff; }\n\n.flex, .flex-center, .flex-center-center {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.app {\n  background: #eceff1; }\n", ""]);
+	exports.push([module.id, "nav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px; }\n  nav ul {\n    padding: 0 20px 0 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n      nav ul li a {\n        text-decoration: none; }\n      nav ul li a:visited {\n        color: inherit; }\n\n.logo {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.flex, .flex-center, .flex-center-center, .flex-around, .flex-around-center, .flex-between, .flex-between-center {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.app {\n  background: #eceff1; }\n", ""]);
 
 	// exports
 

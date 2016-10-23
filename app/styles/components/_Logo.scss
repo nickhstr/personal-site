@@ -1,12 +1,26 @@
 .logo {
 	display: inline-block;
-	color: #fff;
-	background: $primary-accent-color;
+	color: #000;
 	text-decoration: none;
-	text-transform: uppercase;
-	padding: 5px 10px;
+	padding: 0 0 0 20px;
+
+	img {
+		display: inline-block;
+		width: 40px;
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	span {
+		display: inline-block;
+		padding: 0 0 0 5px;
+		margin: 0;
+		font-size: 1.5em;
+		font-weight: 300;
+		vertical-align: middle;
+	}
 }
 
 .logo:visited {
-	color: #fff;
+	color: #000;
 }

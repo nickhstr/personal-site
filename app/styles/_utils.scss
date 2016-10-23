@@ -8,7 +8,27 @@
 	justify-content: center;
 }
 
+.flex-around {
+	@extend .flex;
+	justify-content: space-around;
+}
+
+.flex-between {
+	@extend .flex;
+	justify-content: space-between;
+}
+
 .flex-center-center {
 	@extend .flex-center;
+	align-items: center;
+}
+
+.flex-between-center {
+	@extend .flex-between;
+	align-items: center;
+}
+
+.flex-around-center {
+	@extend .flex-around;
 	align-items: center;
 }

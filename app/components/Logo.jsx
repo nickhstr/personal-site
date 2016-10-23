@@ -1,13 +1,14 @@
 var React = require('react');
 
 var Logo = React.createClass({
-	render: () => {
-		var divStyle = {
-			display: 'inline-block'
-		};
+	render: function() {
+		var {imgUrl, imgAlt} = this.props;
 		return (
-			<div style={divStyle}>
-				<a className="logo" href="/">Nick Hester</a>
+			<div>
+				<a className="logo" href="/">
+					<img src={imgUrl} alt={imgAlt}/>
+					<span>Nick Hester</span>
+				</a>
 			</div>
 		);
 	}

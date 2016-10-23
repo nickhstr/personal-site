@@ -2,7 +2,7 @@ var React = require('react');
 var NavBar = require('NavBar');
 
 var ProjectsApp = React.createClass({
-	render: () => {
+	render: function() {
 		return (
 			<div>
 				<NavBar></NavBar>
