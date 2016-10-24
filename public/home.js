@@ -49,9 +49,9 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(30);
 
-	var HomeApp = __webpack_require__(171);
+	var HomeApp = __webpack_require__(172);
 
-	__webpack_require__(166);
+	__webpack_require__(167);
 
 	ReactDOM.render(React.createElement(HomeApp, null), document.getElementById('app'));
 
@@ -20482,18 +20482,48 @@
 
 	var React = __webpack_require__(1);
 	var Logo = __webpack_require__(165);
-	var MenuButton = __webpack_require__(173);
+	var MenuButton = __webpack_require__(166);
 
 	var NavBar = React.createClass({
 		displayName: 'NavBar',
 
+		previousScroll: 0,
+		scrollHide: function scrollHide() {
+			var self = this;
+			window.addEventListener('scroll', function (e) {
+				var currentScroll = window.scrollY;
+				var nav = self.refs.nav;
+				var navClasses = nav.classList;
+				var isDown = currentScroll > self.previousScroll;
+
+				if (isDown && !navClasses.contains('scrolled') && currentScroll > 10) {
+					navClasses.add('scrolled');
+				} else if (!isDown) {
+					navClasses.remove('scrolled');
+				}
+
+				self.previousScroll = currentScroll;
+			});
+		},
+		toggleDrawer: function toggleDrawer() {
+			var drawer = this.refs.drawer;
+
+			if (drawer.hasAttribute('opened')) {
+				drawer.removeAttribute('opened');
+			} else {
+				drawer.setAttribute('opened', '');
+			}
+		},
 		render: function render() {
+			if (this.props.reveals) {
+				this.scrollHide();
+			}
 			return React.createElement(
 				'div',
 				null,
 				React.createElement(
 					'nav',
-					{ className: 'flex-between-center' },
+					{ className: 'flex-between-center', ref: 'nav' },
 					React.createElement(Logo, { imgUrl: 'icons/icon-svg.svg', imgAlt: 'Nick\'s Logo' }),
 					React.createElement(
 						'ul',
@@ -20526,7 +20556,13 @@
 							)
 						)
 					),
-					React.createElement(MenuButton, null)
+					React.createElement(MenuButton, { onDrawerToggle: this.toggleDrawer })
+				),
+				React.createElement(
+					'div',
+					{ id: 'drawer', ref: 'drawer' },
+					React.createElement('div', { className: 'drawer-overlay', onClick: this.toggleDrawer }),
+					React.createElement('section', { className: 'drawer-content' })
 				)
 			);
 		}
@@ -20573,13 +20609,48 @@
 /* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var MenuButton = React.createClass({
+		displayName: "MenuButton",
+
+		onToggle: function onToggle() {
+			this.props.onDrawerToggle();
+		},
+		render: function render() {
+			return React.createElement(
+				"button",
+				{ className: "menu-button", onClick: this.onToggle },
+				React.createElement(
+					"svg",
+					{ width: "100%", height: "100%", viewBox: "0 0 64 64", version: "1.1", style: { fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 1.41421 } },
+					React.createElement(
+						"g",
+						null,
+						React.createElement("rect", { x: "8", y: "44", width: "48", height: "6" }),
+						React.createElement("rect", { x: "8", y: "29", width: "48", height: "6" }),
+						React.createElement("rect", { x: "8", y: "14", width: "48", height: "6" })
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = MenuButton;
+
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(167);
+	var content = __webpack_require__(168);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(169)(content, {});
+	var update = __webpack_require__(170)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -20596,21 +20667,21 @@
 	}
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(168)();
+	exports = module.exports = __webpack_require__(169)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "nav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px; }\n  nav ul {\n    padding: 0 20px 0 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n      nav ul li a {\n        text-decoration: none; }\n      nav ul li a:visited {\n        color: inherit; }\n\n.logo {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n\n.flex, .flex-center, .flex-center-center, .flex-around, .flex-around-center, .flex-between, .flex-between-center {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.app {\n  background: #eceff1; }\n", ""]);
+	exports.push([module.id, "nav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n      nav ul li a {\n        text-decoration: none;\n        color: inherit; }\n      nav ul li a:visited {\n        color: inherit; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n\n#drawer[opened] {\n  visibility: visible; }\n  #drawer[opened] .drawer-overlay {\n    opacity: 1; }\n  #drawer[opened] .drawer-content {\n    transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: #fff;\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\nfooter {\n  background: #263238;\n  color: #fff;\n  padding: 3em 1.5em; }\n\n.flex, .flex-center, .flex-center-center, .flex-around, .flex-around-center, .flex-between, .flex-between-center {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.home-main {\n  padding: 64px 0 0 0; }\n\n.app {\n  background: #eceff1; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -20665,7 +20736,7 @@
 	};
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -20917,23 +20988,31 @@
 
 
 /***/ },
-/* 170 */,
-/* 171 */
+/* 171 */,
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var React = __webpack_require__(1);
 	var NavBar = __webpack_require__(164);
+	var HomeMain = __webpack_require__(175);
+	var Footer = __webpack_require__(174);
 
 	var HomeApp = React.createClass({
 		displayName: 'HomeApp',
 
+		componentDidMount: function componentDidMount() {
+			var app = document.getElementsByTagName('body')[0];
+			app.removeAttribute('unresolved');
+		},
 		render: function render() {
 			return React.createElement(
 				'div',
-				{ className: 'app' },
-				React.createElement(NavBar, null)
+				{ className: 'app unresolved', ref: 'app' },
+				React.createElement(NavBar, { reveals: true }),
+				React.createElement(HomeMain, null),
+				React.createElement(Footer, null)
 			);
 		}
 	});
@@ -20941,37 +21020,179 @@
 	module.exports = HomeApp;
 
 /***/ },
-/* 172 */,
-/* 173 */
+/* 173 */,
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Footer = React.createClass({
+		displayName: 'Footer',
+
+		render: function render() {
+			var currentYear = new Date().getFullYear();
+			return React.createElement(
+				'footer',
+				null,
+				'Nick Hester - Copyright ',
+				currentYear
+			);
+		}
+	});
+
+	module.exports = Footer;
+
+/***/ },
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	var React = __webpack_require__(1);
 
-	var MenuButton = React.createClass({
-		displayName: "MenuButton",
+	var HomeMain = React.createClass({
+		displayName: "HomeMain",
 
 		render: function render() {
 			return React.createElement(
-				"button",
-				{ className: "menu-button" },
+				"main",
+				{ className: "home-main" },
 				React.createElement(
-					"svg",
-					{ width: "100%", height: "100%", viewBox: "0 0 64 64", version: "1.1", style: { fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 1.41421 } },
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
 					React.createElement(
-						"g",
-						null,
-						React.createElement("rect", { x: "8", y: "44", width: "48", height: "6" }),
-						React.createElement("rect", { x: "8", y: "29", width: "48", height: "6" }),
-						React.createElement("rect", { x: "8", y: "14", width: "48", height: "6" })
+						"a",
+						{ href: "/projects" },
+						"Projects"
 					)
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
+				),
+				React.createElement(
+					"h1",
+					null,
+					"Some Text"
 				)
 			);
 		}
 	});
 
-	module.exports = MenuButton;
+	module.exports = HomeMain;
 
 /***/ }
 /******/ ]);

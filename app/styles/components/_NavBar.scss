@@ -3,9 +3,17 @@ nav {
 	background: #fff;
 	box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);
 	padding: 0 8px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	transform: translate3d(0, 0, 0);
+	transition: transform 300ms;
+	will-change: transform;
 
 	ul {
 		padding: 0 20px 0 0;
+		margin: 0;
 		@media (max-width: 499px) {
 			display: none;
 		}
@@ -17,6 +25,7 @@ nav {
 
 			a {
 				text-decoration: none;
+				color: inherit;
 			}
 
 			a:visited {
@@ -24,4 +33,48 @@ nav {
 			}
 		}
 	}
+}
+
+.scrolled {
+	transform: translate3d(0, -70px, 0);
+}
+
+#drawer {
+	visibility: hidden;
+	transition: visibility 200ms;
+}
+
+#drawer[opened] {
+	visibility: visible;
+
+	.drawer-overlay {
+		opacity: 1;
+	}
+
+	.drawer-content {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.drawer-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: opacity 200ms;
+	transform: translateZ(0);
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.drawer-content {
+	width: 256px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: #fff;
+	transform: translate3d(256px, 0, 0);
+	transition: transform 200ms;
 }

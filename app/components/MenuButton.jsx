@@ -1,9 +1,12 @@
 var React = require('react');
 
 var MenuButton = React.createClass({
+	onToggle: function() {
+		this.props.onDrawerToggle();
+	},
 	render: function() {
 		return (
-			<button className="menu-button">
+			<button className="menu-button" onClick={this.onToggle}>
 				<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" style={{fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 1.41421}}>
 					<g>
 						<rect x="8" y="44" width="48" height="6"/>

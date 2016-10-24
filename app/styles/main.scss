@@ -5,10 +5,10 @@
 @import "components/NavBar";
 @import "components/Logo";
 @import "components/MenuButton";
+@import "components/Footer";
 
 // Utility styles
 @import "utils";
 
-.app {
-	background: $primary-background-color;
-}
+// Home Page
+@import "../pages/home/styles/home";

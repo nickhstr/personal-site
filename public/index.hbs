@@ -22,11 +22,16 @@
 				background: #fff;
 				margin: 0;
 				font-family: 'Roboto', Helvetica, Arial, sans-serif;
+				opacity: 1;
+				transition: opacity 500ms;
+			}
+			body[unresolved] {
+				opacity: 0;
 			}
 		</style>
 	</head>
-	<body>
-		<div id="app">Loading...</div>
+	<body unresolved>
+		<div id="app"></div>
 		<script src="{{scriptSrc}}"></script>
 	</body>
 </html>

@@ -7,7 +7,11 @@
 	cursor: pointer;
 	background: #fff;
 	display: none;
-	@media (max-width: 499px) {
+	@media (max-width: $primary-media-max-width) {
 		display: inline-block;
+	}
+
+	svg {
+		fill: $secondary-text-color;
 	}
 }
