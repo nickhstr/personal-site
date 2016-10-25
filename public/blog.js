@@ -20483,6 +20483,7 @@
 	var React = __webpack_require__(1);
 	var Logo = __webpack_require__(165);
 	var MenuButton = __webpack_require__(166);
+	var Drawer = __webpack_require__(176);
 
 	var NavBar = React.createClass({
 		displayName: 'NavBar',
@@ -20506,7 +20507,7 @@
 			});
 		},
 		toggleDrawer: function toggleDrawer() {
-			var drawer = this.refs.drawer;
+			var drawer = document.getElementById('drawer');
 
 			if (drawer.hasAttribute('opened')) {
 				drawer.removeAttribute('opened');
@@ -20558,12 +20559,7 @@
 					),
 					React.createElement(MenuButton, { onDrawerToggle: this.toggleDrawer })
 				),
-				React.createElement(
-					'div',
-					{ id: 'drawer', ref: 'drawer' },
-					React.createElement('div', { className: 'drawer-overlay', onClick: this.toggleDrawer }),
-					React.createElement('section', { className: 'drawer-content' })
-				)
+				React.createElement(Drawer, { onToggle: this.toggleDrawer })
 			);
 		}
 	});
@@ -20675,7 +20671,7 @@
 
 
 	// module
-	exports.push([module.id, "nav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n      nav ul li a {\n        text-decoration: none;\n        color: inherit; }\n      nav ul li a:visited {\n        color: inherit; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n\n#drawer[opened] {\n  visibility: visible; }\n  #drawer[opened] .drawer-overlay {\n    opacity: 1; }\n  #drawer[opened] .drawer-content {\n    transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: #fff;\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\nfooter {\n  background: #263238;\n  color: #fff;\n  padding: 3em 1.5em; }\n\n.flex, .flex-center, .flex-center-center, .flex-around, .flex-around-center, .flex-between, .flex-between-center {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.home-main {\n  padding: 64px 0 0 0; }\n\n.app {\n  background: #eceff1; }\n", ""]);
+	exports.push([module.id, "nav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n      nav ul li a {\n        text-decoration: none;\n        color: inherit; }\n      nav ul li a:visited {\n        color: inherit; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n\n#drawer[opened] {\n  visibility: visible; }\n  #drawer[opened] .drawer-overlay {\n    opacity: 1; }\n  #drawer[opened] .drawer-content {\n    transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: #fff;\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\nfooter {\n  background: #263238;\n  color: #fff;\n  padding: 3em 1.5em; }\n\n.flex, .flex-center, .flex-center-center, .flex-around, .flex-around-center, .flex-between, .flex-between-center {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.home-main {\n  padding: 64px 0 0 0; }\n\n.app {\n  background: #eceff1; }\n", ""]);
 
 	// exports
 
@@ -21013,6 +21009,36 @@
 	});
 
 	module.exports = BlogApp;
+
+/***/ },
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Drawer = React.createClass({
+		displayName: "Drawer",
+
+		toggle: function toggle() {
+			this.props.onToggle();
+		},
+		render: function render() {
+			return React.createElement(
+				"div",
+				{ id: "drawer", ref: "drawer" },
+				React.createElement("div", { className: "drawer-overlay", onClick: this.toggle }),
+				React.createElement("section", { className: "drawer-content" })
+			);
+		}
+	});
+
+	module.exports = Drawer;
 
 /***/ }
 /******/ ]);

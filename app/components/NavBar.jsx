@@ -1,6 +1,7 @@
 var React = require('react');
 var Logo = require('Logo');
 var MenuButton = require('MenuButton');
+var Drawer = require('Drawer');
 
 var NavBar = React.createClass({
 	previousScroll: 0,
@@ -23,7 +24,7 @@ var NavBar = React.createClass({
 		});
 	},
 	toggleDrawer: function() {
-		var drawer = this.refs.drawer;
+		var drawer = document.getElementById('drawer');
 		
 		if (drawer.hasAttribute('opened')) {
 			drawer.removeAttribute('opened');
@@ -47,10 +48,7 @@ var NavBar = React.createClass({
 					</ul>
 					<MenuButton onDrawerToggle={this.toggleDrawer}></MenuButton>
 				</nav>
-				<div id="drawer" ref="drawer">
-					<div className="drawer-overlay" onClick={this.toggleDrawer}></div>
-					<section className="drawer-content"></section>
-				</div>
+				<Drawer onToggle={this.toggleDrawer}></Drawer>
 			</div>
 		);
 	}
