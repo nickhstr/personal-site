@@ -5,7 +5,7 @@ var Footer = React.createClass({
 		var currentYear = new Date().getFullYear();
 		return (
 			<footer>
-				Nick Hester - Copyright {currentYear}
+				&copy; {currentYear}
 			</footer>
 		);
 	}

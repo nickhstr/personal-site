@@ -1,5 +1,5 @@
 var React = require('react');
-var Logo = require('Logo');
+var LogoLink = require('LogoLink');
 var MenuButton = require('MenuButton');
 var Drawer = require('Drawer');
 
@@ -40,7 +40,7 @@ var NavBar = React.createClass({
 		return (
 			<div>
 				<nav className="flex-between-center" ref="nav">
-					<Logo imgUrl="icons/icon-svg.svg" imgAlt="Nick's Logo"></Logo>
+					<LogoLink imgUrl="icons/icon-svg.svg" imgAlt="Nick's Logo"></LogoLink>
 					<ul>
 						<li><a href="/projects">Projects</a></li>
 						<li><a href="/blog">Blog</a></li>

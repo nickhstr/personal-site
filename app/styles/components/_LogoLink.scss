@@ -1,0 +1,26 @@
+.logo-link {
+	display: inline-block;
+	color: #000;
+	text-decoration: none;
+	padding: 0 0 0 20px;
+
+	img {
+		display: inline-block;
+		width: 40px;
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	span {
+		display: inline-block;
+		padding: 0 0 0 5px;
+		margin: 0;
+		font-size: 1.5em;
+		font-weight: 300;
+		vertical-align: middle;
+	}
+}
+
+.logo:visited {
+	color: #000;
+}

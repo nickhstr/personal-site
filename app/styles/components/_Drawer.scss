@@ -1,0 +1,72 @@
+#drawer {
+	visibility: hidden;
+	transition: visibility $drawer-transition-length;
+
+	&[opened] {
+		visibility: visible;
+
+		.drawer-overlay {
+			opacity: 1;
+		}
+
+		.drawer-content {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+.drawer-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: opacity $drawer-transition-length;
+	transform: translateZ(0);
+	z-index: 10;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.drawer-content {
+	width: 256px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 10;
+	background: linear-gradient(#fff, $primary-background-color);
+	transform: translate3d(256px, 0, 0);
+	transition: transform $drawer-transition-length;
+}
+
+.logo {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.drawer-links {
+	color: $secondary-text-color;
+	list-style-type: none;
+	padding: 0 0 0 30px;
+	margin: 20px 0;
+
+	li {
+		font-size: 1.5em;
+		margin: 10px 0;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+
+			&:visited {
+				color: inherit;
+			}
+
+			&:hover {
+				color: #000;
+				font-weight: 500;
+			}
+		}
+	}
+}

@@ -10,7 +10,7 @@ var HomeApp = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="app unresolved" ref="app">
+			<div className="app" ref="app">
 				<NavBar reveals></NavBar>
 				<HomeMain></HomeMain>
 				<Footer></Footer>
