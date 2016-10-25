@@ -5,14 +5,16 @@ var Footer = require('Footer');
 
 var HomeApp = React.createClass({
 	componentDidMount: function() {
-		var app = document.getElementsByTagName('body')[0];
-		app.removeAttribute('unresolved');
+		var app = document.body;
+		if (app.hasAttribute('unresolved')) {
+			app.removeAttribute('unresolved');
+		}
 	},
 	render: function() {
 		return (
 			<div className="app" ref="app">
 				<NavBar reveals></NavBar>
-				<HomeMain></HomeMain>
+				<HomeMain className="testing"></HomeMain>
 				<Footer></Footer>
 			</div>
 		);

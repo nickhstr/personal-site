@@ -8,7 +8,8 @@ var NavBar = React.createClass({
 	scrollHide: function() {
 		var self = this;
 		window.addEventListener('scroll', function(e) {
-			var currentScroll = window.scrollY;
+			var currentScroll = document.body.scrollTop;
+			console.log(currentScroll);
 			var nav = self.refs.nav;
 			var navClasses = nav.classList;
 			var isDown = currentScroll > self.previousScroll;

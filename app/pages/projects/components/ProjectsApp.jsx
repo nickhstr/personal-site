@@ -3,8 +3,10 @@ var NavBar = require('NavBar');
 
 var ProjectsApp = React.createClass({
 	componentDidMount: function() {
-		var app = document.getElementsByTagName('body')[0];
-		app.removeAttribute('unresolved');
+		var app = document.body;
+		if (app.hasAttribute('unresolved')) {
+			app.removeAttribute('unresolved');
+		}
 	},
 	render: function() {
 		return (

@@ -32,3 +32,13 @@
 	@extend .flex-around;
 	align-items: center;
 }
+
+.flex-center-start {
+	@extend .flex-center;
+	align-items: flex-start;
+}
+
+.flex-center-end {
+	@extend .flex-center;
+	align-items: flex-end;
+}

@@ -1,15 +1,16 @@
 // Variables
 @import "variables";
 
+// Utility styles
+@import "utils";
+
 // Shared Component Styles
 @import "components/NavBar";
 @import "components/Drawer";
 @import "components/LogoLink";
 @import "components/MenuButton";
 @import "components/Footer";
-
-// Utility styles
-@import "utils";
+@import "components/ProgressiveImg";
 
 // Home Page
 @import "../pages/home/styles/home";
