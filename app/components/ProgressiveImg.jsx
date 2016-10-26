@@ -4,12 +4,13 @@ var ProgressiveImg = React.createClass({
 	hidePlaceholder: function() {
 		var placeholder = this.refs.placeholder;
 		var img = this.refs.img;
+		img.removeAttribute('src');
 		setTimeout(function() {
 			placeholder.classList.add('disappear');
 		}, 300);
 	},
 	render: function() {
-		var {imgSrc, placeholder, imgAlt, width, height} = this.props;
+		var {imgSrc, placeholder, imgAlt, width, height, flexClass} = this.props;
 		var placeholderStyle = {
 			backgroundImage: `url('${placeholder}')`
 		};
@@ -23,7 +24,7 @@ var ProgressiveImg = React.createClass({
 
 		return (
 			<div className="progressive-img" style={progressiveImgStyle}>
-				<section className="content flex-center-end">
+				<section className={flexClass}>
 					{this.props.children}
 				</section>
 				<div ref="placeholder" className="placeholder" style={placeholderStyle}></div>

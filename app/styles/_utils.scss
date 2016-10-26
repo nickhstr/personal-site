@@ -23,6 +23,30 @@
 	align-items: center;
 }
 
+.flex-start-start {
+	@extend .flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.flex-start-end {
+	@extend .flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+
+.flex-end-start {
+	@extend .flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+}
+
+.flex-end-end {
+	@extend .flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
 .flex-between-center {
 	@extend .flex-between;
 	align-items: center;

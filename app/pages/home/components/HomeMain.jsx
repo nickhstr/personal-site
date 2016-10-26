@@ -1,5 +1,6 @@
 var React = require('react');
 var ProgressiveImg = require('ProgressiveImg');
+var MainTitle = require('MainTitle');
 
 var HomeMain = React.createClass({
 	render: function() {
@@ -9,10 +10,11 @@ var HomeMain = React.createClass({
 				<ProgressiveImg
 					width="100%"
 					height="100vh"
-					imgSrc="http://localhost:8080/images/sierra-nevada-1920.svg"
+					imgSrc="images/sierra-nevada-1920.svg"
 					imgAlt="Sierra Nevada"
-					placeholder={placeholder}>
-					<h1 className="title">Hello and Welcome!</h1>
+					placeholder={placeholder}
+					flexClass="flex-start-end">
+					<MainTitle primary="Nick Hester" secondary="Web Developer"></MainTitle>
 				</ProgressiveImg>
 			</main>
 		);

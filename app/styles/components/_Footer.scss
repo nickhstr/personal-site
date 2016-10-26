@@ -1,5 +1,11 @@
 footer {
 	background: $secondary-background-color;
 	color: #fff;
-	padding: 18px 28px;
+	padding: 1em 2em;
+	font-size: 1em;
+
+	@media (max-width: $primary-media-max-width) {
+		padding: 0.75em 1.5em;
+		font-size: 0.75em;
+	}
 }
