@@ -14,7 +14,7 @@ var HomeApp = React.createClass({
 		return (
 			<div className="app" ref="app">
 				<NavBar reveals></NavBar>
-				<HomeMain className="testing"></HomeMain>
+				<HomeMain></HomeMain>
 				<Footer></Footer>
 			</div>
 		);
