@@ -1,6 +1,7 @@
 var React = require('react');
 var ProgressiveImg = require('ProgressiveImg');
 var MainTitle = require('MainTitle');
+var ProjectCard = require('ProjectCard');
 
 var HomeMain = React.createClass({
 	render: function() {
@@ -26,6 +27,15 @@ var HomeMain = React.createClass({
 				<h1 style={{height: '300px'}}>Some Super Cool Text</h1>
 				<h1 style={{height: '300px'}}>Some Super Cool Text</h1>
 				<h1 style={{height: '300px'}}>Some Super Cool Text</h1>
+				<a href="/" style={{display: 'inline-block', margin: '10px'}}>
+					<ProjectCard
+						width="500px"
+						height="350px"
+						imgSrc="images/sierra-nevada-1920.svg"
+						imgAlt="Sierra Nevada"
+						projectName="Super Sweet Project">
+					</ProjectCard>
+				</a>
 			</main>
 		);
 	}

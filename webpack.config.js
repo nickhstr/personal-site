@@ -19,14 +19,18 @@ module.exports = {
 		root: __dirname,
 		modulesDirectories: [
 			'node_modules',
-			'app/components',
+			'app/shared/components',
 			'app/pages/home/components',
 			'app/pages/about/components',
 			'app/pages/projects/components',
 			'app/pages/blog/components'
 		],
 		alias: {
-			sharedStyles: 'app/styles/main.scss'
+			sharedStyles: 'app/shared/main.scss',
+			homeStyles: 'app/pages/home/main.scss',
+			aboutStyles: 'app/pages/about/main.scss',
+			projectStyles: 'app/pages/project/main.scss',
+			blogStyles: 'app/pages/blog/main.scss',
 		},
 		extensions: ['', '.js', '.jsx']
 	},

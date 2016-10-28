@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var HomeApp = require('HomeApp');
 
-require('sharedStyles');
+require('homeStyles');
 
 ReactDOM.render(
 	<HomeApp></HomeApp>,

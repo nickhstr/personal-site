@@ -9,7 +9,6 @@ var NavBar = React.createClass({
 		var self = this;
 		window.addEventListener('scroll', function(e) {
 			var currentScroll = document.body.scrollTop;
-			console.log(currentScroll);
 			var nav = self.refs.nav;
 			var navClasses = nav.classList;
 			var isDown = currentScroll > self.previousScroll;

@@ -11,9 +11,13 @@ var ProgressiveImg = React.createClass({
 	},
 	render: function() {
 		var {imgSrc, placeholder, imgAlt, width, height, flexClass} = this.props;
-		var placeholderStyle = {
-			backgroundImage: `url('${placeholder}')`
-		};
+
+		if (placeholder) {
+			var placeholderStyle = {
+				backgroundImage: `url('${placeholder}')`
+			};
+		}
+		
 		var fullImageStyle = {
 			backgroundImage: `url('${imgSrc}')`
 		};

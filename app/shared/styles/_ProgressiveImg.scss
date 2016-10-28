@@ -1,5 +1,8 @@
 .progressive-img {
 	position: relative;
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+	overflow: hidden;
 
 	section {
 		position: absolute;
