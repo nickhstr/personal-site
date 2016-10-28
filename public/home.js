@@ -51,7 +51,7 @@
 
 	var HomeApp = __webpack_require__(174);
 
-	__webpack_require__(180);
+	__webpack_require__(182);
 
 	ReactDOM.render(React.createElement(HomeApp, null), document.getElementById('app'));
 
@@ -21096,7 +21096,7 @@
 	var React = __webpack_require__(1);
 	var NavBar = __webpack_require__(164);
 	var HomeMain = __webpack_require__(175);
-	var Footer = __webpack_require__(179);
+	var Footer = __webpack_require__(181);
 
 	var HomeApp = React.createClass({
 		displayName: 'HomeApp',
@@ -21129,7 +21129,7 @@
 	var React = __webpack_require__(1);
 	var ProgressiveImg = __webpack_require__(176);
 	var MainTitle = __webpack_require__(177);
-	var ProjectCard = __webpack_require__(183);
+	var ProjectCard = __webpack_require__(178);
 
 	var HomeMain = React.createClass({
 		displayName: 'HomeMain',
@@ -21204,11 +21204,12 @@
 					'a',
 					{ href: '/', style: { display: 'inline-block', margin: '10px' } },
 					React.createElement(ProjectCard, {
-						width: '500px',
-						height: '350px',
+						width: '400px',
+						height: '300px',
 						imgSrc: 'images/sierra-nevada-1920.svg',
 						imgAlt: 'Sierra Nevada',
-						projectName: 'Super Sweet Project' })
+						projectName: 'Super Sweet Project',
+						projectDescription: 'A little something something, which does a thing or two.' })
 				)
 			);
 		}
@@ -21314,6 +21315,48 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var Card = __webpack_require__(179);
+	var ProjectDetails = __webpack_require__(180);
+
+	var ProjectCard = React.createClass({
+		displayName: 'ProjectCard',
+
+		render: function render() {
+			var _props = this.props;
+			var width = _props.width;
+			var height = _props.height;
+			var imgSrc = _props.imgSrc;
+			var imgAlt = _props.imgAlt;
+			var placeholder = _props.placeholder;
+			var projectName = _props.projectName;
+			var projectDescription = _props.projectDescription;
+
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					Card,
+					{
+						width: width,
+						height: height,
+						imgSrc: imgSrc,
+						imgAlt: imgAlt,
+						placeholder: placeholder },
+					React.createElement(ProjectDetails, { name: projectName, description: projectDescription })
+				)
+			);
+		}
+	});
+
+	module.exports = ProjectCard;
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
 	var ProgressiveImg = __webpack_require__(176);
 
 	var Card = React.createClass({
@@ -21327,11 +21370,14 @@
 			var imgAlt = _props.imgAlt;
 			var placeholder = _props.placeholder;
 
+			var cardStyle = {
+				width: width
+			};
 			return React.createElement(
 				'div',
-				{ className: 'card' },
+				{ style: cardStyle, className: 'card' },
 				React.createElement(ProgressiveImg, {
-					width: width,
+					width: '100%',
 					height: height,
 					imgSrc: imgSrc,
 					imgAlt: imgAlt,
@@ -21344,7 +21390,68 @@
 	module.exports = Card;
 
 /***/ },
-/* 179 */
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var ProjectDetails = React.createClass({
+		displayName: "ProjectDetails",
+
+		render: function render() {
+			var _props = this.props;
+			var name = _props.name;
+			var description = _props.description;
+			var projectPage = _props.projectPage;
+			var projectUrl = _props.projectUrl;
+			var sourceCode = _props.sourceCode;
+
+			return React.createElement(
+				"div",
+				{ className: "project-detail" },
+				React.createElement(
+					"div",
+					{ className: "details" },
+					React.createElement(
+						"h4",
+						null,
+						name
+					),
+					React.createElement(
+						"p",
+						null,
+						description
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "action" },
+					React.createElement(
+						"a",
+						{ href: "/projects" },
+						"Project Page"
+					),
+					React.createElement(
+						"a",
+						{ href: "/projects" },
+						"Project URL"
+					),
+					React.createElement(
+						"a",
+						{ href: "/projects" },
+						"Source Code"
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = ProjectDetails;
+
+/***/ },
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21368,13 +21475,13 @@
 	module.exports = Footer;
 
 /***/ },
-/* 180 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(181);
+	var content = __webpack_require__(183);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(172)(content, {});
@@ -21394,7 +21501,7 @@
 	}
 
 /***/ },
-/* 181 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(171)();
@@ -21402,80 +21509,10 @@
 
 
 	// module
-	exports.push([module.id, ".flex, .flex-center, .flex-center-center, .flex-center-start, .flex-center-end, .flex-around, .flex-around-center, .flex-between, .flex-between-center, .flex-start-start, .flex-start-end, .flex-end-start, .flex-end-end {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center, .flex-center-start, .flex-center-end {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-start-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-start-end {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-end-start {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-end-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-center-start {\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-center-end {\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\nnav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 10;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n  #drawer[opened] {\n    visibility: visible; }\n    #drawer[opened] .drawer-overlay {\n      opacity: 1; }\n    #drawer[opened] .drawer-content {\n      transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  z-index: 10;\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 10;\n  background: linear-gradient(#fff, #eceff1);\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  width: 50%;\n  margin: 0 auto; }\n\n.drawer-links {\n  color: #6b6b6b;\n  list-style-type: none;\n  padding: 0 0 0 30px;\n  margin: 20px 0; }\n  .drawer-links li {\n    font-size: 1.5em;\n    margin: 10px 0; }\n    .drawer-links li a {\n      text-decoration: none;\n      color: inherit; }\n      .drawer-links li a:visited {\n        color: inherit; }\n      .drawer-links li a:hover {\n        color: #000;\n        font-weight: 500; }\n\n.logo-link {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo-link img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo-link span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\nfooter {\n  background: #263238;\n  color: #fff;\n  padding: 1em 2em;\n  font-size: 1em; }\n  @media (max-width: 499px) {\n    footer {\n      padding: 0.75em 1.5em;\n      font-size: 0.75em; } }\n\n.progressive-img {\n  position: relative;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n  overflow: hidden; }\n  .progressive-img section {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 3; }\n  .progressive-img .placeholder {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 2;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    transition: opacity 500ms, visibility 500ms; }\n  .progressive-img img {\n    display: none; }\n  .progressive-img .full-image {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-color: #000; }\n\n.disappear {\n  opacity: 0;\n  visibility: hidden; }\n\n.card {\n  display: inline-block;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px 0 rgba(0, 0, 0, 0.2); }\n  .card *:not(:first-child) {\n    padding: 16px; }\n\n.app {\n  background: #eceff1; }\n  .app * {\n    font-weight: 400; }\n  .app a {\n    text-decoration: none;\n    color: inherit; }\n    .app a:visited {\n      color: inherit; }\n    .app a:hover {\n      color: #000;\n      font-weight: 500; }\n\n.title {\n  color: #fff;\n  padding: 10vw; }\n  .title h1, .title h3 {\n    font-weight: 300;\n    margin: 0.3em 0; }\n  .title h1 {\n    font-size: 6em; }\n  .title h3 {\n    font-size: 2em; }\n  @media (max-width: 499px) {\n    .title h1 {\n      font-size: 5em; } }\n", ""]);
+	exports.push([module.id, ".flex, .flex-center, .flex-center-center, .flex-center-start, .flex-center-end, .flex-around, .flex-around-center, .flex-between, .flex-between-center, .flex-start-start, .flex-start-end, .flex-end-start, .flex-end-end {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-center, .flex-center-center, .flex-center-start, .flex-center-end {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-start-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-start-end {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-end-start {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-end-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-center-start {\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-center-end {\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\nnav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 10;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block;\n      padding: 0 10px; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n  #drawer[opened] {\n    visibility: visible; }\n    #drawer[opened] .drawer-overlay {\n      opacity: 1; }\n    #drawer[opened] .drawer-content {\n      transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  z-index: 10;\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 10;\n  background: linear-gradient(#fff, #eceff1);\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  width: 50%;\n  margin: 0 auto; }\n\n.drawer-links {\n  color: #6b6b6b;\n  list-style-type: none;\n  padding: 0 0 0 30px;\n  margin: 20px 0; }\n  .drawer-links li {\n    font-size: 1.5em;\n    margin: 10px 0; }\n    .drawer-links li a {\n      text-decoration: none;\n      color: inherit; }\n      .drawer-links li a:visited {\n        color: inherit; }\n      .drawer-links li a:hover {\n        color: #000;\n        font-weight: 500; }\n\n.logo-link {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo-link img {\n    display: inline-block;\n    width: 40px;\n    margin: 0;\n    vertical-align: middle; }\n  .logo-link span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.5em;\n    font-weight: 300;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\nfooter {\n  background: #263238;\n  color: #fff;\n  padding: 1em 2em;\n  font-size: 1em; }\n  @media (max-width: 499px) {\n    footer {\n      padding: 0.75em 1.5em;\n      font-size: 0.75em; } }\n\n.progressive-img {\n  position: relative;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n  overflow: hidden; }\n  .progressive-img section {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 3; }\n  .progressive-img .placeholder {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 2;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    transition: opacity 500ms, visibility 500ms; }\n  .progressive-img img {\n    display: none; }\n  .progressive-img .full-image {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-color: #000; }\n\n.disappear {\n  opacity: 0;\n  visibility: hidden; }\n\n.card {\n  display: inline-block;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .card:hover {\n    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4); }\n\n.project-detail .details {\n  padding: 16px; }\n  .project-detail .details h4 {\n    margin: 0;\n    font-size: 1.3em; }\n  .project-detail .details p {\n    font-size: 0.9em;\n    color: #6b6b6b;\n    margin: 1em 0 0; }\n\n.project-detail .action {\n  border-top: 1px solid #e8e8e8;\n  padding: 12px 16px; }\n  .project-detail .action a {\n    font-size: 0.9em;\n    color: #6b6b6b;\n    text-transform: uppercase;\n    padding: 0 0.6em; }\n    .project-detail .action a:visited {\n      color: #6b6b6b; }\n    .project-detail .action a:hover {\n      color: #000; }\n\n.app {\n  background: #eceff1; }\n  .app * {\n    font-weight: 400; }\n  .app a {\n    text-decoration: none;\n    color: inherit; }\n    .app a:visited {\n      color: inherit; }\n    .app a:hover {\n      color: #000;\n      font-weight: 500; }\n\n.title {\n  color: #fff;\n  padding: 10vw; }\n  .title h1, .title h3 {\n    font-weight: 300;\n    margin: 0.3em 0; }\n  .title h1 {\n    font-size: 6em; }\n  .title h3 {\n    font-size: 2em; }\n  @media (max-width: 499px) {\n    .title h1 {\n      font-size: 5em; } }\n", ""]);
 
 	// exports
 
-
-/***/ },
-/* 182 */,
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var Card = __webpack_require__(178);
-	var ProjectDetails = __webpack_require__(184);
-
-	var ProjectCard = React.createClass({
-		displayName: 'ProjectCard',
-
-		render: function render() {
-			var _props = this.props;
-			var width = _props.width;
-			var height = _props.height;
-			var imgSrc = _props.imgSrc;
-			var imgAlt = _props.imgAlt;
-			var placeholder = _props.placeholder;
-			var projectName = _props.projectName;
-
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					Card,
-					{
-						width: width,
-						height: height,
-						imgSrc: imgSrc,
-						imgAlt: imgAlt,
-						placeholder: placeholder },
-					React.createElement(ProjectDetails, { name: projectName })
-				)
-			);
-		}
-	});
-
-	module.exports = ProjectCard;
-
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var ProjectDetails = React.createClass({
-		displayName: 'ProjectDetails',
-
-		render: function render() {
-			var name = this.props.name;
-
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'h4',
-					null,
-					name
-				)
-			);
-		}
-	});
-
-	module.exports = ProjectDetails;
 
 /***/ }
 /******/ ]);

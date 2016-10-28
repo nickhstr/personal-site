@@ -29,11 +29,12 @@ var HomeMain = React.createClass({
 				<h1 style={{height: '300px'}}>Some Super Cool Text</h1>
 				<a href="/" style={{display: 'inline-block', margin: '10px'}}>
 					<ProjectCard
-						width="500px"
-						height="350px"
+						width="400px"
+						height="300px"
 						imgSrc="images/sierra-nevada-1920.svg"
 						imgAlt="Sierra Nevada"
-						projectName="Super Sweet Project">
+						projectName="Super Sweet Project"
+						projectDescription="A little something something, which does a thing or two.">
 					</ProjectCard>
 				</a>
 			</main>

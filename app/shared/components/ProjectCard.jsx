@@ -4,7 +4,7 @@ var ProjectDetails = require('ProjectDetails');
 
 var ProjectCard = React.createClass({
 	render: function() {
-		var {width, height, imgSrc, imgAlt, placeholder, projectName} = this.props;
+		var {width, height, imgSrc, imgAlt, placeholder, projectName, projectDescription} = this.props;
 		return (
 			<div>
 				<Card
@@ -13,7 +13,7 @@ var ProjectCard = React.createClass({
 					imgSrc={imgSrc}
 					imgAlt={imgAlt}
 					placeholder={placeholder}>
-					<ProjectDetails name={projectName}></ProjectDetails>
+					<ProjectDetails name={projectName} description={projectDescription}></ProjectDetails>
 				</Card>
 			</div>
 		);

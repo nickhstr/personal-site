@@ -4,10 +4,13 @@ var ProgressiveImg = require('ProgressiveImg');
 var Card = React.createClass({
 	render: function() {
 		var {width, height, imgSrc, imgAlt, placeholder} = this.props;
+		var cardStyle = {
+			width
+		};
 		return (
-			<div className="card">
+			<div style={cardStyle} className="card">
 				<ProgressiveImg
-					width={width}
+					width="100%"
 					height={height}
 					imgSrc={imgSrc}
 					imgAlt={imgAlt}
