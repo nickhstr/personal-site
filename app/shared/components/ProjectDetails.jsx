@@ -1,6 +1,15 @@
 var React = require('react');
 
 var ProjectDetails = React.createClass({
+	getDefaultProps: function() {
+		return {
+			name: 'Project Name',
+			description: 'Project description goes here.',
+			projectPage: '',
+			projectUrl: '',
+			sourceCode: ''
+		}
+	},
 	render: function() {
 		var {name, description, projectPage, projectUrl, sourceCode} = this.props;
 		return (
@@ -9,10 +18,10 @@ var ProjectDetails = React.createClass({
 					<h4>{name}</h4>
 					<p>{description}</p>
 				</div>
-				<div className="action">
-					<a href="/projects">Project Page</a>
-					<a href="/projects">Project URL</a>
-					<a href="/projects">Source Code</a>
+				<div className="action flex-start-center">
+					<a href={'/projects' + projectPage}>Project Page</a>
+					<a href={'/projects' + projectUrl}>Project URL</a>
+					<a href={'/projects' + sourceCode}>Source Code</a>
 				</div>
 			</div>
 		);

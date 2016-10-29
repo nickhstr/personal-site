@@ -36,6 +36,18 @@
 	align-items: flex-end;
 }
 
+.flex-start-center {
+	@extend .flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.flex-end-center {
+	@extend .flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
 .flex-end-start {
 	@extend .flex;
 	justify-content: flex-end;

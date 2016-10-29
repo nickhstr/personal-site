@@ -1,0 +1,15 @@
+.featured-projects {
+	.container {
+		width: 90vw;
+
+		@media (max-width: 950px) {
+			width: 100%;
+		}
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 2em;
+		margin: 2em 0;
+	}
+}
