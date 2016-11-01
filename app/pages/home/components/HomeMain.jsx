@@ -1,7 +1,7 @@
 var React = require('react');
 var ProgressiveImg = require('ProgressiveImg');
 var MainTitle = require('MainTitle');
-var ProjectCard = require('ProjectCard');
+var LatestBlogPost = require('LatestBlogPost');
 var FeaturedProjects = require('FeaturedProjects');
 
 var HomeMain = React.createClass({
@@ -10,14 +10,15 @@ var HomeMain = React.createClass({
 		return (
 			<main>
 				<ProgressiveImg
-					width="100%"
-					height="100vh"
-					imgSrc={src}
-					imgAlt={alt}
-					placeholder={placeholder}
-					flexClass="flex-start-end">
+						width="100%"
+						height="100vh"
+						imgSrc={src}
+						imgAlt={alt}
+						placeholder={placeholder}
+						flexClass="flex-start-end">
 					<MainTitle primary="Nick Hester" secondary="Web Developer"></MainTitle>
 				</ProgressiveImg>
+				<LatestBlogPost></LatestBlogPost>
 				<FeaturedProjects></FeaturedProjects>
 			</main>
 		);

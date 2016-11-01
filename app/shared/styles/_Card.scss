@@ -2,10 +2,10 @@
 	display: inline-block;
 	background-color: #fff;
 	border-radius: 2px;
-	box-shadow: $shadow-small;
+	box-shadow: $shadow-2dp;
 	transition: $shadow-transition;
 
 	&:hover {
-		box-shadow: $shadow-big;
+		box-shadow: $shadow-6dp;
 	}
 }

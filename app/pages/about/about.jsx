@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var AboutApp = require('AboutApp');
 
-require('sharedStyles');
+require('aboutStyles');
 
 ReactDOM.render(
 	<AboutApp></AboutApp>,

@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var BlogApp = require('BlogApp');
 
-require('sharedStyles');
+require('blogStyles');
 
 ReactDOM.render(
 	<BlogApp></BlogApp>,

@@ -1,15 +1,42 @@
 .featured-projects {
-	.container {
-		width: 90vw;
+	padding: 0 0 2em;
 
-		@media (max-width: 950px) {
-			width: 100%;
+	.container {
+		width: 100%;
+	}
+
+	.featured-heading {
+		width: 100%;
+		padding: 5em 10vw 0;
+
+		@media (max-width: 800px) {
+			padding: 10vw 10vw 0;
+		}
+
+		h2 {
+			margin: 0 0 1.5em;
+			text-transform: uppercase;
+			font-size: 1em;
+			color: $secondary-text-color;
+			padding: 0 0 5px;
+			border-bottom: 1px solid $primary-accent-color;
+
+			@media (max-width: $primary-media-max-width) {
+				font-size: 0.8em;
+			}
 		}
 	}
 
-	h2 {
+	.link-section {
+		width: 100%;
 		text-align: center;
-		font-size: 2em;
-		margin: 2em 0;
+
+		.button {
+			margin: 4em auto;
+
+			@media (max-width: $primary-media-max-width) {
+				margin: 10vw auto;
+			}
+		}
 	}
 }

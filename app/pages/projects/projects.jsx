@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var ProjectsApp = require('ProjectsApp');
 
-require('sharedStyles');
+require('projectsStyles');
 
 ReactDOM.render(
 	<ProjectsApp></ProjectsApp>,

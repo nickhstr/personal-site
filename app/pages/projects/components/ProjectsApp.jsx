@@ -10,7 +10,7 @@ var ProjectsApp = React.createClass({
 	},
 	render: function() {
 		return (
-			<div>
+			<div className="app">
 				<NavBar></NavBar>
 			</div>
 		);

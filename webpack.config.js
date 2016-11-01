@@ -29,7 +29,7 @@ module.exports = {
 			sharedStyles: 'app/shared/main.scss',
 			homeStyles: 'app/pages/home/main.scss',
 			aboutStyles: 'app/pages/about/main.scss',
-			projectStyles: 'app/pages/project/main.scss',
+			projectsStyles: 'app/pages/projects/main.scss',
 			blogStyles: 'app/pages/blog/main.scss',
 		},
 		extensions: ['', '.js', '.jsx']

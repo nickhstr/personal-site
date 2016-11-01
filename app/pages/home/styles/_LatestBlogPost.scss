@@ -1,0 +1,53 @@
+.latest-post {
+	background-color: #fff;
+	padding: 5em 10vw;
+	color: $secondary-text-color;
+
+	@media (max-width: 800px) {
+		padding: 10vw;
+	}
+
+	p {
+		margin: 0; 
+	}
+
+	.latest-banner {
+		border-bottom: 1px solid $primary-accent-color;
+		padding-bottom: 5px;
+
+		@media (max-width: $primary-media-max-width) {
+			font-size: 0.8em;
+		}
+	}
+
+	.post-title {
+		font-size: 3em;
+		margin: 0.5em 0 0.1em;
+		color: $primary-text-color;
+		font-weight: 400;
+
+		@media (max-width: $primary-media-max-width) {
+			font-size: 2em;
+		}
+
+		a:hover {
+			font-weight: 400;
+		}
+	}
+
+	.post-date {
+		font-weight: 300;
+	}
+
+	.post-content {
+		margin: 2em 0;
+		color: $secondary-text-color;
+		line-height: 1.5em;
+		font-size: 1.75em;
+		font-weight: 300;
+
+		@media (max-width: $primary-media-max-width) {
+			font-size: 1em;
+		}
+	}
+}

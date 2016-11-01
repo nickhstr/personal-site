@@ -65,8 +65,10 @@ var FeaturedProjects = React.createClass({
 		var heading = this.state.projects.length > 1 ? 'Projects' : 'Project';
 		return (
 			<section className="featured-projects flex-center">
-				<div className="container">
+				<div className="featured-heading">
 					<h2>Featured {heading}</h2>
+				</div>
+				<div className="container">
 					<div className="flex-center">
 						{this.state.projects.map(function(project) {
 							return (
@@ -74,6 +76,9 @@ var FeaturedProjects = React.createClass({
 							);
 						})}
 					</div>
+				</div>
+				<div className="link-section">
+					<a className="button" href="/projects">View All Projects</a>
 				</div>
 			</section>
 		);
