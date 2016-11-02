@@ -14,9 +14,12 @@ store.subscribe(() => {
 	console.log(store.getState());
 });
 
-MyAPI.get('test.json').then((response) => {
-	var {latestPost, featuredProjects} = JSON.parse(response);
-	store.dispatch(actions.getLatestPost(latestPost));
+MyAPI.get('/api/all').then((response) => {
+	var {blogPosts, projects} = JSON.parse(response);
+	store.dispatch(actions.getLatestPost(blogPosts[blogPosts.length - 1]));
+	var featuredProjects = projects.filter((project) => {
+		return project.featured;
+	});
 	store.dispatch(actions.getFeaturedProjects(featuredProjects));
 }, (error) => {
 	console.log('Failed!', error);
