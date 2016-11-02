@@ -2,7 +2,12 @@
 	padding: 0 0 2em;
 
 	.container {
+		margin: 0 10vw;
 		width: 100%;
+
+		@media (max-width: 1050px) {
+			margin: 0;
+		}
 	}
 
 	.featured-heading {

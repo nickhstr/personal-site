@@ -1,68 +1,19 @@
 var React = require('react');
 var ProjectCard = require('ProjectCard');
+var {connect} = require('react-redux');
 
 var FeaturedProjects = React.createClass({
 	getInitialState: function() {
 		return {
-			projects: [
-				{
-					name: 'First Project',
-					description: 'A pretty awesome project.',
-					imgSrc: 'images/sierra-nevada-1920.svg',
-					imgAlt: 'Sierra Nevada mountain range.',
-					placeholder: null,
-					width: '400px',
-					height: '300px',
-					projectPage: '',
-					projectUrl: '',
-					sourceCode: ''
-				},
-				{
-					name: 'First Project',
-					description: 'A pretty awesome project.',
-					imgSrc: 'images/sierra-nevada-1920.svg',
-					imgAlt: 'Sierra Nevada mountain range.',
-					placeholder: null,
-					width: '400px',
-					height: '300px',
-					projectPage: '',
-					projectUrl: '',
-					sourceCode: ''
-				},
-				{
-					name: 'First Project',
-					description: 'A pretty awesome project.',
-					imgSrc: 'images/sierra-nevada-1920.svg',
-					imgAlt: 'Sierra Nevada mountain range.',
-					placeholder: null,
-					width: '400px',
-					height: '300px',
-					projectPage: '',
-					projectUrl: '',
-					sourceCode: ''
-				},
-				{
-					name: 'First Project',
-					description: 'A pretty awesome project.',
-					imgSrc: 'images/sierra-nevada-1920.svg',
-					imgAlt: 'Sierra Nevada mountain range.',
-					placeholder: null,
-					width: '400px',
-					height: '300px',
-					projectPage: '',
-					projectUrl: '',
-					sourceCode: ''
-				}
-			],
 			cardDimensions: {
-				width: '400px',
 				margin: '10px'
 			}
 		};
 	},
 	render: function() {
+		var {projects} = this.props;
 		var {width, height, margin} = this.state.cardDimensions;
-		var heading = this.state.projects.length > 1 ? 'Projects' : 'Project';
+		var heading = projects.length > 1 ? 'Projects' : 'Project';
 		return (
 			<section className="featured-projects flex-center">
 				<div className="featured-heading">
@@ -70,7 +21,7 @@ var FeaturedProjects = React.createClass({
 				</div>
 				<div className="container">
 					<div className="flex-center">
-						{this.state.projects.map(function(project) {
+						{projects.map(function(project) {
 							return (
 								<ProjectCard project={project} cardDimensions={{width, height, margin}}></ProjectCard>
 							);
@@ -85,4 +36,8 @@ var FeaturedProjects = React.createClass({
 	}
 });
 
-module.exports = FeaturedProjects;
+module.exports = connect((state) => {
+	return {
+		projects: state.projects
+	};
+})(FeaturedProjects);

@@ -1,0 +1,57 @@
+{
+	"latestPost": {
+		"title": "Super Cool Title",
+		"date": "Tue Nov 01 2016",
+		"content": "Some blog entry text. Very blog, much stuff. This post contains a lot of very interesting content. You should definitely keep reading."
+	},
+	"featuredProjects": [
+		{
+			"name": "First Project",
+			"description": "A pretty awesome project.",
+			"imgSrc": "images/sierra-nevada-1920.svg",
+			"imgAlt": "Sierra Nevada mountain range.",
+			"placeholder": null,
+			"width": "400px",
+			"height": "300px",
+			"projectPage": "",
+			"projectUrl": "",
+			"sourceCode": ""
+		},
+		{
+			"name": "Second Project",
+			"description": "A pretty awesome project.",
+			"imgSrc": "images/sierra-nevada-1920.svg",
+			"imgAlt": "Sierra Nevada mountain range.",
+			"placeholder": null,
+			"width": "400px",
+			"height": "300px",
+			"projectPage": "",
+			"projectUrl": "",
+			"sourceCode": ""
+		},
+		{
+			"name": "Third Project",
+			"description": "A pretty awesome project.",
+			"imgSrc": "images/sierra-nevada-1920.svg",
+			"imgAlt": "Sierra Nevada mountain range.",
+			"placeholder": null,
+			"width": "400px",
+			"height": "300px",
+			"projectPage": "",
+			"projectUrl": "",
+			"sourceCode": ""
+		},
+		{
+			"name": "Fourth Project",
+			"description": "A pretty awesome project.",
+			"imgSrc": "images/sierra-nevada-1920.svg",
+			"imgAlt": "Sierra Nevada mountain range.",
+			"placeholder": null,
+			"width": "400px",
+			"height": "300px",
+			"projectPage": "",
+			"projectUrl": "",
+			"sourceCode": ""
+		}
+	]
+}
