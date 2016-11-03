@@ -6,13 +6,35 @@
 		<title>Nick Hester | Uh Oh!</title>
 		<style>
 			body {
-				background: #ddd;
-				margin: 0;
+				margin: 10vw;
+				font-family: Helvetica, Arial, sans-serif;
+			}
+			h3 {
+				font-weight: lighter;
+				font-size: 3em;
+				margin: 0.5em 0;
+			}
+			p {
+				color: #6b6b6b;
+				font-size: 1.25em;
+			}
+			em {font-size: 0.75em;}
+			h4 {font-size: 1.5em;}
+			a {color: #000;}
+			@media (max-width: 550px) {
+				body {
+					font-size: 0.75em;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<h3>Oops! That page doesn't exist.</h3>
+		<h3>Oops!</h3>
+		<p id="url"></p>
 		<h4><a href="/">Let's go back home!</a></h4>
 	</body>
+	<script>
+		var url = window.location;
+		document.getElementById('url').innerHTML = '<em>' + url + '</em>' + ' doesn\'t exist.';
+	</script>
 </html>
