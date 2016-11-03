@@ -6,6 +6,7 @@ var FeaturedProjects = React.createClass({
 	getInitialState: function() {
 		return {
 			cardDimensions: {
+				width: '400px',
 				margin: '10px'
 			}
 		};

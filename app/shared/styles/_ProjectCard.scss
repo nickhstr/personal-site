@@ -1,3 +1,11 @@
 .project-card {
 	display: inline-block;
+
+	@media (max-width: $secondary-media-max-width) {
+		margin: 10px 10vw !important;
+	}
+
+	@media (max-width: $primary-media-max-width) {
+		margin: 10px !important;
+	}
 }

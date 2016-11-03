@@ -15,7 +15,11 @@ var ProjectCard = React.createClass({
 					imgSrc={imgSrc}
 					imgAlt={imgAlt}
 					placeholder={placeholder}>
-					<ProjectDetails name={name} description={description}></ProjectDetails>
+					<ProjectDetails
+							name={name}
+							description={description.split(/\n/)}
+							projectUrl={projectUrl}
+							sourceCode={sourceCode}></ProjectDetails>
 				</Card>
 			</a>
 		);

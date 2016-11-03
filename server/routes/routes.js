@@ -31,7 +31,7 @@ router.get('/blog', (req, res) => {
 });
 
 router.get('/*', (req, res) => {
-	res.status(404).render('404.hbs');
+	res.status(404).sendFile(process.cwd() + '/public/404.html');
 });
 
 module.exports = () => {

@@ -22,13 +22,13 @@ var Card = React.createClass({
 			}
 			return {
 				width: '300px',
-				height: '225px'
+				height: '200px'
 			};
 		}
 		else if (width < 650) {
 			return {
 				width: '100%',
-				height: '225px'
+				height: '200px'
 			};
 		}
 	},

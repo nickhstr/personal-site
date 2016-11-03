@@ -23,7 +23,7 @@ var ProgressiveImg = React.createClass({
 		};
 		var progressiveImgStyle = {
 			width: width || '400px',
-			height: height || '300px'
+			height: height || '225px'
 		};
 
 		return (

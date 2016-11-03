@@ -22,7 +22,16 @@ nav {
 		li {
 			color: $secondary-text-color;
 			display: inline-block;
-			padding: 0 10px;
+
+			a {
+				padding: 22.5px 0 20px;
+				margin: 0 15px;
+
+				&:hover {
+					font-weight: 500;
+					border-bottom: 3px solid $primary-accent-color;
+				}
+			}
 		}
 	}
 }

@@ -5,8 +5,7 @@ a.button {
 	background-color: $secondary-accent-color;
 	padding: 10px;
 	color: #fff;
-	font-weight: 400;
-	font-size: 0.8em;
+	font-size: 0.9em;
 	text-transform: uppercase;
 	box-shadow: $shadow-2dp;
 	cursor: pointer;
@@ -15,7 +14,6 @@ a.button {
 	&:focus {
 		box-shadow: $shadow-8dp;
 		outline: none;
-		font-weight: 400;
 	}
 
 	&:active {
@@ -24,7 +22,6 @@ a.button {
 
 	&:hover {
 		color: #fff;
-		font-weight: 400;
 		box-shadow: $shadow-8dp;
 	}
 

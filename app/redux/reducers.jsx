@@ -11,8 +11,10 @@ export var projectsReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'GET_FEATURED_PROJECTS':
 			return action.projects;
+
 		case 'GET_ALL_PROJECTS':
 			return action.projects;
+			
 		default:
 			return state;
 	}

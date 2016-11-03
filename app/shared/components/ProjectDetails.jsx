@@ -16,12 +16,12 @@ var ProjectDetails = React.createClass({
 			<div className="project-detail">
 				<div className="details">
 					<h4>{name}</h4>
-					<p>{description}</p>
+					<p>{description[0]}</p>
 				</div>
 				<div className="action flex-start-center">
 					<a href={'/projects' + projectPage}>Project Page</a>
-					<a href={'/projects' + projectUrl}>Project URL</a>
-					<a href={'/projects' + sourceCode}>Source Code</a>
+					<a href={projectUrl} target="_blank">Project URL</a>
+					<a href={sourceCode} target="_blank">Source Code</a>
 				</div>
 			</div>
 		);

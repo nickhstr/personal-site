@@ -9,8 +9,13 @@
 
 		p {
 			font-size: 0.9em;
+			font-weight: 300;
 			color: $secondary-text-color;
 			margin: 1em 0 0;
+
+			@media (max-width: $primary-media-max-width) {
+				font-size: 0.8em;
+			}
 		}
 	}
 
@@ -30,6 +35,7 @@
 
 			&:hover {
 				color: $primary-text-color;
+				font-weight: 500;
 			}
 		}
 	}

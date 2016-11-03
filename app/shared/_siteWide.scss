@@ -7,15 +7,13 @@
 
 	a {
 		text-decoration: none;
-		color: inherit;
 
 		&:visited {
 			color: inherit;
 		}
 
 		&:hover {
-			color: #000;
-			font-weight: 500;
+			color: $primary-text-color;
 		}
 	}
 }
