@@ -33,6 +33,16 @@ var NavBar = React.createClass({
 			drawer.setAttribute('opened', '');
 		}
 	},
+	componentDidMount: function() {
+		this.setLinkClass();
+	},
+	setLinkClass: function() {
+		for (var ref in this.refs) {
+			if (window.location.pathname.indexOf(this.refs[ref].pathname) > -1) {
+				this.refs[ref].className = 'active-link';
+			}
+		}
+	},
 	render: function() {
 		if (this.props.reveals) {
 			this.scrollHide();
@@ -42,9 +52,9 @@ var NavBar = React.createClass({
 				<nav className="flex-between-center" ref="nav">
 					<LogoLink imgUrl="icons/icon-svg.svg" imgAlt="Nick's Logo"></LogoLink>
 					<ul>
-						<li><a href="/projects">Projects</a></li>
-						<li><a href="/blog">Blog</a></li>
-						<li><a href="/about">About</a></li>
+						<li><a ref="projects" href="/projects">Projects</a></li>
+						<li><a ref="blog" href="/blog">Blog</a></li>
+						<li><a ref="about" href="/about">About</a></li>
 					</ul>
 					<MenuButton onDrawerToggle={this.toggleDrawer}></MenuButton>
 				</nav>

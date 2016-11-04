@@ -1,5 +1,8 @@
 var React = require('react');
 var NavBar = require('NavBar');
+var Footer = require('Footer');
+
+var ComingSoon = require('ComingSoon');
 
 var ProjectsApp = React.createClass({
 	componentDidMount: function() {
@@ -12,6 +15,8 @@ var ProjectsApp = React.createClass({
 		return (
 			<div className="app">
 				<NavBar></NavBar>
+				<ComingSoon></ComingSoon>
+				<Footer></Footer>
 			</div>
 		);
 	}

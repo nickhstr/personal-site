@@ -1,12 +1,9 @@
 .app {
 	background: $primary-background-color;
-	
-	* {
-		font-weight: 400;
-	}
 
 	a {
 		text-decoration: none;
+		color: inherit;
 
 		&:visited {
 			color: inherit;
@@ -15,5 +12,18 @@
 		&:hover {
 			color: $primary-text-color;
 		}
+	}
+}
+
+.section-heading {
+	border-bottom: 1px solid $primary-accent-color;
+	padding-bottom: 5px;
+	font-weight: 400;
+	font-size: 1em;
+	color: $secondary-text-color;
+	text-transform: uppercase;
+
+	@media (max-width: $primary-media-max-width) {
+		font-size: 0.8em;
 	}
 }

@@ -10,9 +10,9 @@ var MyAPI = require('MyAPI');
 
 require('homeStyles');
 
-store.subscribe(() => {
-	console.log(store.getState());
-});
+// store.subscribe(() => {
+// 	console.log(store.getState());
+// });
 
 MyAPI.get('/api/all').then((response) => {
 	var {blogPosts, projects} = JSON.parse(response);

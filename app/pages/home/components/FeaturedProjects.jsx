@@ -18,7 +18,7 @@ var FeaturedProjects = React.createClass({
 		return (
 			<section className="featured-projects flex-center">
 				<div className="featured-heading">
-					<h2>Featured {heading}</h2>
+					<h2 className="section-heading">Featured {heading}</h2>
 				</div>
 				<div className="container">
 					<div className="flex-center">

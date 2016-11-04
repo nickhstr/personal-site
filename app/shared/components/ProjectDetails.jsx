@@ -4,19 +4,19 @@ var ProjectDetails = React.createClass({
 	getDefaultProps: function() {
 		return {
 			name: 'Project Name',
-			description: 'Project description goes here.',
+			summary: 'Project description goes here.',
 			projectPage: '',
 			projectUrl: '',
 			sourceCode: ''
 		}
 	},
 	render: function() {
-		var {name, description, projectPage, projectUrl, sourceCode} = this.props;
+		var {name, summary, projectPage, projectUrl, sourceCode} = this.props;
 		return (
 			<div className="project-detail">
 				<div className="details">
 					<h4>{name}</h4>
-					<p>{description[0]}</p>
+					<p dangerouslySetInnerHTML={{__html: summary}}></p>
 				</div>
 				<div className="action flex-start-center">
 					<a href={'/projects' + projectPage}>Project Page</a>

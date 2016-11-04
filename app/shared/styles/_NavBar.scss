@@ -29,8 +29,17 @@ nav {
 
 				&:hover {
 					font-weight: 500;
-					border-bottom: 3px solid $primary-accent-color;
 				}
+			}
+
+			.active-link {
+				color: #000;
+				font-weight: 500;
+				border-bottom: 3px solid $primary-accent-color;
+			}
+
+			.active-link:visited {
+				color: #000;
 			}
 		}
 	}

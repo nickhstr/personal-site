@@ -5,9 +5,7 @@ var ProgressiveImg = React.createClass({
 		var placeholder = this.refs.placeholder;
 		var img = this.refs.img;
 		img.removeAttribute('src');
-		setTimeout(function() {
-			placeholder.classList.add('disappear');
-		}, 300);
+		placeholder.classList.add('disappear');
 	},
 	render: function() {
 		var {imgSrc, placeholder, imgAlt, width, height, flexClass} = this.props;

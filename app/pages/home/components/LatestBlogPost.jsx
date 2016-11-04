@@ -6,7 +6,7 @@ var LatestBlogPost = React.createClass({
 		var {title, date, content, url} = this.props;
 		return (
 			<div className="latest-post">
-				<p className="latest-banner">LATEST POST</p>
+				<h2 className="section-heading">Latest Post</h2>
 				<h3 className="post-title">
 					<a href={url}>{title}</a>
 				</h3>

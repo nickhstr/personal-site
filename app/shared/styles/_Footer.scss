@@ -1,11 +1,19 @@
 footer {
 	background: $secondary-background-color;
 	color: #fff;
-	padding: 1em 2em;
-	font-size: 1em;
+	padding: 0.5em;
+	font-weight: 300;
+	font-size: 0.75em;
 
 	@media (max-width: $primary-media-max-width) {
-		padding: 0.75em 1.5em;
-		font-size: 0.75em;
+		font-size: 0.6em;
+	}
+
+	.copyright {
+		padding-left: 0.5em;
+	}
+
+	.footer-logo {
+		width: 3em;
 	}
 }
