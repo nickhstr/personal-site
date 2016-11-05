@@ -1,0 +1,14 @@
+.social-links {
+	background-color: $primary-accent-color;
+	padding: 20px;
+
+	a {
+		margin: 0 1em;
+		font-size: 0.9em;
+		font-weight: 400;
+
+		.icon {
+			vertical-align: middle;
+		}
+	}
+}
