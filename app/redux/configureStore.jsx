@@ -1,5 +1,5 @@
 var redux = require('redux');
-var {latestPostReducer, projectsReducer} = require('reducers');
+import {latestPostReducer, projectsReducer} from 'reducers';
 
 export var configure = (initialState= {}) => {
 	var reducer = redux.combineReducers({

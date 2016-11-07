@@ -2,7 +2,7 @@ var React = require('react');
 var SocialLinks = require('SocialLinks');
 
 var Footer = React.createClass({
-	render: function() {
+	render() {
 		var currentYear = new Date().getFullYear();
 		return (
 			<footer>

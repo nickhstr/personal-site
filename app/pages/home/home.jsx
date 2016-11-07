@@ -1,12 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Provider} = require('react-redux');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
-var HomeApp = require('HomeApp');
-
-var actions = require('actions');
+import * as actions from 'actions';
 var store = require('configureStore').configure();
-var MyAPI = require('MyAPI');
+
+import * as MyAPI from 'MyAPI';
+import HomeApp from 'HomeApp';
 
 require('homeStyles');
 

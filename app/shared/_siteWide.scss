@@ -3,16 +3,11 @@
 
 	a {
 		text-decoration: none;
-		color: inherit;
-
-		&:visited {
-			color: inherit;
-		}
-
-		&:hover {
-			color: $primary-text-color;
-		}
 	}
+}
+
+.logo-text {
+	font-family: 'Product Sans', 'Roboto', Helvetica, Arial, sans-serif;
 }
 
 .section-heading {

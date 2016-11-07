@@ -1,19 +1,8 @@
 var React = require('react');
-var {GitHubIcon, LinkedinIcon} = require('Icons');
+var Icons = require('Icons');
 
 var Icon = React.createClass({
-	setIcon: function(icon) {
-		switch (icon) {
-			case 'github':
-				return (<GitHubIcon></GitHubIcon>);
-			case 'linkedin':
-				return (<LinkedinIcon></LinkedinIcon>);
-			default:
-				// statements_def
-				break;
-		}
-	},
-	render: function() {
+	render() {
 		var {width, height, icon} = this.props;
 		var iconStyle = {
 			display: 'inline-block',
@@ -21,10 +10,9 @@ var Icon = React.createClass({
 			width,
 			height
 		};
-		var renderedIcon = this.setIcon(icon);
 		return (
 			<div style={iconStyle} className="icon">
-				{renderedIcon}
+				{Icons[icon]()}
 			</div>
 		);
 	}

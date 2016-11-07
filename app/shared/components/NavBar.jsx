@@ -5,10 +5,10 @@ var Drawer = require('Drawer');
 
 var NavBar = React.createClass({
 	previousScroll: 0,
-	scrollHide: function() {
+	scrollHide() {
 		var self = this;
-		window.addEventListener('scroll', function(e) {
-			var currentScroll = document.body.scrollTop;
+		window.addEventListener('scroll', (e) => {
+			var currentScroll = window.pageYOffset;
 			var nav = self.refs.nav;
 			var navClasses = nav.classList;
 			var isDown = currentScroll > self.previousScroll;
@@ -23,7 +23,7 @@ var NavBar = React.createClass({
 			self.previousScroll = currentScroll;
 		});
 	},
-	toggleDrawer: function() {
+	toggleDrawer() {
 		var drawer = document.getElementById('drawer');
 		
 		if (drawer.hasAttribute('opened')) {
@@ -33,17 +33,17 @@ var NavBar = React.createClass({
 			drawer.setAttribute('opened', '');
 		}
 	},
-	componentDidMount: function() {
+	componentDidMount() {
 		this.setLinkClass();
 	},
-	setLinkClass: function() {
+	setLinkClass() {
 		for (var ref in this.refs) {
 			if (window.location.pathname.indexOf(this.refs[ref].pathname) > -1) {
 				this.refs[ref].className = 'active-link';
 			}
 		}
 	},
-	render: function() {
+	render() {
 		if (this.props.reveals) {
 			this.scrollHide();
 		}
@@ -56,7 +56,7 @@ var NavBar = React.createClass({
 						<li><a ref="blog" href="/blog">Blog</a></li>
 						<li><a ref="about" href="/about">About</a></li>
 					</ul>
-					<MenuButton onDrawerToggle={this.toggleDrawer}></MenuButton>
+					<MenuButton onToggle={this.toggleDrawer}></MenuButton>
 				</nav>
 				<Drawer onToggle={this.toggleDrawer}></Drawer>
 			</div>

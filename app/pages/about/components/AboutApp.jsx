@@ -1,6 +1,6 @@
-var React = require('react');
-var NavBar = require('NavBar');
-var Footer = require('Footer');
+import React from 'react';
+import NavBar from 'NavBar';
+import Footer from 'Footer';
 
 var ComingSoon = require('ComingSoon');
 

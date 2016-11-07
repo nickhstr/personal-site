@@ -1,14 +1,15 @@
 var React = require('react');
 var Logo = require('Logo');
 
+let firstTab = null;
+let lastTab = null;
+
 var Drawer = React.createClass({
-	firstTab: null,
-	lastTab: null,
-	componentDidMount: function() {
+	componentDidMount() {
 		this.setKeyboardFocusTrap();
 		this.setKeydownHandler();
 	},
-	setKeyboardFocusTrap: function() {
+	setKeyboardFocusTrap() {
 		var focusableElementsSelector = [
 	    'a[href]:not([tabindex="-1"])',
 	    'area[href]:not([tabindex="-1"])',
@@ -23,50 +24,42 @@ var Drawer = React.createClass({
 	  var focusableElements = this.refs.drawer.querySelectorAll(focusableElementsSelector);
 
 	  if (focusableElements.length > 0) {
-	  	this.firstTab = focusableElements[0];
-	  	this.lastTab = focusableElements[focusableElements.length - 1];
+	  	firstTab = focusableElements[0];
+	  	lastTab = focusableElements[focusableElements.length - 1];
 	  }
 	},
-	setKeydownHandler: function() {
+	setKeydownHandler() {
 		document.addEventListener('keydown', this.keydownHandler);
 	},
-	keydownHandler: function(e) {
+	keydownHandler(e) {
 		var drawer = this.refs.drawer;
 		var TAB_KEY = 9;
 		var ESC_KEY = 27;
 		if (drawer.hasAttribute('opened')) {
-			console.log(e.keyCode);
 			if (e.keyCode === TAB_KEY) {
 				if (e.shiftKey) {
-					console.log('Shift key pressed');
-					console.log(e.target);
-					if (this.firstTab && e.target === this.firstTab) {
-						console.log('Focused on lastTab');
+					if (firstTab && e.target === firstTab) {
 						e.preventDefault();
-						this.lastTab.focus();
+						lastTab.focus();
 					}
 				}
 				else {
-					console.log('Normal tab pressed');
-					console.log(e.target);
-					if (this.lastTab && e.target === this.lastTab) {
-						console.log('Focused on firstTab');
+					if (lastTab && e.target === lastTab) {
 						e.preventDefault();
-						this.firstTab.focus();
+						firstTab.focus();
 					}
 				}
 			}
 			else if (e.keyCode === ESC_KEY) {
 				e.preventDefault();
-				console.log('ESC_KEY pressed');
 				this.toggle();
 			}
 		}
 	},
-	toggle: function() {
+	toggle() {
 		this.props.onToggle();
 	},
-	render: function() {
+	render() {
 		return (
 			<div id="drawer" ref="drawer">
 				<div className="drawer-overlay" onClick={this.toggle}></div>

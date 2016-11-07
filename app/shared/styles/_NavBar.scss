@@ -26,9 +26,11 @@ nav {
 			a {
 				padding: 22.5px 0 20px;
 				margin: 0 15px;
+				color: $secondary-text-color;
 
 				&:hover {
 					font-weight: 500;
+					color: #000;
 				}
 			}
 
