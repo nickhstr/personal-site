@@ -2,16 +2,16 @@ var React = require('react');
 var ProgressiveImg = require('ProgressiveImg');
 
 var Card = React.createClass({
-	getInitialState: function() {
+	getInitialState() {
 		return this.newDimensions();
 	},
-	componentDidMount: function() {
+	componentDidMount() {
 		window.addEventListener('resize', this.updateDimensions);
 	},
-	updateDimensions: function(e) {
+	updateDimensions(e) {
 		this.setState(this.newDimensions());
 	},
-	newDimensions: function() {
+	newDimensions() {
 		var width = window.innerWidth;
 		if (width > 649) {
 			if (width > 950) {
@@ -32,7 +32,7 @@ var Card = React.createClass({
 			};
 		}
 	},
-	render: function() {
+	render() {
 		var {imgSrc, imgAlt, placeholder} = this.props;
 		var {width, height} = this.state;
 		var cardStyle = {

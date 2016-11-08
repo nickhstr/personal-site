@@ -21,7 +21,7 @@ store.subscribe(() => {
 // Fetch all projects
 MyAPI.get('/api/projects').then((response) => {
 	var projects = JSON.parse(response);
-	store.dispatch(actions.getAllProjects(projects));
+	store.dispatch(actions.addProjects(projects));
 }, (error) => {
 	console.log('Failed!', error);
 });

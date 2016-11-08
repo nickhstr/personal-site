@@ -14,9 +14,9 @@ var HomeApp = require('HomeApp');
 
 require('homeStyles');
 
-// store.subscribe(() => {
-// 	console.log(store.getState());
-// });
+store.subscribe(() => {
+	console.log(store.getState());
+});
 
 // Fetch all data - projects and blog posts
 MyAPI.get('/api/all').then((response) => {

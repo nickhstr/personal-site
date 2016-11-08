@@ -1,7 +1,7 @@
 var React = require('react');
 
 var ProjectDetails = React.createClass({
-	getDefaultProps: function() {
+	getDefaultProps() {
 		return {
 			name: 'Project Name',
 			summary: 'Project description goes here.',
@@ -10,7 +10,7 @@ var ProjectDetails = React.createClass({
 			sourceCode: ''
 		}
 	},
-	render: function() {
+	render() {
 		var {name, summary, projectPage, projectUrl, sourceCode} = this.props;
 		return (
 			<div className="project-detail">

@@ -4,7 +4,7 @@ var {connect} = require('react-redux');
 var MyAPI = require('MyAPI');
 
 var FeaturedProjects = React.createClass({
-	getInitialState: function() {
+	getInitialState() {
 		return {
 			cardDimensions: {
 				width: '400px',
@@ -12,7 +12,7 @@ var FeaturedProjects = React.createClass({
 			}
 		};
 	},
-	render: function() {
+	render() {
 		var {projects, showFeaturedProjects, programFilter} = this.props;
 		var filteredProjects = MyAPI.filteredProjects(projects, showFeaturedProjects, programFilter);
 		var {width, height, margin} = this.state.cardDimensions;

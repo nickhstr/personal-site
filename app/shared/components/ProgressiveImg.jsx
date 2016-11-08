@@ -1,13 +1,13 @@
 var React = require('react');
 
 var ProgressiveImg = React.createClass({
-	hidePlaceholder: function() {
+	hidePlaceholder() {
 		var placeholder = this.refs.placeholder;
 		var img = this.refs.img;
 		img.removeAttribute('src');
 		placeholder.classList.add('disappear');
 	},
-	render: function() {
+	render() {
 		var {imgSrc, placeholder, imgAlt, width, height, flexClass} = this.props;
 
 		if (placeholder) {

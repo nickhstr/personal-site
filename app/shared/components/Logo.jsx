@@ -1,12 +1,9 @@
 var React = require('react');
 
-var Logo = React.createClass({
-	render: function() {
-		var {imgUrl, imgAlt} = this.props;
-		return (
-			<img src={imgUrl} alt={imgAlt}/>
-		);
-	}
-});
+var Logo = (props) => {
+	return (
+		<img src={props.imgUrl} alt={props.imgAlt}/>
+	);
+};
 
 module.exports = Logo;

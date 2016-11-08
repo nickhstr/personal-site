@@ -5,7 +5,7 @@ var LatestBlogPost = require('LatestBlogPost');
 var FeaturedProjects = require('FeaturedProjects');
 
 var HomeMain = React.createClass({
-	render: function() {
+	render() {
 		var {placeholder, src, alt} = this.props.mainImg;
 		return (
 			<main>

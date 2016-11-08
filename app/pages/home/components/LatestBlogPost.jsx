@@ -3,7 +3,7 @@ var {connect} = require('react-redux');
 var MyAPI = require('MyAPI');
 
 var LatestBlogPost = React.createClass({
-	render: function() {
+	render() {
 		var {blogPosts} = this.props;
 		if (blogPosts.length < 1) {
 			return null;

@@ -1,9 +1,12 @@
 module.exports = {
 	// General GET request as a promise
 	get: function(url) {
+		return this.request({method: 'GET', url});
+	},
+	request: function(options) {
 		return new Promise((resolve, reject) => {
 			var req = new XMLHttpRequest();
-			req.open('GET', url);
+			req.open(options.method, options.url);
 
 			req.onload = function() {
 				if (req.status >= 200 && req.status < 300) {

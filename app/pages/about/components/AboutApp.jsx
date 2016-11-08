@@ -5,13 +5,13 @@ var Footer = require('Footer');
 var ComingSoon = require('ComingSoon');
 
 var AboutApp = React.createClass({
-	componentDidMount: function() {
+	componentDidMount() {
 		var app = document.body;
 		if (app.hasAttribute('unresolved')) {
 			app.removeAttribute('unresolved');
 		}
 	},
-	render: function() {
+	render() {
 		return (
 			<div className="app">
 				<NavBar></NavBar>
