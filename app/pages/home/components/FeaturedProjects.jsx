@@ -1,6 +1,7 @@
 var React = require('react');
 var ProjectCard = require('ProjectCard');
 var {connect} = require('react-redux');
+var MyAPI = require('MyAPI');
 
 var FeaturedProjects = React.createClass({
 	getInitialState: function() {
@@ -12,7 +13,8 @@ var FeaturedProjects = React.createClass({
 		};
 	},
 	render: function() {
-		var {projects} = this.props;
+		var {projects, showFeaturedProjects, programFilter} = this.props;
+		var filteredProjects = MyAPI.filteredProjects(projects, showFeaturedProjects, programFilter);
 		var {width, height, margin} = this.state.cardDimensions;
 		var heading = projects.length > 1 ? 'Projects' : 'Project';
 		return (
@@ -22,7 +24,7 @@ var FeaturedProjects = React.createClass({
 				</div>
 				<div className="container">
 					<div className="flex-center">
-						{projects.map(function(project) {
+						{filteredProjects.map(function(project) {
 							return (
 								<ProjectCard project={project} cardDimensions={{width, height, margin}}></ProjectCard>
 							);
@@ -39,6 +41,8 @@ var FeaturedProjects = React.createClass({
 
 module.exports = connect((state) => {
 	return {
-		projects: state.projects
+		projects: state.projects,
+		showFeaturedProjects: state.showFeaturedProjects,
+		programFilter: state.programFilter
 	};
 })(FeaturedProjects);

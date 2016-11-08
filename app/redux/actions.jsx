@@ -1,34 +1,26 @@
-export var getLatestPost = (posts) => {
+export var addPosts = (posts) => {
 	return {
-		type: 'GET_LATEST_POST',
+		type: 'ADD_POSTS',
 		posts
 	};
 };
 
-export var getFeaturedProjects = (projects) => {
+export var addProjects = (projects) => {
 	return {
-		type: 'GET_FEATURED_PROJECTS',
+		type: 'ADD_PROJECTS',
 		projects
 	};
 };
 
-export var getUdacityProjects = (projects) => {
+export var showFeaturedProjects = () => {
 	return {
-		type: 'GET_UDACITY_PROJECTS',
-		projects
+		type: 'SHOW_FEATURED_PROJECTS'
 	};
 }
 
-export var getFreeCodeCampProjects = (projects) => {
+export var setProgramFilter = (program) => {
 	return {
-		type: 'GET_FREE_CODE_CAMP_PROJECTS',
-		projects
-	};
+		type: 'SET_PROGRAM_FILTER',
+		program
+	}
 }
-
-export var getAllProjects = (projects) => {
-	return {
-		type: 'GET_ALL_PROJECTS',
-		projects
-	};
-};

@@ -1,10 +1,17 @@
 var redux = require('redux');
-import {latestPostReducer, projectsReducer} from 'reducers';
+import {
+	blogPostsReducer,
+	projectsReducer,
+	featuredProjectsReducer,
+	programFilterReducer
+} from 'reducers';
 
-export var configure = (initialState= {}) => {
+export var configure = (initialState = {}) => {
 	var reducer = redux.combineReducers({
-		latestPost: latestPostReducer,
-		projects: projectsReducer
+		blogPosts: blogPostsReducer,
+		projects: projectsReducer,
+		showFeaturedProjects: featuredProjectsReducer,
+		programFilter: programFilterReducer
 	});
 
 	var store = redux.createStore(reducer, initialState, redux.compose(

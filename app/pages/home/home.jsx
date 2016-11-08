@@ -14,15 +14,16 @@ var HomeApp = require('HomeApp');
 
 require('homeStyles');
 
-store.subscribe(() => {
-	console.log(store.getState());
-});
+// store.subscribe(() => {
+// 	console.log(store.getState());
+// });
 
 // Fetch all data - projects and blog posts
 MyAPI.get('/api/all').then((response) => {
 	var {blogPosts, projects} = JSON.parse(response);
-	store.dispatch(actions.getLatestPost(blogPosts));
-	store.dispatch(actions.getFeaturedProjects(projects));
+	store.dispatch(actions.addPosts(blogPosts));
+	store.dispatch(actions.showFeaturedProjects());
+	store.dispatch(actions.addProjects(projects));
 }, (error) => {
 	console.log('Failed!', error);
 });

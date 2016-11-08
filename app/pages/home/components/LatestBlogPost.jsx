@@ -1,17 +1,23 @@
 var React = require('react');
 var {connect} = require('react-redux');
+var MyAPI = require('MyAPI');
 
 var LatestBlogPost = React.createClass({
 	render: function() {
-		var {title, date, content, url} = this.props;
+		var {blogPosts} = this.props;
+		if (blogPosts.length < 1) {
+			return null;
+		}
+		var latestPost = MyAPI.latestBlogPost(blogPosts);
+		var {url, title, date, content} = latestPost;
 		return (
 			<div className="latest-post">
 				<h2 className="section-heading">Latest Post</h2>
-				<a href={url}>
-					<h3 className="post-title">{title}</h3>
+				<a href={url || '/blog'}>
+					<h3 className="post-title">{title || 'Some Title'}</h3>
 				</a>
-				<p className="post-date">{date}</p>
-				<p className="post-content">{content}</p>
+				<p className="post-date">{date || new Date()}</p>
+				<p className="post-content">{content || 'Some content'}</p>
 				<a className="button" href="/blog">See All Posts</a>
 			</div>
 		);
@@ -20,9 +26,6 @@ var LatestBlogPost = React.createClass({
 
 module.exports = connect((state) => {
 	return {
-		title: state.latestPost.title,
-		date: state.latestPost.date,
-		content: state.latestPost.content,
-		url: state.latestPost.url
+		blogPosts: state.blogPosts
 	};
 })(LatestBlogPost);
