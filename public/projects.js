@@ -21290,23 +21290,13 @@
 
 	'use strict';
 
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _NavBar = __webpack_require__(164);
-
-	var _NavBar2 = _interopRequireDefault(_NavBar);
-
-	var _Footer = __webpack_require__(169);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var React = __webpack_require__(1);
+	var NavBar = __webpack_require__(164);
+	var Footer = __webpack_require__(169);
 
 	var ComingSoon = __webpack_require__(173);
 
-	var ProjectsApp = _react2.default.createClass({
+	var ProjectsApp = React.createClass({
 		displayName: 'ProjectsApp',
 
 		componentDidMount: function componentDidMount() {
@@ -21316,12 +21306,12 @@
 			}
 		},
 		render: function render() {
-			return _react2.default.createElement(
+			return React.createElement(
 				'div',
 				{ className: 'app' },
-				_react2.default.createElement(_NavBar2.default, null),
-				_react2.default.createElement(ComingSoon, null),
-				_react2.default.createElement(_Footer2.default, null)
+				React.createElement(NavBar, null),
+				React.createElement(ComingSoon, null),
+				React.createElement(Footer, null)
 			);
 		}
 	});

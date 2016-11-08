@@ -18,6 +18,7 @@
 			"projectPage": "",
 			"projectUrl": "https://nickhstr-transport-app.firebaseapp.com/",
 			"sourceCode": "https://github.com/nickhstr/public-transportation-app",
+			"program": "Udacity",
 			"featured": true
 		},
 		{
@@ -30,7 +31,8 @@
 			"projectPage": "",
 			"projectUrl": "https://nickhstr-corporate-dashboard.firebaseapp.com/",
 			"sourceCode": "https://github.com/nickhstr/corporate-dashboard",
-			"featured": true
+			"program": "Udacity",
+			"featured": false
 		},
 		{
 			"name": "Restaurant Reviews",
@@ -42,11 +44,12 @@
 			"projectPage": "",
 			"projectUrl": "https://nickhstr-restaurant-reviews.firebaseapp.com/",
 			"sourceCode": "https://github.com/nickhstr/restaurant-reviews",
-			"featured": true
+			"program": "Udacity",
+			"featured": false
 		},
 		{
 			"name": "Meet-up Event Planner",
-			"summary": "",
+			"summary": "Create and edit events, with helpful input validation.",
 			"description": "A responsive meet-up planner employing the best practices in developing high conversion web forms, including new input type elements, compound form components, data validation and handling touch input.\nBuilt with Polymer, with hosting, database storage, and authorization handled by Firebase.",
 			"imgSrc": "images/meetup-half.png",
 			"imgAlt": "Meet-up Event Planner app screenshot.",
@@ -54,6 +57,7 @@
 			"projectPage": "",
 			"projectUrl": "https://meetup-event-planner-4d9bb.firebaseapp.com/",
 			"sourceCode": "https://github.com/nickhstr/meetup-event-planner",
+			"program": "Udacity",
 			"featured": false
 		},
 		{
@@ -66,11 +70,12 @@
 			"projectPage": "",
 			"projectUrl": "https://nickhstr.com/",
 			"sourceCode": "https://github.com/nickhstr/my-portfolio",
+			"program": "Udacity",
 			"featured": true
 		},
 		{
 			"name": "Tic Tac Toe",
-			"summary": "",
+			"summary": "Tic-tac-toe with vanilla JavaScript and a dash of SCSS.",
 			"description": "A simple tic-tac-toe game against a computer player. Built with HTML5, SCSS, and plain JavaScript. Assets are minimized and concatenated with Gulp, and the app is served with Node.js.\nFulfills the following user stories:\n- I can play a game of Tic Tac Toe with the computer\n- My game will reset as soon as it's over so I can play again\n- I can choose whether I want to play as X or O",
 			"imgSrc": "images/tic-tac-toe-half.png",
 			"imgAlt": "Tic Tac Toe game screenshot.",
@@ -78,11 +83,12 @@
 			"projectPage": "",
 			"projectUrl": "https://nickhstr-tic-tac-toe.herokuapp.com/",
 			"sourceCode": "https://github.com/nickhstr/tic-tac-toe",
+			"program": "Free Code Camp",
 			"featured": false
 		},
 		{
 			"name": "Neighborhood Map",
-			"summary": "",
+			"summary": "Explore the most popular places in San Francisco!",
 			"description": "Neighborhood Map is an app which uses the Yelp API to find the most popular places in a neighborhood (in this case, San Francisco).\nThen the data for these places is reflected on the page using the Google Maps API. Users can click markers for more information about a place, or use the search bar to filter the places and their respective markers. Works on both mobile and desktop. Built with jQuery and Knockout.js.",
 			"imgSrc": "images/neighborhood-half.png",
 			"imgAlt": "Neighborhood Map app screenshot.",
@@ -90,11 +96,12 @@
 			"projectPage": "",
 			"projectUrl": "http://nickhstr.github.io/frontend-nanodegree-neighborhood-map/",
 			"sourceCode": "https://github.com/nickhstr/frontend-nanodegree-neighborhood-map",
+			"program": "Udacity",
 			"featured": false
 		},
 		{
 			"name": "Arcade Game Clone",
-			"summary": "",
+			"summary": "Make it to the water without touching the bugs.",
 			"description": "A clone of the classic arcade game \"Frogger\". The goal of the game is to reach the water without touching the bugs.\nThis project was built heavily with object-oriented practices, using prototypal inheritance. Makes use of the canvas element, and runs on vanilla JavaScript.",
 			"imgSrc": "images/arcade-game-half.png",
 			"imgAlt": "Arcade Game screenshot.",
@@ -102,11 +109,12 @@
 			"projectPage": "",
 			"projectUrl": "http://nickhstr.github.io/frontend-nanodegree-arcade-game/",
 			"sourceCode": "https://github.com/nickhstr/frontend-nanodegree-arcade-game",
+			"program": "Udacity",
 			"featured": false
 		},
 		{
 			"name": "Pomodoro Clock",
-			"summary": "",
+			"summary": "A productivity timer. 25 minutes of work, 5 minute break.",
 			"description": "A pomodoro timer app, with customizable work and break times (default are 25 minutes and 5 minutes, respectively).\nBuilt with Bootstrap, JavaScript, and jQuery. Here are the user stories fulfilled:\n- I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed\n- I can reset the clock for my next pomodoro\n- I can customize the length of each pomodoro",
 			"imgSrc": "images/pomodoro-half.png",
 			"imgAlt": "Pomodoro Clock app screenshot.",
@@ -114,11 +122,12 @@
 			"projectPage": "",
 			"projectUrl": "http://nickhstr.github.io/Pomodoro-Timer/",
 			"sourceCode": "https://github.com/nickhstr/Pomodoro-Timer",
+			"program": "Free Code Camp",
 			"featured": false
 		},
 		{
 			"name": "Feed Reader Testing",
-			"summary": "",
+			"summary": "Tests for synchronous and asynchronous operations.",
 			"description": "Using the JavaScript testing framework Jasmine, tests were created for a feed reader app, using suites and specs, while following the red-green-refactor methodology.\nTesting had to account for both synchronous and asynchronous functions.",
 			"imgSrc": "images/feed-reader-half.png",
 			"imgAlt": "Feed Reader Testing test screenshot.",
@@ -126,11 +135,12 @@
 			"projectPage": "",
 			"projectUrl": "http://nickhstr.github.io/frontend-nanodegree-feedreader/",
 			"sourceCode": "https://github.com/nickhstr/frontend-nanodegree-feedreader",
+			"program": "Udacity",
 			"featured": false
 		},
 		{
 			"name": "Website Performance Optimization",
-			"summary": "",
+			"summary": "High performance load time and animations.",
 			"description": "Refactored a preexisting website to increase its PageSpeed score to 90 or above and run at 60 frames per second.\nThe site now has a PageSpeed score of 95 for mobile and 96 for desktop, and \"Cam's Pizzeria\" runs at 60 frames per second.",
 			"imgSrc": "images/performance-half.png",
 			"imgAlt": "Website Performance Optimization site screenshot.",
@@ -138,6 +148,7 @@
 			"projectPage": "",
 			"projectUrl": "http://nickhstr.github.io/frontend-nanodegree-mobile-portfolio/",
 			"sourceCode": "https://github.com/nickhstr/frontend-nanodegree-mobile-portfolio",
+			"program": "Udacity",
 			"featured": false
 		}
 	]

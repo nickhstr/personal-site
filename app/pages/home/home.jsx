@@ -1,26 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
+var React = require('react');
+var ReactDOM = require('react-dom');
+var {Provider} = require('react-redux');
 
+// Redux Actions and Store
 import * as actions from 'actions';
 var store = require('configureStore').configure();
 
-import * as MyAPI from 'MyAPI';
-import HomeApp from 'HomeApp';
+// Import API helpers
+var MyAPI = require('MyAPI');
+
+// App component
+var HomeApp = require('HomeApp');
 
 require('homeStyles');
 
-// store.subscribe(() => {
-// 	console.log(store.getState());
-// });
+store.subscribe(() => {
+	console.log(store.getState());
+});
 
+// Fetch all data - projects and blog posts
 MyAPI.get('/api/all').then((response) => {
 	var {blogPosts, projects} = JSON.parse(response);
-	store.dispatch(actions.getLatestPost(blogPosts[blogPosts.length - 1]));
-	var featuredProjects = projects.filter((project) => {
-		return project.featured;
-	});
-	store.dispatch(actions.getFeaturedProjects(featuredProjects));
+	store.dispatch(actions.getLatestPost(blogPosts));
+	store.dispatch(actions.getFeaturedProjects(projects));
 }, (error) => {
 	console.log('Failed!', error);
 });
