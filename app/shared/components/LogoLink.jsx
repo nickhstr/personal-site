@@ -1,10 +1,11 @@
 var React = require('react');
+var Icon = require('Icon');
 
 var LogoLink = (props) => {
 	return (
 		<div>
 			<a className="logo-link" href="/">
-				<img src={props.imgUrl} alt={props.imgAlt}/>
+				<Icon icon="LogoPrimary" width="40px" padding="0"></Icon>
 				<span>Nick Hester</span>
 			</a>
 		</div>

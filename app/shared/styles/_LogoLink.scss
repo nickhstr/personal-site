@@ -4,10 +4,7 @@
 	text-decoration: none;
 	padding: 0 0 0 20px;
 
-	img {
-		display: inline-block;
-		width: 40px;
-		margin: 0;
+	:first-child {
 		vertical-align: middle;
 	}
 

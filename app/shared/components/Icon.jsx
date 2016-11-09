@@ -3,12 +3,13 @@ var Icons = require('Icons');
 
 var Icon = React.createClass({
 	render() {
-		var {width, height, icon} = this.props;
+		var {width, height, icon, padding, margin} = this.props;
 		var iconStyle = {
 			display: 'inline-block',
-			padding: '0 2px',
-			width,
-			height
+			padding: padding || '0 2px',
+			width: width || '24px',
+			height: height || width,
+			margin: margin || 0
 		};
 		return (
 			<div style={iconStyle} className="icon">

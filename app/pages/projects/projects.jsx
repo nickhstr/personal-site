@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var {Provider} = require('react-redux');
+var {Router, Route, browserHistory} = require('react-router');
 
 // Redux Actions and Store
 import * as actions from 'actions';

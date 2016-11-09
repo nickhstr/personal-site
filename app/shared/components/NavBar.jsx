@@ -50,7 +50,7 @@ var NavBar = React.createClass({
 		return (
 			<div>
 				<nav className="flex-between-center" ref="nav">
-					<LogoLink imgUrl="icons/icon-svg.svg" imgAlt="Nick's Logo"></LogoLink>
+					<LogoLink imgUrl="/icons/icon-svg.svg" imgAlt="Nick's Logo"></LogoLink>
 					<ul>
 						<li><a ref="projects" href="/projects">Projects</a></li>
 						<li><a ref="blog" href="/blog">Blog</a></li>

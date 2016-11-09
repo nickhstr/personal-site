@@ -19,3 +19,55 @@ export var LinkedinIcon = (props) => {
 		</svg>
 	);
 };
+
+export var LogoPrimary = (props) => {
+	return (
+		<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" style={{fillRule: 'evenodd', clipRule: 'evenodd', strokeLinecap: 'round', strokeLinejoin: 'round', strokeMiterlimit: 1.41421}}>
+	    <g transform="matrix(1,0,0,1,0,-16)">
+	        <g id="Filled-Logo" transform="matrix(0.888405,0,0,0.888405,-636.065,5.35654)">
+	            <g transform="matrix(0.750575,0.375037,-0.375037,0.750575,481.762,-132.042)">
+	                <path d="M368,16L384,48L368,80L352,48L368,16Z" style={{fill: 'rgb(37,50,56)', stroke: 'rgb(37,50,56)', strokeWidth: '2.38px'}}/>
+	            </g>
+	            <g transform="matrix(1,-5.55112e-17,0,1,320,-320.076)">
+	                <path d="M432,338.079L408,356L432,398.157L456,380L432,338.079Z" style={{fill: 'rgb(225,55,92)', stroke: 'rgb(38,50,56)', strokeWidth: '2px'}}/>
+	            </g>
+	            <g transform="matrix(0.750575,0.375037,-0.375037,0.750575,505.781,-120.041)">
+	                <path d="M368,16L384,48L368,80L352,48L368,16Z" style={{fill: 'rgb(40,138,226)', stroke: 'rgb(37,50,56)', strokeWidth: '2.38px'}}/>
+	            </g>
+	        </g>
+	    </g>
+	</svg>
+	);
+}
+
+export var LogoSecondary = (props) => {
+	return (
+		<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" style={{fillRule: 'evenodd', clipRule: 'evenodd', strokeLinecap: 'round', strokeLinejoin: 'round', strokeMiterlimit: 1.41421}}>
+	    <g transform="matrix(1,0,0,1,0,-96)">
+	        <g id="Filled-Logo-2" transform="matrix(0.888405,0,0,0.888405,-636.065,85.3292)">
+	            <g transform="matrix(0.750575,0.375037,-0.375037,0.750575,481.762,-132.042)">
+	                <path d="M368,16L384,48L368,80L352,48L368,16Z" style={{fill: 'rgb(229,235,237)', stroke: 'rgb(37,50,56)', strokeWidth: '2.38px'}}/>
+	            </g>
+	            <g transform="matrix(1,-5.55112e-17,0,1,320,-320.076)">
+	                <path d="M432,338.079L408,356L432,398.157L456,380L432,338.079Z" style={{fill: 'rgb(225,55,92)', stroke: 'rgb(37,50,56)', strokeWidth: '2px'}}/>
+	            </g>
+	            <g transform="matrix(0.750575,0.375037,-0.375037,0.750575,505.781,-120.041)">
+	                <path d="M368,16L384,48L368,80L352,48L368,16Z" style={{fill: 'rgb(40,138,226)', stroke: 'rgb(37,50,56)', strokeWidth: '2.38px'}}/>
+	            </g>
+	        </g>
+	    </g>
+	</svg>
+	);
+}
+
+export var MenuIcon = (props) => {
+	return (
+		<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" style={{fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 1.41421}}>
+			<g>
+				<rect x="8" y="44" width="48" height="6"/>
+				<rect x="8" y="29" width="48" height="6"/>
+				<rect x="8" y="14" width="48" height="6"/>
+			</g>
+		</svg>
+	);
+}

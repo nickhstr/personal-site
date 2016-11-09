@@ -1,5 +1,5 @@
 var React = require('react');
-var Logo = require('Logo');
+var Icon = require('Icon');
 
 let firstTab = null;
 let lastTab = null;
@@ -65,7 +65,7 @@ var Drawer = React.createClass({
 				<div className="drawer-overlay" onClick={this.toggle}></div>
 				<section className="drawer-content">
 					<div className="logo">
-						<Logo imgUrl="icons/icon-svg.svg" imgAlt="Logo"></Logo>
+						<Icon icon="LogoPrimary" width="50%" padding="0"></Icon>
 					</div>
 					<div>
 						<ul className="drawer-links">

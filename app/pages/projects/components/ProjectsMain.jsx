@@ -3,7 +3,11 @@ var React = require('react');
 var ProjectsMain = React.createClass({
 	render() {
 		return (
-			<main></main>
+			<main>
+				<Banner></Banner>
+				<ControlPanel></ControlPanel>
+				<ProjectsList></ProjectsList>
+			</main>
 		);
 	}
 });
