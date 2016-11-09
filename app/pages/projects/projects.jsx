@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var {Provider} = require('react-redux');
-var {Router, Route, browserHistory} = require('react-router');
+var {Router, Route, IndexRoute, browserHistory} = require('react-router');
 
 // Redux Actions and Store
 import * as actions from 'actions';
@@ -12,6 +12,8 @@ var MyAPI = require('MyAPI');
 
 // Import app component
 var ProjectsApp = require('ProjectsApp');
+var ProjectsMain = require('ProjectsMain');
+var TestComponent = require('TestComponent');
 
 require('projectsStyles');
 
@@ -29,7 +31,12 @@ MyAPI.get('/api/projects').then((response) => {
 
 ReactDOM.render(
 	<Provider store={store}>
-		<ProjectsApp></ProjectsApp>
+		<Router history={browserHistory}>
+			<Route path="/projects" component={ProjectsApp}>
+				<Route path="test" component={TestComponent}></Route>
+				<IndexRoute component={ProjectsMain}></IndexRoute>
+			</Route>
+		</Router>
 	</Provider>,
 	document.getElementById('app')
 );

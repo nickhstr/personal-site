@@ -15,7 +15,7 @@ var ProjectsApp = React.createClass({
 		return (
 			<div className="app">
 				<NavBar></NavBar>
-				<ComingSoon></ComingSoon>
+				{this.props.children}
 				<Footer></Footer>
 			</div>
 		);
