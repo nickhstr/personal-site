@@ -35,6 +35,7 @@ var NavBar = React.createClass({
 	},
 	componentDidMount() {
 		this.setLinkClass();
+		this.scrollHide();
 	},
 	setLinkClass() {
 		for (var ref in this.refs) {
@@ -44,7 +45,6 @@ var NavBar = React.createClass({
 		}
 	},
 	render() {
-		this.scrollHide();
 		return (
 			<div>
 				<nav className="flex-between-center" ref="nav">

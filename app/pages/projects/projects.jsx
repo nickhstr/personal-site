@@ -31,7 +31,7 @@ MyAPI.get('/api/projects').then((response) => {
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
+		<Router history={browserHistory} onUpdate={() => {window.scroll(0, 0)}}>
 			<Route path="/projects" component={ProjectsApp}>
 				<Route path="test" component={TestComponent}></Route>
 				<Route path=":project" component={TestComponent}></Route>

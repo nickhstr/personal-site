@@ -43,7 +43,7 @@ module.exports = {
 
 		if (filter.projectPage) {
 			filteredProjects = filteredProjects.filter((project) => {
-				return project.projectPage === filter.projectPage;
+				return project.projectPage.indexOf(filter.projectPage) >= 0;
 			});
 		}
 

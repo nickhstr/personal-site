@@ -6,7 +6,7 @@ var ProjectCard = require('ProjectCard');
 
 var ProjectsMain = React.createClass({
 	render() {
-		var {projects, showFeaturedProjects, programFilter} = this.props;
+		var {projects, showFeaturedProjects, programFilter, router} = this.props;
 		var filteredProjects = MyAPI.filteredProjects({
 			projects: projects,
 			featuredOnly: showFeaturedProjects,
@@ -19,7 +19,7 @@ var ProjectsMain = React.createClass({
 				<section className="flex-center">
 					{filteredProjects.map((project) => {
 						return (
-							<ProjectCard project={project} cardDimensions={{width: '400px', margin: '10px'}}></ProjectCard>
+							<ProjectCard project={project} cardDimensions={{width: '400px', margin: '10px'}} router={router}></ProjectCard>
 						);
 					})}
 				</section>

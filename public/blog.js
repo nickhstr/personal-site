@@ -20517,6 +20517,7 @@
 		},
 		componentDidMount: function componentDidMount() {
 			this.setLinkClass();
+			this.scrollHide();
 		},
 		setLinkClass: function setLinkClass() {
 			for (var ref in this.refs) {
@@ -20526,7 +20527,6 @@
 			}
 		},
 		render: function render() {
-			this.scrollHide();
 			return React.createElement(
 				'div',
 				null,

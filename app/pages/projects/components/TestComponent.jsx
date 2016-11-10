@@ -10,7 +10,7 @@ var TestComponent = React.createClass({
 		var project = MyAPI.filteredProjects({
 			projects: this.props.projects,
 			projectPage: projectUrl
-		});
+		})[0];
 		console.log('All projects', this.props.projects);
 		console.log('Current Project', project);
 		return (
@@ -19,6 +19,7 @@ var TestComponent = React.createClass({
 				<Link to="/projects">To the Main Page!</Link>
 				<Link to="/projects/test/test_project">To the Project Page!</Link>
 				<a href="/">To the Home Page!</a>
+				<h2 style={{margin: '500px auto'}}>Filler</h2>
 				<p>Params: {this.props.params.project}</p>
 			</div>
 		);
