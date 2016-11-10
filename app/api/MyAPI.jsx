@@ -24,20 +24,26 @@ module.exports = {
 			req.send();
 		});
 	},
-	filteredProjects: function(projects, featuredOnly, program) {
-		var filteredProjects = projects;
+	filteredProjects: function(filter) {
+		var filteredProjects = filter.projects;
 
 		// Filter for featured, if specified
-		if (featuredOnly) {
+		if (filter.featuredOnly) {
 			filteredProjects = filteredProjects.filter((project) => {
 				return project.featured;
 			});
 		}
 
 		// Filter by program, if specified
-		if (program) {
+		if (filter.program) {
 			filteredProjects = filteredProjects.filter((project) => {
 				return project.program === program;
+			});
+		}
+
+		if (filter.projectPage) {
+			filteredProjects = filteredProjects.filter((project) => {
+				return project.projectPage === filter.projectPage;
 			});
 		}
 

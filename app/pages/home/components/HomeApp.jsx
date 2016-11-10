@@ -22,7 +22,7 @@ var HomeApp = React.createClass({
 	render() {
 		return (
 			<div className="app" ref="app">
-				<NavBar reveals></NavBar>
+				<NavBar></NavBar>
 				<HomeMain mainImg={this.state.mainImg}></HomeMain>
 				<Footer></Footer>
 			</div>

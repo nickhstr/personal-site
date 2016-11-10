@@ -20558,9 +20558,7 @@
 			}
 		},
 		render: function render() {
-			if (this.props.reveals) {
-				this.scrollHide();
-			}
+			this.scrollHide();
 			return React.createElement(
 				'div',
 				null,

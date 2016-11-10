@@ -75,10 +75,10 @@
 
 	// Import app component
 	var ProjectsApp = __webpack_require__(272);
-	var ProjectsMain = __webpack_require__(275);
-	var TestComponent = __webpack_require__(276);
+	var ProjectsMain = __webpack_require__(273);
+	var TestComponent = __webpack_require__(274);
 
-	__webpack_require__(273);
+	__webpack_require__(275);
 
 	store.subscribe(function () {
 		console.log(store.getState());
@@ -102,6 +102,7 @@
 				Route,
 				{ path: '/projects', component: ProjectsApp },
 				React.createElement(Route, { path: 'test', component: TestComponent }),
+				React.createElement(Route, { path: ':project', component: TestComponent }),
 				React.createElement(IndexRoute, { component: ProjectsMain })
 			)
 		)
@@ -20578,9 +20579,7 @@
 			}
 		},
 		render: function render() {
-			if (this.props.reveals) {
-				this.scrollHide();
-			}
+			this.scrollHide();
 			return React.createElement(
 				'div',
 				null,
@@ -23156,20 +23155,26 @@
 				req.send();
 			});
 		},
-		filteredProjects: function filteredProjects(projects, featuredOnly, program) {
-			var filteredProjects = projects;
+		filteredProjects: function filteredProjects(filter) {
+			var filteredProjects = filter.projects;
 
 			// Filter for featured, if specified
-			if (featuredOnly) {
+			if (filter.featuredOnly) {
 				filteredProjects = filteredProjects.filter(function (project) {
 					return project.featured;
 				});
 			}
 
 			// Filter by program, if specified
-			if (program) {
+			if (filter.program) {
 				filteredProjects = filteredProjects.filter(function (project) {
 					return project.program === program;
+				});
+			}
+
+			if (filter.projectPage) {
+				filteredProjects = filteredProjects.filter(function (project) {
+					return project.projectPage === filter.projectPage;
 				});
 			}
 
@@ -23186,13 +23191,248 @@
 /***/ },
 /* 208 */,
 /* 209 */,
-/* 210 */,
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var ProgressiveImg = React.createClass({
+		displayName: 'ProgressiveImg',
+		hidePlaceholder: function hidePlaceholder() {
+			var placeholder = this.refs.placeholder;
+			var img = this.refs.img;
+			img.removeAttribute('src');
+			placeholder.classList.add('disappear');
+		},
+		render: function render() {
+			var _props = this.props;
+			var imgSrc = _props.imgSrc;
+			var placeholder = _props.placeholder;
+			var imgAlt = _props.imgAlt;
+			var width = _props.width;
+			var height = _props.height;
+			var flexClass = _props.flexClass;
+
+
+			if (placeholder) {
+				var placeholderStyle = {
+					backgroundImage: 'url(\'' + placeholder + '\')'
+				};
+			}
+
+			var fullImageStyle = {
+				backgroundImage: 'url(\'' + imgSrc + '\')'
+			};
+			var progressiveImgStyle = {
+				width: width || '400px',
+				height: height || '225px'
+			};
+
+			return React.createElement(
+				'div',
+				{ className: 'progressive-img', style: progressiveImgStyle },
+				React.createElement(
+					'section',
+					{ className: flexClass },
+					this.props.children
+				),
+				React.createElement('div', { ref: 'placeholder', className: 'placeholder', style: placeholderStyle }),
+				React.createElement('img', { ref: 'img', src: imgSrc, alt: imgAlt, onLoad: this.hidePlaceholder }),
+				React.createElement('div', { className: 'full-image', style: fullImageStyle })
+			);
+		}
+	});
+
+	module.exports = ProgressiveImg;
+
+/***/ },
 /* 211 */,
 /* 212 */,
 /* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Card = __webpack_require__(215);
+	var ProjectDetails = __webpack_require__(216);
+
+	var _require = __webpack_require__(219);
+
+	var Link = _require.Link;
+
+
+	var ProjectCard = function ProjectCard(props) {
+		var _props$project = props.project;
+		var imgSrc = _props$project.imgSrc;
+		var imgAlt = _props$project.imgAlt;
+		var placeholder = _props$project.placeholder;
+		var name = _props$project.name;
+		var summary = _props$project.summary;
+		var projectPage = _props$project.projectPage;
+		var projectUrl = _props$project.projectUrl;
+		var sourceCode = _props$project.sourceCode;
+		var _props$cardDimensions = props.cardDimensions;
+		var width = _props$cardDimensions.width;
+		var height = _props$cardDimensions.height;
+		var margin = _props$cardDimensions.margin;
+
+		var href = projectPage ? '/projects' + projectPage : '/projects';
+		return React.createElement(
+			Link,
+			{ to: href, style: { margin: margin }, className: 'project-card' },
+			React.createElement(
+				Card,
+				{
+					width: width,
+					height: height,
+					imgSrc: imgSrc,
+					imgAlt: imgAlt,
+					placeholder: placeholder },
+				React.createElement(ProjectDetails, {
+					name: name,
+					summary: summary,
+					projectUrl: projectUrl,
+					sourceCode: sourceCode })
+			)
+		);
+	};
+
+	module.exports = ProjectCard;
+
+/***/ },
+/* 215 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var ProgressiveImg = __webpack_require__(210);
+
+	var Card = React.createClass({
+		displayName: 'Card',
+		getInitialState: function getInitialState() {
+			return this.newDimensions();
+		},
+		componentDidMount: function componentDidMount() {
+			window.addEventListener('resize', this.updateDimensions);
+		},
+		updateDimensions: function updateDimensions(e) {
+			this.setState(this.newDimensions());
+		},
+		newDimensions: function newDimensions() {
+			var width = window.innerWidth;
+			if (width > 649) {
+				if (width > 950) {
+					return {
+						width: this.props.width,
+						height: this.props.height
+					};
+				}
+				return {
+					width: '300px',
+					height: '200px'
+				};
+			} else if (width < 650) {
+				return {
+					width: '100%',
+					height: '200px'
+				};
+			}
+		},
+		render: function render() {
+			var _props = this.props;
+			var imgSrc = _props.imgSrc;
+			var imgAlt = _props.imgAlt;
+			var placeholder = _props.placeholder;
+			var _state = this.state;
+			var width = _state.width;
+			var height = _state.height;
+
+			var cardStyle = {
+				width: width
+			};
+			return React.createElement(
+				'div',
+				{ style: cardStyle, className: 'card' },
+				React.createElement(ProgressiveImg, {
+					width: '100%',
+					height: height,
+					imgSrc: imgSrc,
+					imgAlt: imgAlt,
+					placeholder: placeholder }),
+				this.props.children
+			);
+		}
+	});
+
+	module.exports = Card;
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var _require = __webpack_require__(219);
+
+	var Link = _require.Link;
+
+
+	var ProjectDetails = React.createClass({
+		displayName: 'ProjectDetails',
+		render: function render() {
+			var _props = this.props;
+			var name = _props.name;
+			var summary = _props.summary;
+			var projectPage = _props.projectPage;
+			var projectUrl = _props.projectUrl;
+			var sourceCode = _props.sourceCode;
+
+			return React.createElement(
+				'div',
+				{ className: 'project-detail' },
+				React.createElement(
+					'div',
+					{ className: 'details' },
+					React.createElement(
+						'h4',
+						null,
+						name
+					),
+					React.createElement('p', { dangerouslySetInnerHTML: { __html: summary } })
+				),
+				React.createElement(
+					'div',
+					{ className: 'action flex-start-center' },
+					React.createElement(
+						Link,
+						{ to: projectPage },
+						'Project Page'
+					),
+					React.createElement(
+						'a',
+						{ href: projectUrl, target: '_blank' },
+						'Project URL'
+					),
+					React.createElement(
+						'a',
+						{ href: sourceCode, target: '_blank' },
+						'Source Code'
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = ProjectDetails;
+
+/***/ },
 /* 217 */,
 /* 218 */,
 /* 219 */
@@ -28230,10 +28470,136 @@
 /* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var _require = __webpack_require__(181);
+
+	var connect = _require.connect;
+
+	var _require2 = __webpack_require__(219);
+
+	var Link = _require2.Link;
+
+	var MyAPI = __webpack_require__(207);
+	var ProjectCard = __webpack_require__(214);
+
+	var ProjectsMain = React.createClass({
+		displayName: 'ProjectsMain',
+		render: function render() {
+			var _props = this.props;
+			var projects = _props.projects;
+			var showFeaturedProjects = _props.showFeaturedProjects;
+			var programFilter = _props.programFilter;
+
+			var filteredProjects = MyAPI.filteredProjects({
+				projects: projects,
+				featuredOnly: showFeaturedProjects,
+				program: programFilter
+			});
+			return React.createElement(
+				'main',
+				null,
+				React.createElement(
+					'h1',
+					{ style: { paddingTop: '64px' } },
+					'ProjectsMain Component'
+				),
+				React.createElement(
+					Link,
+					{ to: '/projects/test' },
+					'To the Test URL!'
+				),
+				React.createElement(
+					'section',
+					{ className: 'flex-center' },
+					filteredProjects.map(function (project) {
+						return React.createElement(ProjectCard, { project: project, cardDimensions: { width: '400px', margin: '10px' } });
+					})
+				)
+			);
+		}
+	});
+
+	module.exports = connect(function (state) {
+		return state;
+	})(ProjectsMain);
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var _require = __webpack_require__(181);
+
+	var connect = _require.connect;
+
+	var _require2 = __webpack_require__(219);
+
+	var Link = _require2.Link;
+
+	var MyAPI = __webpack_require__(207);
+
+	var TestComponent = React.createClass({
+		displayName: 'TestComponent',
+		render: function render() {
+			console.log('Test Props', this.props);
+			var projectUrl = this.props.params.project;
+			var project = MyAPI.filteredProjects({
+				projects: this.props.projects,
+				projectPage: projectUrl
+			});
+			console.log('All projects', this.props.projects);
+			console.log('Current Project', project);
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'h1',
+					{ style: { paddingTop: '64px' } },
+					'This is a test. Remain calm.'
+				),
+				React.createElement(
+					Link,
+					{ to: '/projects' },
+					'To the Main Page!'
+				),
+				React.createElement(
+					Link,
+					{ to: '/projects/test/test_project' },
+					'To the Project Page!'
+				),
+				React.createElement(
+					'a',
+					{ href: '/' },
+					'To the Home Page!'
+				),
+				React.createElement(
+					'p',
+					null,
+					'Params: ',
+					this.props.params.project
+				)
+			);
+		}
+	});
+
+	module.exports = connect(function (state) {
+		return state;
+	})(TestComponent);
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(274);
+	var content = __webpack_require__(276);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(176)(content, {});
@@ -28253,7 +28619,7 @@
 	}
 
 /***/ },
-/* 274 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(175)();
@@ -28265,73 +28631,6 @@
 
 	// exports
 
-
-/***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var _require = __webpack_require__(219);
-
-	var Link = _require.Link;
-
-
-	var ProjectsMain = React.createClass({
-		displayName: 'ProjectsMain',
-		render: function render() {
-			return React.createElement(
-				'main',
-				null,
-				React.createElement(
-					'h1',
-					{ style: { margin: '50px auto' } },
-					'ProjectsMain Component'
-				),
-				React.createElement(
-					Link,
-					{ to: '/projects/test' },
-					'To the Test URL!'
-				)
-			);
-		}
-	});
-
-	module.exports = ProjectsMain;
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var _require = __webpack_require__(219);
-
-	var Link = _require.Link;
-
-
-	var TestComponent = function TestComponent(props) {
-		return React.createElement(
-			'div',
-			null,
-			React.createElement(
-				'h1',
-				{ style: { margin: '50px auto' } },
-				'This is a test. Remain calm.'
-			),
-			React.createElement(
-				Link,
-				{ to: '/projects' },
-				'To the Main Page!'
-			)
-		);
-	};
-
-	module.exports = TestComponent;
 
 /***/ }
 /******/ ]);

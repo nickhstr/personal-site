@@ -13,8 +13,11 @@ var FeaturedProjects = React.createClass({
 		};
 	},
 	render() {
-		var {projects, showFeaturedProjects, programFilter} = this.props;
-		var filteredProjects = MyAPI.filteredProjects(projects, showFeaturedProjects, programFilter);
+		var {projects, showFeaturedProjects} = this.props;
+		var filteredProjects = MyAPI.filteredProjects({
+			projects: projects,
+			featuredOnly: showFeaturedProjects
+		});
 		var {width, height, margin} = this.state.cardDimensions;
 		var heading = projects.length > 1 ? 'Projects' : 'Project';
 		return (
@@ -24,7 +27,7 @@ var FeaturedProjects = React.createClass({
 				</div>
 				<div className="container">
 					<div className="flex-center">
-						{filteredProjects.map(function(project) {
+						{filteredProjects.map((project) => {
 							return (
 								<ProjectCard project={project} cardDimensions={{width, height, margin}}></ProjectCard>
 							);
@@ -42,7 +45,6 @@ var FeaturedProjects = React.createClass({
 module.exports = connect((state) => {
 	return {
 		projects: state.projects,
-		showFeaturedProjects: state.showFeaturedProjects,
-		programFilter: state.programFilter
+		showFeaturedProjects: state.showFeaturedProjects
 	};
 })(FeaturedProjects);

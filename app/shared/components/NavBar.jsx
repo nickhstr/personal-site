@@ -44,9 +44,7 @@ var NavBar = React.createClass({
 		}
 	},
 	render() {
-		if (this.props.reveals) {
-			this.scrollHide();
-		}
+		this.scrollHide();
 		return (
 			<div>
 				<nav className="flex-between-center" ref="nav">

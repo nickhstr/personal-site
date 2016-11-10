@@ -34,6 +34,7 @@ ReactDOM.render(
 		<Router history={browserHistory}>
 			<Route path="/projects" component={ProjectsApp}>
 				<Route path="test" component={TestComponent}></Route>
+				<Route path=":project" component={TestComponent}></Route>
 				<IndexRoute component={ProjectsMain}></IndexRoute>
 			</Route>
 		</Router>
