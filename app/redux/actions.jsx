@@ -22,5 +22,12 @@ export var setProgramFilter = (program) => {
 	return {
 		type: 'SET_PROGRAM_FILTER',
 		program
-	}
+	};
+}
+
+export var setSearchText = (text) => {
+	return {
+		type: 'SET_SEARCH_TEXT',
+		text
+	};
 }

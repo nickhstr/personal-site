@@ -80,9 +80,9 @@
 
 	__webpack_require__(275);
 
-	store.subscribe(function () {
-		console.log(store.getState());
-	});
+	// store.subscribe(() => {
+	// 	console.log(store.getState());
+	// });
 
 	// Fetch all projects
 	MyAPI.get('/api/projects').then(function (response) {
@@ -21378,6 +21378,13 @@
 		};
 	};
 
+	var setSearchText = exports.setSearchText = function setSearchText(text) {
+		return {
+			type: 'SET_SEARCH_TEXT',
+			text: text
+		};
+	};
+
 /***/ },
 /* 181 */
 /***/ function(module, exports, __webpack_require__) {
@@ -23056,7 +23063,8 @@
 			blogPosts: _reducers.blogPostsReducer,
 			projects: _reducers.projectsReducer,
 			showFeaturedProjects: _reducers.featuredProjectsReducer,
-			programFilter: _reducers.programFilterReducer
+			programFilter: _reducers.programFilterReducer,
+			searchText: _reducers.searchTextReducer
 		});
 
 		var store = redux.createStore(reducer, initialState, redux.compose(window.devToolsExtension ? window.devToolsExtension() : function (f) {
@@ -23126,6 +23134,18 @@
 		}
 	};
 
+	var searchTextReducer = exports.searchTextReducer = function searchTextReducer() {
+		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+		var action = arguments[1];
+
+		switch (action.type) {
+			case 'SET_SEARCH_TEXT':
+				return action.text;
+			default:
+				return state;
+		}
+	};
+
 /***/ },
 /* 207 */
 /***/ function(module, exports) {
@@ -23174,9 +23194,21 @@
 				});
 			}
 
+			// Filter by requested project's page url
 			if (filter.projectPage) {
 				filteredProjects = filteredProjects.filter(function (project) {
 					return project.projectPage.indexOf(filter.projectPage) >= 0;
+				});
+			}
+
+			// Filter by search text
+			if (filter.searchText) {
+				var text = filter.searchText.toLowerCase();
+				filteredProjects = filteredProjects.filter(function (project) {
+					var nameMatch = project.name.toLowerCase().indexOf(text) >= 0;
+					var programMatch = project.program.toLowerCase().indexOf(text) >= 0;
+					var summaryMatch = project.summary.toLowerCase().indexOf(text) >= 0;
+					return nameMatch || programMatch || summaryMatch;
 				});
 			}
 
@@ -28545,6 +28577,7 @@
 
 	var MyAPI = __webpack_require__(207);
 	var ProjectCard = __webpack_require__(214);
+	var PageHeader = __webpack_require__(277);
 
 	var ProjectsMain = React.createClass({
 		displayName: 'ProjectsMain',
@@ -28553,29 +28586,22 @@
 			var projects = _props.projects;
 			var showFeaturedProjects = _props.showFeaturedProjects;
 			var programFilter = _props.programFilter;
+			var searchText = _props.searchText;
 			var router = _props.router;
 
 			var filteredProjects = MyAPI.filteredProjects({
 				projects: projects,
 				featuredOnly: showFeaturedProjects,
-				program: programFilter
+				program: programFilter,
+				searchText: searchText
 			});
 			return React.createElement(
 				'main',
 				null,
-				React.createElement(
-					'h1',
-					{ style: { paddingTop: '64px' } },
-					'ProjectsMain Component'
-				),
-				React.createElement(
-					Link,
-					{ to: '/projects/test' },
-					'To the Test URL!'
-				),
+				React.createElement(PageHeader, { title: 'Projects' }),
 				React.createElement(
 					'section',
-					{ className: 'flex-center' },
+					{ className: 'projects-list flex-center' },
 					filteredProjects.map(function (project) {
 						return React.createElement(ProjectCard, { project: project, cardDimensions: { width: '400px', margin: '10px' }, router: router });
 					})
@@ -28694,10 +28720,68 @@
 
 
 	// module
-	exports.push([module.id, ".flex, .flex-column, .flex-center, .flex-center-center, .flex-center-start, .flex-center-end, .flex-around, .flex-around-center, .flex-between, .flex-between-center, .flex-start-start, .flex-start-end, .flex-start-center, .flex-end-center, .flex-end-start, .flex-end-end {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-column {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n\n.flex-center, .flex-center-center, .flex-center-start, .flex-center-end {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-start-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-start-end {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-start-center {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-center {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-start {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-end-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-center-start {\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-center-end {\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.app {\n  background: #eceff1; }\n  .app a {\n    text-decoration: none; }\n\n.logo-text {\n  font-family: 'Product Sans', 'Roboto', Helvetica, Arial, sans-serif; }\n\n.section-heading {\n  border-bottom: 1px solid #e1375c;\n  padding-bottom: 5px;\n  font-weight: 400;\n  font-size: 1em;\n  color: #6b6b6b;\n  text-transform: uppercase; }\n  @media (max-width: 499px) {\n    .section-heading {\n      font-size: 0.8em; } }\n\nnav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 10;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block; }\n      nav ul li a {\n        padding: 22.5px 0 20px;\n        margin: 0 15px;\n        color: #6b6b6b; }\n        nav ul li a:hover {\n          font-weight: 500;\n          color: #000; }\n      nav ul li .active-link {\n        color: #000;\n        font-weight: 500;\n        border-bottom: 3px solid #e1375c; }\n      nav ul li .active-link:visited {\n        color: #000; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n  #drawer[opened] {\n    visibility: visible; }\n    #drawer[opened] .drawer-overlay {\n      opacity: 1; }\n    #drawer[opened] .drawer-content {\n      transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  z-index: 10;\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 10;\n  background: linear-gradient(#fff, #eceff1);\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  text-align: center; }\n\n.drawer-links {\n  color: #6b6b6b;\n  list-style-type: none;\n  padding: 0 0 0 30px;\n  margin: 20px 0; }\n  .drawer-links li {\n    font-size: 1.5em;\n    margin: 10px 0; }\n    .drawer-links li a {\n      text-decoration: none;\n      color: inherit; }\n      .drawer-links li a:visited {\n        color: inherit; }\n      .drawer-links li a:hover {\n        color: #000;\n        font-weight: 500; }\n\n.logo-link {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo-link :first-child {\n    vertical-align: middle; }\n  .logo-link span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.2em;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\n.footer-copyright {\n  background: #263238;\n  color: #fff;\n  padding: 0.5em;\n  font-weight: 300;\n  font-size: 0.75em; }\n  @media (max-width: 499px) {\n    .footer-copyright {\n      font-size: 0.6em; } }\n  .footer-copyright .copyright {\n    padding-left: 0.5em; }\n  .footer-copyright .footer-logo {\n    width: 3em; }\n\n.progressive-img {\n  position: relative;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n  overflow: hidden; }\n  .progressive-img section {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 3; }\n  .progressive-img .placeholder {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 2;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    transition: opacity 500ms, visibility 500ms; }\n  .progressive-img img {\n    display: none; }\n  .progressive-img .full-image {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-color: #000; }\n\n.disappear {\n  opacity: 0;\n  visibility: hidden; }\n\n.card {\n  display: inline-block;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .card:hover {\n    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4); }\n\n.project-card {\n  display: inline-block; }\n  @media (max-width: 650px) {\n    .project-card {\n      margin: 10px 10vw !important; } }\n  @media (max-width: 499px) {\n    .project-card {\n      margin: 10px !important; } }\n\n.project-detail .details {\n  padding: 16px; }\n  .project-detail .details h4 {\n    margin: 0;\n    font-size: 1.3em;\n    font-weight: 400;\n    color: #000; }\n  .project-detail .details p {\n    font-size: 0.9em;\n    font-weight: 300;\n    color: #6b6b6b;\n    margin: 1em 0 0; }\n    @media (max-width: 499px) {\n      .project-detail .details p {\n        font-size: 0.8em; } }\n\n.project-detail .action {\n  border-top: 1px solid #e8e8e8;\n  padding: 10px 20px; }\n  .project-detail .action a {\n    font-size: 0.9em;\n    color: #6b6b6b;\n    text-transform: uppercase;\n    padding: 10px 0.6em; }\n    .project-detail .action a:visited {\n      color: #6b6b6b; }\n    .project-detail .action a:hover {\n      color: #000;\n      font-weight: 500; }\n\n.button {\n  display: inline-block;\n  border-width: 0;\n  border-radius: 3px;\n  background-color: #288ae2;\n  padding: 10px;\n  color: #fff;\n  font-size: 0.9em;\n  text-transform: uppercase;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .button:focus {\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);\n    outline: none; }\n  .button:active {\n    background-color: #1c609f; }\n  .button:hover {\n    color: #fff;\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4); }\n  .button:visited {\n    color: #fff; }\n\n.social-links {\n  background-color: #e1375c;\n  padding: 20px; }\n  .social-links a {\n    margin: 0 1em;\n    font-size: 0.9em;\n    font-weight: 400; }\n    .social-links a .icon {\n      vertical-align: middle; }\n    .social-links a span {\n      color: #000; }\n", ""]);
+	exports.push([module.id, ".flex, .flex-column, .flex-center, .flex-center-center, .flex-center-start, .flex-center-end, .flex-around, .flex-around-center, .flex-between, .flex-between-center, .flex-start-start, .flex-start-end, .flex-start-center, .flex-end-center, .flex-end-start, .flex-end-end {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-column {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n\n.flex-center, .flex-center-center, .flex-center-start, .flex-center-end {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-start-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-start-end {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-start-center {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-center {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-start {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-end-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-center-start {\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-center-end {\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.app {\n  background: #eceff1; }\n  .app a {\n    text-decoration: none; }\n\n.logo-text {\n  font-family: 'Product Sans', 'Roboto', Helvetica, Arial, sans-serif; }\n\n.section-heading {\n  border-bottom: 1px solid #e1375c;\n  padding-bottom: 5px;\n  font-weight: 400;\n  font-size: 1em;\n  color: #6b6b6b;\n  text-transform: uppercase; }\n  @media (max-width: 499px) {\n    .section-heading {\n      font-size: 0.8em; } }\n\nnav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 10;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block; }\n      nav ul li a {\n        padding: 22.5px 0 20px;\n        margin: 0 15px;\n        color: #6b6b6b; }\n        nav ul li a:hover {\n          font-weight: 500;\n          color: #000; }\n      nav ul li .active-link {\n        color: #000;\n        font-weight: 500;\n        border-bottom: 3px solid #e1375c; }\n      nav ul li .active-link:visited {\n        color: #000; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n  #drawer[opened] {\n    visibility: visible; }\n    #drawer[opened] .drawer-overlay {\n      opacity: 1; }\n    #drawer[opened] .drawer-content {\n      transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  z-index: 10;\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 10;\n  background: linear-gradient(#fff, #eceff1);\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  text-align: center; }\n\n.drawer-links {\n  color: #6b6b6b;\n  list-style-type: none;\n  padding: 0 0 0 30px;\n  margin: 20px 0; }\n  .drawer-links li {\n    font-size: 1.5em;\n    margin: 10px 0; }\n    .drawer-links li a {\n      text-decoration: none;\n      color: inherit; }\n      .drawer-links li a:visited {\n        color: inherit; }\n      .drawer-links li a:hover {\n        color: #000;\n        font-weight: 500; }\n\n.logo-link {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo-link :first-child {\n    vertical-align: middle; }\n  .logo-link span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.2em;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\n.footer-copyright {\n  background: #263238;\n  color: #fff;\n  padding: 0.5em;\n  font-weight: 300;\n  font-size: 0.75em; }\n  .footer-copyright .copyright {\n    padding-left: 0.5em; }\n  .footer-copyright .footer-logo {\n    width: 3em; }\n\n.progressive-img {\n  position: relative;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n  overflow: hidden; }\n  .progressive-img section {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 3; }\n  .progressive-img .placeholder {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 2;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    transition: opacity 500ms, visibility 500ms; }\n  .progressive-img img {\n    display: none; }\n  .progressive-img .full-image {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-color: #000; }\n\n.disappear {\n  opacity: 0;\n  visibility: hidden; }\n\n.card {\n  display: inline-block;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .card:hover {\n    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4); }\n\n.project-card {\n  display: inline-block; }\n  @media (max-width: 650px) {\n    .project-card {\n      margin: 10px 10vw !important; } }\n  @media (max-width: 499px) {\n    .project-card {\n      margin: 10px !important; } }\n\n.project-detail .details {\n  padding: 16px; }\n  .project-detail .details h4 {\n    margin: 0;\n    font-size: 1.3em;\n    font-weight: 400;\n    color: #000; }\n  .project-detail .details p {\n    font-size: 0.9em;\n    font-weight: 300;\n    color: #6b6b6b;\n    margin: 1em 0 0; }\n    @media (max-width: 499px) {\n      .project-detail .details p {\n        font-size: 0.8em; } }\n\n.project-detail .action {\n  border-top: 1px solid #e8e8e8;\n  padding: 10px 20px; }\n  .project-detail .action a {\n    font-size: 0.9em;\n    color: #6b6b6b;\n    text-transform: uppercase;\n    padding: 10px 0.6em; }\n    .project-detail .action a:visited {\n      color: #6b6b6b; }\n    .project-detail .action a:hover {\n      color: #000;\n      font-weight: 500; }\n\n.button {\n  display: inline-block;\n  border-width: 0;\n  border-radius: 3px;\n  background-color: #288ae2;\n  padding: 10px;\n  color: #fff;\n  font-size: 0.9em;\n  text-transform: uppercase;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .button:focus {\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);\n    outline: none; }\n  .button:active {\n    background-color: #1c609f; }\n  .button:hover {\n    color: #fff;\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4); }\n  .button:visited {\n    color: #fff; }\n\n.social-links {\n  background-color: #e1375c;\n  padding: 20px; }\n  .social-links a {\n    margin: 0 1em;\n    font-size: 0.9em;\n    font-weight: 400; }\n    .social-links a .icon {\n      vertical-align: middle; }\n    .social-links a span {\n      color: #000; }\n\n.page-header {\n  background-color: #288ae2;\n  color: #fff;\n  padding: calc(64px + 1.25em) 10vw 1.25em;\n  margin: 0 0 1em;\n  font-size: 1em; }\n  @media (max-width: 499px) {\n    .page-header {\n      font-size: 0.75em; } }\n  .page-header h1 {\n    display: inline-block;\n    font-size: 1.75em;\n    font-weight: 400;\n    margin: 0; }\n  .page-header input::-webkit-input-placeholder {\n    color: #ccc;\n    font-weight: 300; }\n  .page-header input::-moz-placeholder {\n    color: #ccc;\n    font-weight: 300; }\n  .page-header input:-ms-input-placeholder {\n    color: #ccc;\n    font-weight: 300; }\n  .page-header input::placeholder {\n    color: #ccc;\n    font-weight: 300; }\n  .page-header .search-input {\n    border: none;\n    border-radius: 2px;\n    background-color: rgba(0, 0, 0, 0.2);\n    color: #fff;\n    padding: 0.5em;\n    font-size: 1em; }\n    @media (max-width: 499px) {\n      .page-header .search-input {\n        width: 50%; } }\n\n.projects-list {\n  margin: 20px auto;\n  width: 90vw; }\n  @media (max-width: 499px) {\n    .projects-list {\n      width: 100vw; } }\n\nmain {\n  min-height: calc(100vh - 130px); }\n", ""]);
 
 	// exports
 
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _actions = __webpack_require__(180);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	var React = __webpack_require__(1);
+
+	var _require = __webpack_require__(181);
+
+	var connect = _require.connect;
+
+
+	var PageHeader = React.createClass({
+		displayName: 'PageHeader',
+		render: function render() {
+			var _this = this;
+
+			var _props = this.props;
+			var title = _props.title;
+			var searchText = _props.searchText;
+			var dispatch = _props.dispatch;
+
+			var updateSearchText = function updateSearchText() {
+				var searchText = _this.refs.searchText.value;
+				dispatch(actions.setSearchText(searchText));
+			};
+			return React.createElement(
+				'header',
+				{ className: 'page-header flex-between-center' },
+				React.createElement(
+					'h1',
+					null,
+					title
+				),
+				React.createElement('input', {
+					ref: 'searchText',
+					className: 'search-input',
+					type: 'text',
+					placeholder: 'Search projects...',
+					onChange: updateSearchText,
+					value: searchText })
+			);
+		}
+	});
+
+	module.exports = connect(function (state) {
+		return {
+			searchText: state.searchText
+		};
+	})(PageHeader);
 
 /***/ }
 /******/ ]);

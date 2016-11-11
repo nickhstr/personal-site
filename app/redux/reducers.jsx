@@ -39,3 +39,12 @@ export var programFilterReducer = (state = '', action) => {
 			return state;
 	}
 }
+
+export var searchTextReducer = (state = '', action) => {
+	switch (action.type) {
+		case 'SET_SEARCH_TEXT':
+			return action.text;
+		default:
+			return state;
+	}
+}

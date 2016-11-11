@@ -1,2 +1,9 @@
 // Shared
 @import "~sharedStyles";
+
+// Components
+@import "styles/ProjectsMain";
+
+main {
+	min-height: calc(100vh - 130px);
+}

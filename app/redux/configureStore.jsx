@@ -3,7 +3,8 @@ import {
 	blogPostsReducer,
 	projectsReducer,
 	featuredProjectsReducer,
-	programFilterReducer
+	programFilterReducer,
+	searchTextReducer
 } from 'reducers';
 
 export var configure = (initialState = {}) => {
@@ -11,7 +12,8 @@ export var configure = (initialState = {}) => {
 		blogPosts: blogPostsReducer,
 		projects: projectsReducer,
 		showFeaturedProjects: featuredProjectsReducer,
-		programFilter: programFilterReducer
+		programFilter: programFilterReducer,
+		searchText: searchTextReducer
 	});
 
 	var store = redux.createStore(reducer, initialState, redux.compose(

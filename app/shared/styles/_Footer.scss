@@ -5,10 +5,6 @@
 	font-weight: 300;
 	font-size: 0.75em;
 
-	@media (max-width: $primary-media-max-width) {
-		font-size: 0.6em;
-	}
-
 	.copyright {
 		padding-left: 0.5em;
 	}

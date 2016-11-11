@@ -3,20 +3,21 @@ var {connect} = require('react-redux');
 var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
 var ProjectCard = require('ProjectCard');
+var PageHeader = require('PageHeader');
 
 var ProjectsMain = React.createClass({
 	render() {
-		var {projects, showFeaturedProjects, programFilter, router} = this.props;
+		var {projects, showFeaturedProjects, programFilter, searchText, router} = this.props;
 		var filteredProjects = MyAPI.filteredProjects({
 			projects: projects,
 			featuredOnly: showFeaturedProjects,
-			program: programFilter
+			program: programFilter,
+			searchText: searchText
 		});
 		return (
 			<main>
-				<h1 style={{paddingTop: '64px'}}>ProjectsMain Component</h1>
-				<Link to="/projects/test">To the Test URL!</Link>
-				<section className="flex-center">
+				<PageHeader title="Projects"></PageHeader>
+				<section className="projects-list flex-center">
 					{filteredProjects.map((project) => {
 						return (
 							<ProjectCard project={project} cardDimensions={{width: '400px', margin: '10px'}} router={router}></ProjectCard>

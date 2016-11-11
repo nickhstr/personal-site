@@ -41,9 +41,21 @@ module.exports = {
 			});
 		}
 
+		// Filter by requested project's page url
 		if (filter.projectPage) {
 			filteredProjects = filteredProjects.filter((project) => {
 				return project.projectPage.indexOf(filter.projectPage) >= 0;
+			});
+		}
+
+		// Filter by search text
+		if (filter.searchText) {
+			var text = filter.searchText.toLowerCase();
+			filteredProjects = filteredProjects.filter((project) => {
+				var nameMatch = project.name.toLowerCase().indexOf(text) >= 0;
+				var programMatch = project.program.toLowerCase().indexOf(text) >= 0;
+				var summaryMatch = project.summary.toLowerCase().indexOf(text) >= 0;
+				return nameMatch || programMatch || summaryMatch;
 			});
 		}
 

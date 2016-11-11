@@ -17,9 +17,9 @@ var TestComponent = require('TestComponent');
 
 require('projectsStyles');
 
-store.subscribe(() => {
-	console.log(store.getState());
-});
+// store.subscribe(() => {
+// 	console.log(store.getState());
+// });
 
 // Fetch all projects
 MyAPI.get('/api/projects').then((response) => {
