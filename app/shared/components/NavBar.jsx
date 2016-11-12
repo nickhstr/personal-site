@@ -5,23 +5,25 @@ var Drawer = require('Drawer');
 
 var NavBar = React.createClass({
 	previousScroll: 0,
+	currentScroll: 0,
+	isDown: false,
+	navClasses: [],
+	updateReveal() {
+		if (this.isDown && !this.navClasses.contains('scrolled') && this.currentScroll > 10) {
+			this.navClasses.add('scrolled');
+		}
+		else if (!this.isDown) {
+			this.navClasses.remove('scrolled');
+		}
+		this.previousScroll = this.currentScroll;
+	},
+	onScroll() {
+		this.currentScroll = window.scrollY;
+		this.isDown = this.currentScroll > this.previousScroll;
+		requestAnimationFrame(this.updateReveal);
+	},
 	scrollHide() {
-		var self = this;
-		window.addEventListener('scroll', (e) => {
-			var currentScroll = window.pageYOffset;
-			var nav = self.refs.nav;
-			var navClasses = nav.classList;
-			var isDown = currentScroll > self.previousScroll;
-
-			if (isDown && !navClasses.contains('scrolled') && currentScroll > 10) {
-				navClasses.add('scrolled');
-			}
-			else if (!isDown) {
-				navClasses.remove('scrolled');
-			}
-
-			self.previousScroll = currentScroll;
-		});
+		window.addEventListener('scroll', this.onScroll, false);
 	},
 	toggleDrawer() {
 		var drawer = document.getElementById('drawer');
@@ -34,6 +36,7 @@ var NavBar = React.createClass({
 		}
 	},
 	componentDidMount() {
+		this.navClasses = this.refs.nav.classList;
 		this.setLinkClass();
 		this.scrollHide();
 	},
