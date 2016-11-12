@@ -5,9 +5,10 @@ module.exports = function(config) {
 		browsers: ['Chrome'],
 		singleRun: true,
 		frameworks: ['mocha'],
-		files: ['app/shared/tests/**/*.test.jsx'],
+		files: ['app/shared/tests/**/*.test.jsx', 'app/pages/home/tests/**/*.test.jsx'],
 		preprocessors: {
-			'app/shared/tests/**/*.test.jsx': ['webpack']
+			'app/shared/tests/**/*.test.jsx': ['webpack'],
+			'app/pages/home/tests/**/*.test.jsx': ['webpack']
 		},
 		reporters: ['mocha'],
 		client: {

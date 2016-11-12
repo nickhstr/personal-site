@@ -13,6 +13,7 @@
   "author": "Nick Hester",
   "license": "MIT",
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.14.0",
     "hbs": "^4.0.1",
     "react": "^15.3.2",

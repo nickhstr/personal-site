@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const hbs = require('hbs');
 const api = require('./server/api/api');
 const routes = require('./server/routes/routes');
@@ -8,6 +9,8 @@ let app = express();
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/public');
+
+app.use(compression());
 
 app.use(express.static(__dirname + '/public'));
 
