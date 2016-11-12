@@ -49,13 +49,13 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(30);
 
-	var _require = __webpack_require__(181);
+	var _require = __webpack_require__(180);
 
 	var Provider = _require.Provider;
 
 	// Redux Actions and Store
 
-	var actions = __webpack_require__(180);
+	var actions = __webpack_require__(204);
 	var store = __webpack_require__(205).configure();
 
 	// Import API helpers
@@ -21307,49 +21307,6 @@
 /* 178 */,
 /* 179 */,
 /* 180 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	var addPosts = exports.addPosts = function addPosts(posts) {
-		return {
-			type: 'ADD_POSTS',
-			posts: posts
-		};
-	};
-
-	var addProjects = exports.addProjects = function addProjects(projects) {
-		return {
-			type: 'ADD_PROJECTS',
-			projects: projects
-		};
-	};
-
-	var showFeaturedProjects = exports.showFeaturedProjects = function showFeaturedProjects() {
-		return {
-			type: 'SHOW_FEATURED_PROJECTS'
-		};
-	};
-
-	var setProgramFilter = exports.setProgramFilter = function setProgramFilter(program) {
-		return {
-			type: 'SET_PROGRAM_FILTER',
-			program: program
-		};
-	};
-
-	var setSearchText = exports.setSearchText = function setSearchText(text) {
-		return {
-			type: 'SET_SEARCH_TEXT',
-			text: text
-		};
-	};
-
-/***/ },
-/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21357,11 +21314,11 @@
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 
-	var _Provider = __webpack_require__(182);
+	var _Provider = __webpack_require__(181);
 
 	var _Provider2 = _interopRequireDefault(_Provider);
 
-	var _connect = __webpack_require__(185);
+	var _connect = __webpack_require__(184);
 
 	var _connect2 = _interopRequireDefault(_connect);
 
@@ -21373,7 +21330,7 @@
 	exports.connect = _connect2["default"];
 
 /***/ },
-/* 182 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21385,11 +21342,11 @@
 
 	var _react = __webpack_require__(1);
 
-	var _storeShape = __webpack_require__(183);
+	var _storeShape = __webpack_require__(182);
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _warning = __webpack_require__(184);
+	var _warning = __webpack_require__(183);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -21472,7 +21429,7 @@
 	};
 
 /***/ },
-/* 183 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21488,7 +21445,7 @@
 	});
 
 /***/ },
-/* 184 */
+/* 183 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21517,7 +21474,7 @@
 	}
 
 /***/ },
-/* 185 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21539,31 +21496,31 @@
 
 	var _react = __webpack_require__(1);
 
-	var _storeShape = __webpack_require__(183);
+	var _storeShape = __webpack_require__(182);
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _shallowEqual = __webpack_require__(186);
+	var _shallowEqual = __webpack_require__(185);
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _wrapActionCreators = __webpack_require__(187);
+	var _wrapActionCreators = __webpack_require__(186);
 
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 
-	var _warning = __webpack_require__(184);
+	var _warning = __webpack_require__(183);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _isPlainObject = __webpack_require__(190);
+	var _isPlainObject = __webpack_require__(189);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _hoistNonReactStatics = __webpack_require__(203);
+	var _hoistNonReactStatics = __webpack_require__(202);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -21939,7 +21896,7 @@
 	}
 
 /***/ },
-/* 186 */
+/* 185 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -21970,7 +21927,7 @@
 	}
 
 /***/ },
-/* 187 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21978,7 +21935,7 @@
 	exports.__esModule = true;
 	exports["default"] = wrapActionCreators;
 
-	var _redux = __webpack_require__(188);
+	var _redux = __webpack_require__(187);
 
 	function wrapActionCreators(actionCreators) {
 	  return function (dispatch) {
@@ -21987,7 +21944,7 @@
 	}
 
 /***/ },
-/* 188 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21995,27 +21952,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 
-	var _createStore = __webpack_require__(189);
+	var _createStore = __webpack_require__(188);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(198);
+	var _combineReducers = __webpack_require__(197);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(200);
+	var _bindActionCreators = __webpack_require__(199);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(201);
+	var _applyMiddleware = __webpack_require__(200);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(202);
+	var _compose = __webpack_require__(201);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(199);
+	var _warning = __webpack_require__(198);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -22040,7 +21997,7 @@
 	exports.compose = _compose2['default'];
 
 /***/ },
-/* 189 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22051,11 +22008,11 @@
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 
-	var _isPlainObject = __webpack_require__(190);
+	var _isPlainObject = __webpack_require__(189);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _symbolObservable = __webpack_require__(194);
+	var _symbolObservable = __webpack_require__(193);
 
 	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
 
@@ -22310,13 +22267,13 @@
 	}
 
 /***/ },
-/* 190 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var getPrototype = __webpack_require__(191),
-	    isObjectLike = __webpack_require__(193);
+	var getPrototype = __webpack_require__(190),
+	    isObjectLike = __webpack_require__(192);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -22384,12 +22341,12 @@
 	module.exports = isPlainObject;
 
 /***/ },
-/* 191 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var overArg = __webpack_require__(192);
+	var overArg = __webpack_require__(191);
 
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -22397,7 +22354,7 @@
 	module.exports = getPrototype;
 
 /***/ },
-/* 192 */
+/* 191 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22419,7 +22376,7 @@
 	module.exports = overArg;
 
 /***/ },
-/* 193 */
+/* 192 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22457,15 +22414,15 @@
 	module.exports = isObjectLike;
 
 /***/ },
-/* 194 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(195);
+	module.exports = __webpack_require__(194);
 
 /***/ },
-/* 195 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
@@ -22474,7 +22431,7 @@
 	  value: true
 	});
 
-	var _ponyfill = __webpack_require__(197);
+	var _ponyfill = __webpack_require__(196);
 
 	var _ponyfill2 = _interopRequireDefault(_ponyfill);
 
@@ -22498,10 +22455,10 @@
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(196)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(195)(module)))
 
 /***/ },
-/* 196 */
+/* 195 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22518,7 +22475,7 @@
 	};
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22546,7 +22503,7 @@
 	};
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22554,13 +22511,13 @@
 	exports.__esModule = true;
 	exports['default'] = combineReducers;
 
-	var _createStore = __webpack_require__(189);
+	var _createStore = __webpack_require__(188);
 
-	var _isPlainObject = __webpack_require__(190);
+	var _isPlainObject = __webpack_require__(189);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(199);
+	var _warning = __webpack_require__(198);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -22695,7 +22652,7 @@
 	}
 
 /***/ },
-/* 199 */
+/* 198 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22725,7 +22682,7 @@
 	}
 
 /***/ },
-/* 200 */
+/* 199 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22783,7 +22740,7 @@
 	}
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22802,7 +22759,7 @@
 
 	exports['default'] = applyMiddleware;
 
-	var _compose = __webpack_require__(202);
+	var _compose = __webpack_require__(201);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -22856,7 +22813,7 @@
 	}
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22899,7 +22856,7 @@
 	}
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports) {
 
 	/**
@@ -22953,7 +22910,7 @@
 	};
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23006,6 +22963,49 @@
 	module.exports = invariant;
 
 /***/ },
+/* 204 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var addPosts = exports.addPosts = function addPosts(posts) {
+		return {
+			type: 'ADD_POSTS',
+			posts: posts
+		};
+	};
+
+	var addProjects = exports.addProjects = function addProjects(projects) {
+		return {
+			type: 'ADD_PROJECTS',
+			projects: projects
+		};
+	};
+
+	var showFeaturedProjects = exports.showFeaturedProjects = function showFeaturedProjects() {
+		return {
+			type: 'SHOW_FEATURED_PROJECTS'
+		};
+	};
+
+	var setProgramFilter = exports.setProgramFilter = function setProgramFilter(program) {
+		return {
+			type: 'SET_PROGRAM_FILTER',
+			program: program
+		};
+	};
+
+	var setSearchText = exports.setSearchText = function setSearchText(text) {
+		return {
+			type: 'SET_SEARCH_TEXT',
+			text: text
+		};
+	};
+
+/***/ },
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -23018,7 +23018,7 @@
 
 	var _reducers = __webpack_require__(206);
 
-	var redux = __webpack_require__(188);
+	var redux = __webpack_require__(187);
 	var configure = exports.configure = function configure() {
 		var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
@@ -23360,7 +23360,7 @@
 
 	var React = __webpack_require__(1);
 
-	var _require = __webpack_require__(181);
+	var _require = __webpack_require__(180);
 
 	var connect = _require.connect;
 
@@ -23431,7 +23431,7 @@
 	var React = __webpack_require__(1);
 	var ProjectCard = __webpack_require__(214);
 
-	var _require = __webpack_require__(181);
+	var _require = __webpack_require__(180);
 
 	var connect = _require.connect;
 
@@ -24017,7 +24017,7 @@
 	exports.getParams = getParams;
 	exports.formatPattern = formatPattern;
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -24265,7 +24265,7 @@
 	  }return target;
 	};
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -25725,7 +25725,7 @@
 	  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 	};
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26071,7 +26071,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26286,7 +26286,7 @@
 
 	exports.default = withRouter;
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26294,7 +26294,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _hoistNonReactStatics = __webpack_require__(203);
+	var _hoistNonReactStatics = __webpack_require__(202);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
@@ -26369,7 +26369,7 @@
 
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26435,7 +26435,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26547,7 +26547,7 @@
 
 	var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26610,7 +26610,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -26682,7 +26682,7 @@
 
 	var _Actions = __webpack_require__(245);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -27126,7 +27126,7 @@
 	  }return target;
 	};
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -27463,7 +27463,7 @@
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -27980,7 +27980,7 @@
 	  }return target;
 	};
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -28440,7 +28440,7 @@
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _invariant = __webpack_require__(204);
+	var _invariant = __webpack_require__(203);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -28765,7 +28765,7 @@
 
 
 	// module
-	exports.push([module.id, ".flex, .flex-column, .flex-center, .flex-center-center, .flex-center-start, .flex-center-end, .flex-around, .flex-around-center, .flex-between, .flex-between-center, .flex-start-start, .flex-start-end, .flex-start-center, .flex-end-center, .flex-end-start, .flex-end-end {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-column {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n\n.flex-center, .flex-center-center, .flex-center-start, .flex-center-end {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-start-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-start-end {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-start-center {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-center {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-start {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-end-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-center-start {\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-center-end {\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.app {\n  background: #eceff1; }\n  .app a {\n    text-decoration: none; }\n\n.logo-text {\n  font-family: 'Product Sans', 'Roboto', Helvetica, Arial, sans-serif; }\n\n.section-heading {\n  border-bottom: 1px solid #e1375c;\n  padding-bottom: 5px;\n  font-weight: 400;\n  font-size: 1em;\n  color: #6b6b6b;\n  text-transform: uppercase; }\n  @media (max-width: 499px) {\n    .section-heading {\n      font-size: 0.8em; } }\n\nnav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 10;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block; }\n      nav ul li a {\n        padding: 22.5px 0 20px;\n        margin: 0 15px;\n        color: #6b6b6b; }\n        nav ul li a:hover {\n          font-weight: 500;\n          color: #000; }\n      nav ul li .active-link {\n        color: #000;\n        font-weight: 500;\n        border-bottom: 3px solid #e1375c; }\n      nav ul li .active-link:visited {\n        color: #000; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n  #drawer[opened] {\n    visibility: visible; }\n    #drawer[opened] .drawer-overlay {\n      opacity: 1; }\n    #drawer[opened] .drawer-content {\n      transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  z-index: 10;\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 10;\n  background: linear-gradient(#fff, #eceff1);\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  text-align: center; }\n\n.drawer-links {\n  color: #6b6b6b;\n  list-style-type: none;\n  padding: 0 0 0 30px;\n  margin: 20px 0; }\n  .drawer-links li {\n    font-size: 1.5em;\n    margin: 10px 0; }\n    .drawer-links li a {\n      text-decoration: none;\n      color: inherit; }\n      .drawer-links li a:visited {\n        color: inherit; }\n      .drawer-links li a:hover {\n        color: #000;\n        font-weight: 500; }\n\n.logo-link {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo-link :first-child {\n    vertical-align: middle; }\n  .logo-link span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.2em;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\n.footer-copyright {\n  background: #263238;\n  color: #fff;\n  padding: 0.5em;\n  font-weight: 300;\n  font-size: 0.75em; }\n  .footer-copyright .copyright {\n    padding-left: 0.5em; }\n  .footer-copyright .footer-logo {\n    width: 3em; }\n\n.progressive-img {\n  position: relative;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n  overflow: hidden; }\n  .progressive-img section {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 3; }\n  .progressive-img .placeholder {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 2;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    transition: opacity 500ms, visibility 500ms; }\n  .progressive-img img {\n    display: none; }\n  .progressive-img .full-image {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-color: #000; }\n\n.disappear {\n  opacity: 0;\n  visibility: hidden; }\n\n.card {\n  display: inline-block;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .card:hover {\n    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4); }\n\n.project-card {\n  display: inline-block; }\n  @media (max-width: 650px) {\n    .project-card {\n      margin: 10px 10vw !important; } }\n  @media (max-width: 499px) {\n    .project-card {\n      margin: 10px !important; } }\n\n.project-detail .details {\n  padding: 16px; }\n  .project-detail .details h4 {\n    margin: 0;\n    font-size: 1.3em;\n    font-weight: 400;\n    color: #000; }\n  .project-detail .details p {\n    font-size: 0.9em;\n    font-weight: 300;\n    color: #6b6b6b;\n    margin: 1em 0 0; }\n    @media (max-width: 499px) {\n      .project-detail .details p {\n        font-size: 0.8em; } }\n\n.project-detail .action {\n  border-top: 1px solid #e8e8e8;\n  padding: 10px 20px; }\n  .project-detail .action a {\n    font-size: 0.9em;\n    color: #6b6b6b;\n    text-transform: uppercase;\n    padding: 10px 0.6em; }\n    .project-detail .action a:visited {\n      color: #6b6b6b; }\n    .project-detail .action a:hover {\n      color: #000;\n      font-weight: 500; }\n\n.button {\n  display: inline-block;\n  border-width: 0;\n  border-radius: 3px;\n  background-color: #288ae2;\n  padding: 10px;\n  color: #fff;\n  font-size: 0.9em;\n  text-transform: uppercase;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .button:focus {\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);\n    outline: none; }\n  .button:active {\n    background-color: #1c609f; }\n  .button:hover {\n    color: #fff;\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4); }\n  .button:visited {\n    color: #fff; }\n\n.social-links {\n  background-color: #e1375c;\n  padding: 20px; }\n  .social-links a {\n    margin: 0 1em;\n    font-size: 0.9em;\n    font-weight: 400; }\n    .social-links a .icon {\n      vertical-align: middle; }\n    .social-links a span {\n      color: #000; }\n\n.page-header {\n  background-color: #288ae2;\n  color: #fff;\n  padding: calc(64px + 1.25em) 10vw 1.25em;\n  margin: 0 0 1em;\n  font-size: 1em; }\n  @media (max-width: 499px) {\n    .page-header {\n      font-size: 0.75em; } }\n  .page-header h1 {\n    display: inline-block;\n    font-size: 1.75em;\n    font-weight: 400;\n    margin: 0; }\n  .page-header input::-webkit-input-placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  .page-header input::-moz-placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  .page-header input:-ms-input-placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  .page-header input::placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  @media (max-width: 499px) {\n    .page-header .search-input {\n      width: 50%; } }\n\n.search-input {\n  border: none;\n  border-radius: 2px;\n  background-color: rgba(0, 0, 0, 0.2);\n  color: #fff;\n  padding: 0.5em;\n  font-size: 1em; }\n  .search-input:focus {\n    outline: none;\n    background-color: rgba(0, 0, 0, 0.3); }\n\n.title {\n  color: #fff;\n  padding: 10vw; }\n  .title h1, .title h3 {\n    font-weight: 300;\n    margin: 0.3em 0; }\n  .title h1 {\n    font-size: 6em; }\n  .title h3 {\n    font-size: 2em; }\n  @media (max-width: 499px) {\n    .title h1 {\n      font-size: 5em; } }\n\n.latest-post {\n  background-color: #fff;\n  padding: 5em 10vw;\n  color: #6b6b6b; }\n  @media (max-width: 800px) {\n    .latest-post {\n      padding: 10vw; } }\n  .latest-post p {\n    margin: 0; }\n  .latest-post .post-title {\n    font-size: 3em;\n    font-weight: 400;\n    margin: 0.5em 0 0.1em;\n    color: #000; }\n    @media (max-width: 499px) {\n      .latest-post .post-title {\n        font-size: 2em; } }\n  .latest-post .post-date {\n    font-weight: 300; }\n  .latest-post .post-content {\n    margin: 2em 0;\n    color: #6b6b6b;\n    line-height: 1.5em;\n    font-size: 1.75em;\n    font-weight: 300; }\n    @media (max-width: 499px) {\n      .latest-post .post-content {\n        font-size: 1em; } }\n\n.featured-projects .container {\n  margin: 0.5em 10vw 0;\n  width: 100%; }\n  @media (max-width: 1050px) {\n    .featured-projects .container {\n      margin: 0; } }\n\n.featured-projects .featured-heading {\n  width: 100%;\n  padding: 5em 10vw 0; }\n  @media (max-width: 800px) {\n    .featured-projects .featured-heading {\n      padding: 10vw 10vw 0; } }\n\n.featured-projects .link-section {\n  width: 100%;\n  text-align: center; }\n  .featured-projects .link-section .button {\n    margin: 4em auto; }\n    @media (max-width: 499px) {\n      .featured-projects .link-section .button {\n        margin: 10vw auto; } }\n", ""]);
+	exports.push([module.id, ".flex, .flex-column, .flex-center, .flex-center-center, .flex-center-start, .flex-center-end, .flex-around, .flex-around-center, .flex-between, .flex-between-center, .flex-start-start, .flex-start-end, .flex-start-center, .flex-end-center, .flex-end-start, .flex-end-end {\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap; }\n\n.flex-column {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n\n.flex-center, .flex-center-center, .flex-center-start, .flex-center-end {\n  -ms-flex-pack: center;\n      justify-content: center; }\n\n.flex-around, .flex-around-center {\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.flex-between, .flex-between-center {\n  -ms-flex-pack: justify;\n      justify-content: space-between; }\n\n.flex-center-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-start-start {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-start-end {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-start-center {\n  -ms-flex-pack: start;\n      justify-content: flex-start;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-center {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-end-start {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-end-end {\n  -ms-flex-pack: end;\n      justify-content: flex-end;\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.flex-between-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-around-center {\n  -ms-flex-align: center;\n      align-items: center; }\n\n.flex-center-start {\n  -ms-flex-align: start;\n      align-items: flex-start; }\n\n.flex-center-end {\n  -ms-flex-align: end;\n      align-items: flex-end; }\n\n.app {\n  background: #eceff1; }\n  .app a {\n    text-decoration: none; }\n\n.logo-text {\n  font-family: 'Product Sans', 'Roboto', Helvetica, Arial, sans-serif; }\n\n.section-heading {\n  border-bottom: 1px solid #e1375c;\n  padding-bottom: 5px;\n  font-weight: 400;\n  font-size: 1em;\n  color: #6b6b6b;\n  text-transform: uppercase; }\n  @media (max-width: 499px) {\n    .section-heading {\n      font-size: 0.8em; } }\n\nnav {\n  height: 64px;\n  background: #fff;\n  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.3);\n  padding: 0 8px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 10;\n  transform: translate3d(0, 0, 0);\n  transition: transform 300ms;\n  will-change: transform; }\n  nav ul {\n    padding: 0 20px 0 0;\n    margin: 0; }\n    @media (max-width: 499px) {\n      nav ul {\n        display: none; } }\n    nav ul li {\n      color: #6b6b6b;\n      display: inline-block; }\n      nav ul li a {\n        padding: 22.5px 0 20px;\n        margin: 0 15px;\n        color: #6b6b6b; }\n        nav ul li a:hover {\n          font-weight: 500;\n          color: #000; }\n      nav ul li .active-link {\n        color: #000;\n        font-weight: 500;\n        border-bottom: 3px solid #e1375c; }\n      nav ul li .active-link:visited {\n        color: #000; }\n\n.scrolled {\n  transform: translate3d(0, -70px, 0); }\n\n#drawer {\n  visibility: hidden;\n  transition: visibility 200ms; }\n  #drawer[opened] {\n    visibility: visible; }\n    #drawer[opened] .drawer-overlay {\n      opacity: 1; }\n    #drawer[opened] .drawer-content {\n      transform: translate3d(0, 0, 0); }\n\n.drawer-overlay {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition: opacity 200ms;\n  transform: translateZ(0);\n  z-index: 10;\n  opacity: 0;\n  background: rgba(0, 0, 0, 0.5); }\n\n.drawer-content {\n  width: 256px;\n  position: fixed;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 10;\n  background: linear-gradient(#fff, #eceff1);\n  transform: translate3d(256px, 0, 0);\n  transition: transform 200ms; }\n\n.logo {\n  text-align: center; }\n\n.drawer-links {\n  color: #6b6b6b;\n  list-style-type: none;\n  padding: 0 0 0 30px;\n  margin: 20px 0; }\n  .drawer-links li {\n    font-size: 1.5em;\n    margin: 10px 0; }\n    .drawer-links li a {\n      text-decoration: none;\n      color: inherit; }\n      .drawer-links li a:visited {\n        color: inherit; }\n      .drawer-links li a:hover {\n        color: #000;\n        font-weight: 500; }\n\n.logo-link {\n  display: inline-block;\n  color: #000;\n  text-decoration: none;\n  padding: 0 0 0 20px; }\n  .logo-link :first-child {\n    vertical-align: middle; }\n  .logo-link span {\n    display: inline-block;\n    padding: 0 0 0 5px;\n    margin: 0;\n    font-size: 1.2em;\n    vertical-align: middle; }\n\n.logo:visited {\n  color: #000; }\n\n.menu-button {\n  width: 25px;\n  height: 25px;\n  padding: 0;\n  margin: 0 20px 0 0;\n  border: none;\n  cursor: pointer;\n  background: #fff;\n  display: none; }\n  @media (max-width: 499px) {\n    .menu-button {\n      display: inline-block; } }\n  .menu-button svg {\n    fill: #6b6b6b; }\n\n.footer-copyright {\n  background: #263238;\n  color: #fff;\n  padding: 0.5em;\n  font-weight: 300;\n  font-size: 0.75em; }\n  .footer-copyright .copyright {\n    padding-left: 0.5em; }\n  .footer-copyright .footer-logo {\n    width: 3em; }\n\n.progressive-img {\n  position: relative;\n  border-top-left-radius: inherit;\n  border-top-right-radius: inherit;\n  overflow: hidden; }\n  .progressive-img section {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 3; }\n  .progressive-img .placeholder {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 2;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    transition: opacity 500ms, visibility 500ms; }\n  .progressive-img img {\n    display: none; }\n  .progressive-img .full-image {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    z-index: 1;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-color: #000; }\n\n.disappear {\n  opacity: 0;\n  visibility: hidden; }\n\n.card {\n  display: inline-block;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .card:hover {\n    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4); }\n\n.project-card {\n  display: inline-block; }\n  @media (max-width: 650px) {\n    .project-card {\n      margin: 10px 10vw !important; } }\n  @media (max-width: 499px) {\n    .project-card {\n      margin: 10px !important; } }\n\n.project-detail .details {\n  padding: 16px; }\n  .project-detail .details h4 {\n    margin: 0;\n    font-size: 1.3em;\n    font-weight: 400;\n    color: #000; }\n  .project-detail .details p {\n    font-size: 0.9em;\n    font-weight: 300;\n    color: #6b6b6b;\n    margin: 1em 0 0; }\n    @media (max-width: 499px) {\n      .project-detail .details p {\n        font-size: 0.8em; } }\n\n.project-detail .action {\n  border-top: 1px solid #e8e8e8;\n  padding: 10px 20px; }\n  .project-detail .action a {\n    font-size: 0.9em;\n    color: #6b6b6b;\n    text-transform: uppercase;\n    padding: 10px 0.6em; }\n    .project-detail .action a:visited {\n      color: #6b6b6b; }\n    .project-detail .action a:hover {\n      color: #000;\n      font-weight: 500; }\n\n.button {\n  display: inline-block;\n  border-width: 0;\n  border-radius: 3px;\n  background-color: #288ae2;\n  padding: 10px;\n  color: #fff;\n  font-size: 0.9em;\n  text-transform: uppercase;\n  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\n  cursor: pointer;\n  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1); }\n  .button:focus {\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);\n    outline: none; }\n  .button:active {\n    background-color: #1c609f; }\n  .button:hover {\n    color: #fff;\n    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4); }\n  .button:visited {\n    color: #fff; }\n\n.social-links {\n  background-color: #e1375c;\n  padding: 20px; }\n  .social-links a {\n    margin: 0 1em;\n    font-size: 0.9em;\n    font-weight: 400; }\n    .social-links a .icon {\n      vertical-align: middle; }\n    .social-links a span {\n      color: #000; }\n\n.page-header {\n  background-color: #288ae2;\n  color: #fff;\n  padding: calc(64px + 1.25em) 10vw 1.25em;\n  margin: 0 0 1em;\n  font-size: 1em; }\n  @media (max-width: 499px) {\n    .page-header {\n      font-size: 0.75em; } }\n  .page-header h1 {\n    display: inline-block;\n    font-size: 1.75em;\n    font-weight: 400;\n    margin: 0; }\n  .page-header input::-webkit-input-placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  .page-header input::-moz-placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  .page-header input:-ms-input-placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  .page-header input::placeholder {\n    font-weight: 300;\n    color: #ccc; }\n  @media (max-width: 499px) {\n    .page-header .search-input {\n      width: 50%; } }\n\n.search-input {\n  border: none;\n  border-radius: 2px;\n  background-color: rgba(0, 0, 0, 0.2);\n  color: #fff;\n  padding: 0.5em;\n  font-size: 1em; }\n  .search-input:focus {\n    outline: none;\n    background-color: rgba(0, 0, 0, 0.3); }\n\n.four-zero-four {\n  padding: calc(10vw + 64px) 10vw 10vw;\n  font-family: Helvetica, Arial, sans-serif; }\n  @media (max-width: 499px) {\n    .four-zero-four {\n      font-size: 0.75em; } }\n  .four-zero-four h3 {\n    font-weight: lighter;\n    font-size: 3em;\n    margin: 0.5em 0; }\n  .four-zero-four p {\n    color: #6b6b6b;\n    font-size: 1.25em; }\n  .four-zero-four em {\n    font-size: 0.75em; }\n  .four-zero-four h4 {\n    font-size: 1.5em; }\n  .four-zero-four a {\n    color: #000;\n    text-decoration: underline; }\n\n.title {\n  color: #fff;\n  padding: 10vw; }\n  .title h1, .title h3 {\n    font-weight: 300;\n    margin: 0.3em 0; }\n  .title h1 {\n    font-size: 6em; }\n  .title h3 {\n    font-size: 2em; }\n  @media (max-width: 499px) {\n    .title h1 {\n      font-size: 5em; } }\n\n.latest-post {\n  background-color: #fff;\n  padding: 5em 10vw;\n  color: #6b6b6b; }\n  @media (max-width: 800px) {\n    .latest-post {\n      padding: 10vw; } }\n  .latest-post p {\n    margin: 0; }\n  .latest-post .post-title {\n    font-size: 3em;\n    font-weight: 400;\n    margin: 0.5em 0 0.1em;\n    color: #000; }\n    @media (max-width: 499px) {\n      .latest-post .post-title {\n        font-size: 2em; } }\n  .latest-post .post-date {\n    font-weight: 300; }\n  .latest-post .post-content {\n    margin: 2em 0;\n    color: #6b6b6b;\n    line-height: 1.5em;\n    font-size: 1.75em;\n    font-weight: 300; }\n    @media (max-width: 499px) {\n      .latest-post .post-content {\n        font-size: 1em; } }\n\n.featured-projects .container {\n  margin: 0.5em 10vw 0;\n  width: 100%; }\n  @media (max-width: 1050px) {\n    .featured-projects .container {\n      margin: 0; } }\n\n.featured-projects .featured-heading {\n  width: 100%;\n  padding: 5em 10vw 0; }\n  @media (max-width: 800px) {\n    .featured-projects .featured-heading {\n      padding: 10vw 10vw 0; } }\n\n.featured-projects .link-section {\n  width: 100%;\n  text-align: center; }\n  .featured-projects .link-section .button {\n    margin: 4em auto; }\n    @media (max-width: 499px) {\n      .featured-projects .link-section .button {\n        margin: 10vw auto; } }\n", ""]);
 
 	// exports
 

@@ -1,0 +1,32 @@
+.four-zero-four {
+	padding: calc(10vw + 64px) 10vw 10vw;
+	font-family: Helvetica, Arial, sans-serif;
+
+	@media (max-width: $primary-media-max-width) {
+		font-size: 0.75em;
+	}
+
+	h3 {
+		font-weight: lighter;
+		font-size: 3em;
+		margin: 0.5em 0;
+	}
+
+	p {
+		color: #6b6b6b;
+		font-size: 1.25em;
+	}
+
+	em {
+		font-size: 0.75em;
+	}
+
+	h4 {
+		font-size: 1.5em;
+	}
+
+	a {
+		color: #000;
+		text-decoration: underline;
+	}
+}

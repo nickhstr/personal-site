@@ -2,6 +2,7 @@ var React = require('react');
 var {connect} = require('react-redux');
 var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
+var FourZeroFour = require('FourZeroFour');
 
 var TestComponent = React.createClass({
 	render() {
@@ -10,6 +11,12 @@ var TestComponent = React.createClass({
 			projects: this.props.projects,
 			projectPage: projectUrl
 		})[0];
+
+		if (!project) {
+			return (
+				<FourZeroFour></FourZeroFour>
+			);
+		}
 		return (
 			<main>
 				<h1 style={{paddingTop: '64px'}}>{project.name}</h1>
