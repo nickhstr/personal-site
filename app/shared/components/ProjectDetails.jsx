@@ -10,7 +10,7 @@ var ProjectDetails = React.createClass({
 				<div className="project-detail">
 					<div className="details">
 						<h4>{name}</h4>
-						<p dangerouslySetInnerHTML={{__html: summary}}></p>
+						<p>{summary}</p>
 					</div>
 					<div className="action flex-start-center">
 						<Link to={projectPage}>Project Page</Link>
@@ -24,7 +24,7 @@ var ProjectDetails = React.createClass({
 			<div className="project-detail">
 				<div className="details">
 					<h4>{name}</h4>
-					<p dangerouslySetInnerHTML={{__html: summary}}></p>
+					<p>{summary}</p>
 				</div>
 				<div className="action flex-start-center">
 					<a href={projectPage}>Project Page</a>

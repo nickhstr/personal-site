@@ -2,7 +2,7 @@
 	margin: 20px auto;
 	width: 90vw;
 
-	@media (max-width: $primary-media-max-width) {
+	@media (max-width: 800px) {
 		width: 100vw;
 	}
 }

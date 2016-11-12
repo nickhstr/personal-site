@@ -1,6 +1,7 @@
 var React = require('react');
-import * as actions from 'actions';
+var actions = require('actions');
 var {connect} = require('react-redux');
+var SearchInput = require('SearchInput');
 
 var PageHeader = React.createClass({
 	render() {
@@ -12,20 +13,10 @@ var PageHeader = React.createClass({
 		return (
 			<header className="page-header flex-between-center">
 				<h1>{title}</h1>
-				<input
-						ref="searchText"
-						className="search-input"
-						type="text"
-						placeholder="Search projects..."
-						onChange={updateSearchText}
-						value={searchText}/>
+				<SearchInput page={title.toLowerCase()}></SearchInput>
 			</header>
 		);
 	}
 });
 
-module.exports = connect((state) => {
-	return {
-		searchText: state.searchText
-	}
-})(PageHeader);
+module.exports = PageHeader;

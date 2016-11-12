@@ -1,0 +1,13 @@
+.search-input {
+	border: none;
+	border-radius: 2px;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #fff;
+	padding: 0.5em;
+	font-size: 1em;
+
+	&:focus {
+		outline: none;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}

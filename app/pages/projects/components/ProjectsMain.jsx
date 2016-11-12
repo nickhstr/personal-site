@@ -20,7 +20,7 @@ var ProjectsMain = React.createClass({
 				<section className="projects-list flex-center">
 					{filteredProjects.map((project) => {
 						return (
-							<ProjectCard project={project} cardDimensions={{width: '400px', margin: '10px'}} router={router}></ProjectCard>
+							<ProjectCard project={project} cardDimensions={{width: '400px', margin: '20px'}} router={router}></ProjectCard>
 						);
 					})}
 				</section>

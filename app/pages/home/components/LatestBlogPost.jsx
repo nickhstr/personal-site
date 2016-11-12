@@ -9,7 +9,7 @@ var LatestBlogPost = React.createClass({
 			return null;
 		}
 		var latestPost = MyAPI.latestBlogPost(blogPosts);
-		var {url, title, date, content} = latestPost;
+		var {url, title, date, teaser} = latestPost;
 		return (
 			<div className="latest-post">
 				<h2 className="section-heading">Latest Post</h2>
@@ -17,7 +17,7 @@ var LatestBlogPost = React.createClass({
 					<h3 className="post-title">{title || 'Some Title'}</h3>
 				</a>
 				<p className="post-date">{date || new Date()}</p>
-				<p className="post-content">{content || 'Some content'}</p>
+				<p className="post-content">{teaser || 'Some teaser content'}</p>
 				<a className="button" href="/blog">See All Posts</a>
 			</div>
 		);

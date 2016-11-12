@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var {Provider} = require('react-redux');
 
 // Redux Actions and Store
-import * as actions from 'actions';
+var actions = require('actions');
 var store = require('configureStore').configure();
 
 // Import API helpers

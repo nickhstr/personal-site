@@ -4,7 +4,7 @@ var {Provider} = require('react-redux');
 var {Router, Route, IndexRoute, browserHistory} = require('react-router');
 
 // Redux Actions and Store
-import * as actions from 'actions';
+var actions = require('actions');
 var store = require('configureStore').configure();
 
 // Import API helpers
