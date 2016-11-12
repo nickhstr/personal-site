@@ -28603,28 +28603,13 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var actions = __webpack_require__(204);
-
-	var _require = __webpack_require__(180);
-
-	var connect = _require.connect;
-
 	var SearchInput = __webpack_require__(275);
 
 	var PageHeader = React.createClass({
 		displayName: 'PageHeader',
 		render: function render() {
-			var _this = this;
+			var title = this.props.title;
 
-			var _props = this.props;
-			var title = _props.title;
-			var searchText = _props.searchText;
-			var dispatch = _props.dispatch;
-
-			var updateSearchText = function updateSearchText() {
-				var searchText = _this.refs.searchText.value;
-				dispatch(actions.setSearchText(searchText));
-			};
 			return React.createElement(
 				'header',
 				{ className: 'page-header flex-between-center' },

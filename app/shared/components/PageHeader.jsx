@@ -1,15 +1,9 @@
 var React = require('react');
-var actions = require('actions');
-var {connect} = require('react-redux');
 var SearchInput = require('SearchInput');
 
 var PageHeader = React.createClass({
 	render() {
-		var {title, searchText, dispatch} = this.props;
-		var updateSearchText = () => {
-			var searchText = this.refs.searchText.value;
-			dispatch(actions.setSearchText(searchText));
-		}
+		var {title} = this.props;
 		return (
 			<header className="page-header flex-between-center">
 				<h1>{title}</h1>
