@@ -9,8 +9,11 @@ var Footer = React.createClass({
 			<footer>
 				<SocialLinks></SocialLinks>
 				<section className="footer-copyright flex-between-center">
-					<span className="copyright">&copy; {currentYear} Nick Hester</span>
-					<Icon icon="LogoSecondary" width="3em"></Icon>
+					<span>
+						<span className="copyright">&copy; {currentYear} Nick Hester</span>
+						<a className="footer-link" href="https://github.com/nickhstr/personal-site" target="_blank">Source Code</a>
+					</span>
+					<Icon icon="LogoSecondary" width="36px"></Icon>
 				</section>
 			</footer>
 		);

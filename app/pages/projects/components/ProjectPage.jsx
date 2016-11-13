@@ -18,11 +18,11 @@ var ProjectPage = React.createClass({
 			);
 		}
 		return (
-			<main>
+			<section className>
 				<h1 style={{paddingTop: '64px', margin: '0'}}>{project.name}</h1>
 				<p style={{margin: '0'}}>{project.description}</p>
 				<p style={{margin: '0'}}>{project.program}</p>
-			</main>
+			</section>
 		);
 	}
 });

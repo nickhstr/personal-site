@@ -15,7 +15,7 @@ var ProjectsMain = React.createClass({
 			searchText: searchText
 		});
 		return (
-			<main>
+			<div>
 				<PageHeader title="Projects"></PageHeader>
 				<section className="projects-list flex-center">
 					{filteredProjects.map((project) => {
@@ -24,7 +24,7 @@ var ProjectsMain = React.createClass({
 						);
 					})}
 				</section>
-			</main>
+			</div>
 		);
 	}
 });
