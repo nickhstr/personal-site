@@ -1,9 +1,8 @@
 .page-header {
 	background-color: $secondary-accent-color;
 	color: #fff;
-	padding: calc(64px + 1.25em) 10vw 1.25em;
-	margin: 0 0 1em;
-	font-size: 1em;
+	padding: calc(64px + 1.25rem) 10vw 1.25rem;
+	font-size: 1rem;
 
 	@media (max-width: $primary-media-max-width) {
 		font-size: 0.75em;

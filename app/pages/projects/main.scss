@@ -4,6 +4,7 @@
 // Components
 @import "styles/ProjectsMain";
 
+// For sticky footer - 112px is just a hair shorter than the footer (some browsers show whitespace if set to exact height of footer)
 main {
-	min-height: calc(100vh - 110px);
+	min-height: calc(100vh - 112px);
 }

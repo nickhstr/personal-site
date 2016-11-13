@@ -13,7 +13,7 @@ var MyAPI = require('MyAPI');
 // Import app component
 var ProjectsApp = require('ProjectsApp');
 var ProjectsMain = require('ProjectsMain');
-var TestComponent = require('TestComponent');
+var ProjectPage = require('ProjectPage');
 
 require('projectsStyles');
 
@@ -33,8 +33,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={browserHistory} onUpdate={() => {window.scroll(0, 0)}}>
 			<Route path="/projects" component={ProjectsApp}>
-				<Route path="test" component={TestComponent}></Route>
-				<Route path=":project" component={TestComponent}></Route>
+				<Route path=":project" component={ProjectPage}></Route>
 				<IndexRoute component={ProjectsMain}></IndexRoute>
 			</Route>
 		</Router>

@@ -4,7 +4,7 @@ var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
 var FourZeroFour = require('FourZeroFour');
 
-var TestComponent = React.createClass({
+var ProjectPage = React.createClass({
 	render() {
 		var projectUrl = this.props.params.project;
 		var project = MyAPI.filteredProjects({
@@ -19,9 +19,9 @@ var TestComponent = React.createClass({
 		}
 		return (
 			<main>
-				<h1 style={{paddingTop: '64px'}}>{project.name}</h1>
-				<p>{project.description}</p>
-				<p>{project.program}</p>
+				<h1 style={{paddingTop: '64px', margin: '0'}}>{project.name}</h1>
+				<p style={{margin: '0'}}>{project.description}</p>
+				<p style={{margin: '0'}}>{project.program}</p>
 			</main>
 		);
 	}
@@ -29,4 +29,4 @@ var TestComponent = React.createClass({
 
 module.exports = connect((state) => {
 	return state;
-})(TestComponent);
+})(ProjectPage);
