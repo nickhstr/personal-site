@@ -1,0 +1,36 @@
+.project-page {
+	padding: 84px 0 0;
+
+	@media (max-width: $secondary-media-max-width) {
+		padding: 0;
+	}
+
+	.project-img {
+		box-sizing: border-box;
+		width: 50vw;
+		height: calc(60vh);
+
+		@media (max-width: $secondary-media-max-width) {
+			width: 100vw;
+			height: 50vh;
+		}
+	}
+
+	.project-info {
+		width: 50vw;
+
+		@media (max-width: $secondary-media-max-width) {
+			width: 100vw;
+		}
+	}
+
+	h1 {
+		padding-top: 20px;
+		margin: 0 20px 20px;
+	}
+
+	p {
+		padding: 20px;
+		margin: 0;
+	}
+}

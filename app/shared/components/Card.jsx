@@ -13,8 +13,8 @@ var Card = React.createClass({
 	},
 	newDimensions() {
 		var width = window.innerWidth;
-		if (width > 649) {
-			if (width > 950) {
+		if (width > 679) {
+			if (width > 980) {
 				return {
 					width: this.props.width,
 					height: this.props.height
@@ -25,7 +25,7 @@ var Card = React.createClass({
 				height: '200px'
 			};
 		}
-		else if (width < 650) {
+		else if (width < 680) {
 			return {
 				width: '100%',
 				height: '200px'

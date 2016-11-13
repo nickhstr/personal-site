@@ -17,7 +17,7 @@ var LatestBlogPost = React.createClass({
 					<h3 className="post-title">{title || 'Some Title'}</h3>
 				</a>
 				<p className="post-date">{date || new Date()}</p>
-				<p className="post-content">{teaser || 'Some teaser content'}</p>
+				<p className="post-teaser">{teaser || 'Some teaser content'}</p>
 				<a className="button" href="/blog">See All Posts</a>
 			</div>
 		);

@@ -8,7 +8,7 @@ var ProgressiveImg = React.createClass({
 		placeholder.classList.add('disappear');
 	},
 	render() {
-		var {imgSrc, placeholder, imgAlt, width, height, flexClass} = this.props;
+		var {imgSrc, placeholder, imgAlt, width, height, borderRadius, flexClass} = this.props;
 
 		if (placeholder) {
 			var placeholderStyle = {
@@ -21,7 +21,11 @@ var ProgressiveImg = React.createClass({
 		};
 		var progressiveImgStyle = {
 			width: width || '400px',
-			height: height || '225px'
+			height: height || '225px',
+			borderTopLeftRadius: borderRadius || 'inherit',
+			borderTopRightRadius: borderRadius || 'inherit',
+			borderBottomLeftRadius: borderRadius || '0',
+			borderBottomRightRadius: borderRadius || '0',
 		};
 
 		return (

@@ -3,6 +3,7 @@ var {connect} = require('react-redux');
 var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
 var FourZeroFour = require('FourZeroFour');
+var ProgressiveImg = require('ProgressiveImg');
 
 var ProjectPage = React.createClass({
 	render() {
@@ -18,10 +19,21 @@ var ProjectPage = React.createClass({
 			);
 		}
 		return (
-			<section className>
-				<h1 style={{paddingTop: '64px', margin: '0'}}>{project.name}</h1>
-				<p style={{margin: '0'}}>{project.description}</p>
-				<p style={{margin: '0'}}>{project.program}</p>
+			<section className="project-page flex-center">
+				<div className="project-img">
+					<ProgressiveImg
+							imgSrc={project.imgSrc}
+							placeholder={project.placeholder}
+							imgAlt={project.imgAlt}
+							width="100%"
+							height="100%"
+							borderRadius="2px"></ProgressiveImg>
+				</div>
+				<div className="project-info">
+					<h1>{project.name}</h1>
+					<p>{project.description}</p>
+					<p>{project.program}</p>
+				</div>
 			</section>
 		);
 	}
