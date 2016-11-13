@@ -32,7 +32,8 @@ var ProjectPage = React.createClass({
 				<div className="project-info">
 					<h1>{project.name}</h1>
 					<p>{project.description}</p>
-					<p>{project.program}</p>
+					<a className="button" href={project.projectUrl} target="_blank">Project URL</a>
+					<a className="button" href={project.sourceCode} target="_blank">Source Code</a>
 				</div>
 			</section>
 		);
