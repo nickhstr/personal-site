@@ -8,7 +8,22 @@ var NavBar = React.createClass({
 	currentScroll: 0,
 	isDown: false,
 	navClasses: [],
+	running: false,
+	scrollHide() {
+		window.addEventListener('scroll', this.onScroll, false);
+	},
+	onScroll() {
+		this.currentScroll = window.scrollY;
+		this.requestUpdate();
+	},
+	requestUpdate() {
+		if (!this.running) {
+			requestAnimationFrame(this.updateReveal);
+		}
+		this.running = true;
+	},
 	updateReveal() {
+		this.isDown = this.currentScroll > this.previousScroll;
 		if (this.isDown && !this.navClasses.contains('scrolled') && this.currentScroll > 10) {
 			this.navClasses.add('scrolled');
 		}
@@ -16,14 +31,7 @@ var NavBar = React.createClass({
 			this.navClasses.remove('scrolled');
 		}
 		this.previousScroll = this.currentScroll;
-	},
-	onScroll() {
-		this.currentScroll = window.scrollY;
-		this.isDown = this.currentScroll > this.previousScroll;
-		requestAnimationFrame(this.updateReveal);
-	},
-	scrollHide() {
-		window.addEventListener('scroll', this.onScroll, false);
+		this.running = false;
 	},
 	toggleDrawer() {
 		var drawer = document.getElementById('drawer');

@@ -1,7 +1,7 @@
-$section-padding: 3em;
+$project-page-padding: 3em;
 
 .project-page {
-	padding: 84px 0 0;
+	padding: 96px 0 0;
 	font-size: 1rem;
 
 	@media (max-width: 814px) {
@@ -13,7 +13,7 @@ $section-padding: 3em;
 		box-sizing: border-box;
 		width: 50vw;
 		height: calc(60vh);
-		padding: 0 0 0 $section-padding;
+		padding: 0 0 0 $project-page-padding;
 
 		:first-child {
 			box-shadow: $shadow-2dp;
@@ -33,11 +33,11 @@ $section-padding: 3em;
 	.project-info {
 		box-sizing: border-box;
 		width: 50vw;
-		padding: 0 $section-padding;
+		padding: 0 $project-page-padding;
 
 		@media (max-width: 814px) {
 			width: 100vw;
-			padding: 40px $section-padding;
+			padding: 40px $project-page-padding;
 		}
 	}
 
@@ -51,9 +51,9 @@ $section-padding: 3em;
 
 	p {
 		margin: 1.5em 0 2em;
-		line-height: 1.3em;
+		line-height: 1.4em;
 		color: #3b3b3b;
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 
 	a {

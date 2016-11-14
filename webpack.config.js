@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
@@ -6,10 +8,10 @@ var entryDir = './app/pages/';
 
 module.exports = {
 	entry: {
-		home: entryDir + 'home/home.jsx',
-		about: entryDir + 'about/about.jsx',
-		projects: entryDir + 'projects/projects.jsx',
-		blog: entryDir + 'blog/blog.jsx'
+		home: ['babel-polyfill', entryDir + 'home/home.jsx'],
+		about: ['babel-polyfill', entryDir + 'about/about.jsx'],
+		projects: ['babel-polyfill', entryDir + 'projects/projects.jsx'],
+		blog: ['babel-polyfill', entryDir + 'blog/blog.jsx']
 	},
 	output: {
 		path: path.join(__dirname, 'public'),
@@ -43,6 +45,7 @@ module.exports = {
 		loaders: [
 			{
 				loader: 'babel-loader',
+				babelrc: false,
 				query: {
 					presets: ['react', 'es2015', 'stage-0'],
 					cacheDirectory: true
