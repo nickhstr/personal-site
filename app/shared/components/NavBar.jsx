@@ -8,19 +8,12 @@ var NavBar = React.createClass({
 	currentScroll: 0,
 	isDown: false,
 	navClasses: [],
-	running: false,
 	scrollHide() {
 		window.addEventListener('scroll', this.onScroll, false);
 	},
 	onScroll() {
 		this.currentScroll = window.scrollY;
-		this.requestUpdate();
-	},
-	requestUpdate() {
-		if (!this.running) {
-			requestAnimationFrame(this.updateReveal);
-		}
-		this.running = true;
+		requestAnimationFrame(this.updateReveal);
 	},
 	updateReveal() {
 		this.isDown = this.currentScroll > this.previousScroll;

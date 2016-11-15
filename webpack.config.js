@@ -1,3 +1,4 @@
+// Promise support for IE 10+
 require('babel-polyfill');
 
 const webpack = require('webpack');
