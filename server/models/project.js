@@ -32,7 +32,10 @@ var Project = mongoose.model('Project', {
 		type: String
 	},
 	featured: {
-		type: String
+		type: Boolean
+	},
+	dateCompleted: {
+		type: Date
 	}
 });
 

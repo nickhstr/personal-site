@@ -6,27 +6,26 @@ let {BlogPost} = require('../models/blogPost');
 
 let api = express.Router();
 
-api.get('/api/all', (req, res) => {
-	fs.readFile(process.cwd() + '/server/data/data.json', 'utf8', (err, obj) => {
-		if (err) {
-			console.log(err);
-			return res.send(err);
-		}
-		return res.send(JSON.parse(obj));
-	});
-});
-
 api.get('/api/posts', (req, res) => {
-	fs.readFile(process.cwd() + '/server/data/data.json', 'utf8', (err, obj) => {
-		if (err) {
-			console.log(err);
-			return res.send(err);
-		}
-		return res.send(JSON.parse(obj).blogPosts);
+	// QUERYING LOCAL JSON FILE
+	// fs.readFile(process.cwd() + '/server/data/data.json', 'utf8', (err, obj) => {
+	// 	if (err) {
+	// 		console.log(err);
+	// 		return res.send(err);
+	// 	}
+	// 	return res.send(JSON.parse(obj).blogPosts);
+	// });
+
+	// QUERYING MONGODB
+	BlogPost.find().then((posts) => {
+		return res.type('json').send(posts);
+	}, (err) => {
+		return res.status(404).send(err);
 	});
 });
 
 api.get('/api/projects', (req, res) => {
+	// QUERYING LOCAL JSON FILE
 	// fs.readFile(process.cwd() + '/server/data/data.json', 'utf8', (err, obj) => {
 	// 	if (err) {
 	// 		console.log(err);
@@ -34,18 +33,21 @@ api.get('/api/projects', (req, res) => {
 	// 	}
 	// 	return res.send(JSON.parse(obj).projects);
 	// });
+
+	// QUERYING MONGODB
 	Project.find().then((projects) => {
-		res.send(projects);
+		return res.type('json').send(projects);
 	}, (err) => {
-		res.status(404).send(err);
+		return res.status(404).send(err);
 	});
 });
 
+// For testing
 api.get('/api/latest-post', (req, res) => {
 	BlogPost.find().then((posts) => {
-		res.send(posts[0]);
+		return res.send(posts[0]);
 	}, (err) => {
-		res.status(400).send(err);
+		return res.status(400).send(err);
 	});
 });
 

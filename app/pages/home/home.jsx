@@ -19,9 +19,24 @@ store.subscribe(() => {
 });
 
 // Fetch all data - projects and blog posts
-MyAPI.get('/api/all').then((response) => {
-	var {blogPosts, projects} = JSON.parse(response);
+// MyAPI.get('/api/all').then((response) => {
+// 	var {blogPosts, projects} = JSON.parse(response);
+// 	store.dispatch(actions.addPosts(blogPosts));
+// 	store.dispatch(actions.showFeaturedProjects());
+// 	store.dispatch(actions.addProjects(projects));
+// }, (error) => {
+// 	console.log('Failed!', error);
+// });
+
+MyAPI.get('/api/posts').then((response) => {
+	var blogPosts = JSON.parse(response);
 	store.dispatch(actions.addPosts(blogPosts));
+}, (error) => {
+	console.log('Failed!', error);
+});
+
+MyAPI.get('/api/projects').then((response) => {
+	var projects = JSON.parse(response);
 	store.dispatch(actions.showFeaturedProjects());
 	store.dispatch(actions.addProjects(projects));
 }, (error) => {
