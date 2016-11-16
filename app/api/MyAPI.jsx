@@ -3,6 +3,7 @@ module.exports = {
 	get: function(url) {
 		return this.request({method: 'GET', url});
 	},
+	// XHR request promisified
 	request: function(options) {
 		return new Promise((resolve, reject) => {
 			var req = new XMLHttpRequest();
@@ -24,6 +25,7 @@ module.exports = {
 			req.send();
 		});
 	},
+	// Projects Filter
 	filteredProjects: function(filter) {
 		var filteredProjects = filter.projects;
 
@@ -61,10 +63,21 @@ module.exports = {
 
 		return filteredProjects;
 	},
+	// Return latest post
 	latestBlogPost: function(posts) {
-		if (posts.length > 0) {
-			return posts[posts.length - 1];
+		var sortedPosts = posts.slice();
+		sortedPosts.sort((a, b) => {
+			var aDate = new Date(a.date).getTime();
+			var bDate = new Date(b.date).getTime();
+
+			return a - b;
+		});
+
+		console.log(sortedPosts);
+
+		if (sortedPosts.length > 0) {
+			return sortedPosts[sortedPosts.length - 1];
 		}
-		return posts;
+		return sortedPosts;
 	}
 };

@@ -18,7 +18,10 @@ api.get('/api/posts', (req, res) => {
 
 	// QUERYING MONGODB
 	BlogPost.find().then((posts) => {
-		return res.type('json').send(posts);
+		if (posts.length > 0) {
+			return res.type('json').send(posts);
+		}
+		return res.status(500).send('No blog posts found.');
 	}, (err) => {
 		return res.status(404).send(err);
 	});
@@ -36,7 +39,10 @@ api.get('/api/projects', (req, res) => {
 
 	// QUERYING MONGODB
 	Project.find().then((projects) => {
-		return res.type('json').send(projects);
+		if (projects.length > 0) {
+			return res.type('json').send(projects);
+		}
+		return res.status(500).send('No blog projects found.');
 	}, (err) => {
 		return res.status(404).send(err);
 	});

@@ -10,14 +10,15 @@ var LatestBlogPost = React.createClass({
 		}
 		var latestPost = MyAPI.latestBlogPost(blogPosts);
 		var {url, title, date, teaser} = latestPost;
+		var formattedDate = new Date(date).toDateString();
 		return (
 			<div className="latest-post">
 				<h2 className="section-heading">Latest Post</h2>
 				<a href={url || '/blog'}>
 					<h3 className="post-title">{title || 'Some Title'}</h3>
 				</a>
-				<p className="post-date">{date || new Date()}</p>
-				<p className="post-teaser">{teaser || 'Some teaser content'}</p>
+				<p className="post-date">{formattedDate}</p>
+				<p className="post-teaser">{teaser || 'Some teaser content'} <a href={url}>Read More...</a></p>
 				<a className="button" href="/blog">See All Posts</a>
 			</div>
 		);
