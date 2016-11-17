@@ -20,7 +20,7 @@ var ProjectPage = React.createClass({
 		}
 		return (
 			<section className="project-page flex-center">
-				<div className="project-img">
+				<div style={{height: window.innerHeight * 0.6}} className="project-img">
 					<ProgressiveImg
 							imgSrc={project.imgSrc}
 							placeholder={project.placeholder}
