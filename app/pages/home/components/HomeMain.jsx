@@ -11,7 +11,7 @@ var HomeMain = React.createClass({
 			<main>
 				<ProgressiveImg
 						width="100%"
-						height="100vh"
+						height={window.innerHeight}
 						imgSrc={src}
 						imgAlt={alt}
 						placeholder={placeholder}

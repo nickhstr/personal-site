@@ -25,14 +25,12 @@ var ProgressiveImg = React.createClass({
 			borderTopLeftRadius: borderRadius || 'inherit',
 			borderTopRightRadius: borderRadius || 'inherit',
 			borderBottomLeftRadius: borderRadius || '0',
-			borderBottomRightRadius: borderRadius || '0',
+			borderBottomRightRadius: borderRadius || '0'
 		};
 
 		return (
 			<div className="progressive-img" style={progressiveImgStyle}>
-				<section className={flexClass}>
-					{this.props.children}
-				</section>
+				{this.props.children ? <section className={flexClass}>{this.props.children}</section> : null}
 				<div ref="placeholder" className="placeholder" style={placeholderStyle}></div>
 				<img ref="img" src={imgSrc} alt={imgAlt} onLoad={this.hidePlaceholder}/>
 				<div className="full-image" style={fullImageStyle}></div>
