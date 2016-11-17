@@ -4,19 +4,23 @@ var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
 var ProjectCard = require('ProjectCard');
 var PageHeader = require('PageHeader');
+var ProjectsOptions = require('ProjectsOptions');
 
 var ProjectsMain = React.createClass({
 	render() {
-		var {projects, showFeaturedProjects, programFilter, searchText, router} = this.props;
+		var {projects, showFeaturedProjects, programFilter, searchText, sort, router} = this.props;
 		var filteredProjects = MyAPI.filteredProjects({
 			projects: projects,
 			featuredOnly: showFeaturedProjects,
 			program: programFilter,
-			searchText: searchText
+			searchText: searchText,
+			sort: sort
 		});
 		return (
 			<div>
-				<PageHeader title="Projects"></PageHeader>
+				<PageHeader title="Projects">
+					<ProjectsOptions></ProjectsOptions>
+				</PageHeader>
 				<section className="projects-list flex-center">
 					{filteredProjects.map((project) => {
 						return (

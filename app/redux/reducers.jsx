@@ -48,3 +48,12 @@ export var searchTextReducer = (state = '', action) => {
 			return state;
 	}
 }
+
+export var sortReducer = (state = '', action) => {
+	switch (action.type) {
+		case 'SET_SORT':
+			return action.sort;
+		default:
+			return state;
+	}
+}

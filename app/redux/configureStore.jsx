@@ -4,7 +4,8 @@ import {
 	projectsReducer,
 	featuredProjectsReducer,
 	programFilterReducer,
-	searchTextReducer
+	searchTextReducer,
+	sortReducer
 } from 'reducers';
 
 export var configure = (initialState = {}) => {
@@ -13,7 +14,8 @@ export var configure = (initialState = {}) => {
 		projects: projectsReducer,
 		showFeaturedProjects: featuredProjectsReducer,
 		programFilter: programFilterReducer,
-		searchText: searchTextReducer
+		searchText: searchTextReducer,
+		sort: sortReducer
 	});
 
 	var store = redux.createStore(reducer, initialState, redux.compose(

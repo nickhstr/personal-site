@@ -3,7 +3,7 @@ var Card = require('Card');
 var ProjectDetails = require('ProjectDetails');
 
 var ProjectCard = (props) => {
-	var {imgSrc, imgAlt, placeholder, name, summary, projectPage, projectUrl, sourceCode} = props.project;
+	var {imgSrc, imgAlt, placeholder, name, dateCompleted, summary, projectPage, projectUrl, sourceCode} = props.project;
 	var {width, height, margin} = props.cardDimensions;
 	var href = projectPage ? ('/projects' + projectPage) : '/projects';
 
@@ -17,6 +17,7 @@ var ProjectCard = (props) => {
 				placeholder={placeholder}>
 				<ProjectDetails
 						name={name}
+						dateCompleted={dateCompleted}
 						summary={summary}
 						projectPage={href}
 						projectUrl={projectUrl}

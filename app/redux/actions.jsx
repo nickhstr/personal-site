@@ -31,3 +31,10 @@ export var setSearchText = (text) => {
 		text
 	};
 }
+
+export var setSort = (sort) => {
+	return {
+		type: 'SET_SORT',
+		sort
+	};
+}

@@ -27,7 +27,7 @@ module.exports = {
 	},
 	// Projects Filter
 	filteredProjects: function(filter) {
-		var filteredProjects = filter.projects;
+		var filteredProjects = filter.projects.slice();
 
 		// Filter for featured, if specified
 		if (filter.featuredOnly) {
@@ -59,6 +59,34 @@ module.exports = {
 				var summaryMatch = project.summary.toLowerCase().indexOf(text) >= 0;
 				return nameMatch || programMatch || summaryMatch;
 			});
+		}
+
+		// Sort projects
+		if (filter.sort) {
+			switch (filter.sort.toLowerCase()) {
+				case 'date':
+					filteredProjects = filteredProjects.sort((a, b) => {
+						var aTime = new Date(a.dateCompleted).getTime();
+						var bTime = new Date(b.dateCompleted).getTime();
+						return bTime - aTime;
+					});
+					break;
+				case 'name':
+					filteredProjects = filteredProjects.sort((a, b) => {
+						var aName = a.name.toLowerCase();
+						var bName = b.name.toLowerCase();
+
+						if (aName < bName) {
+							return -1;
+						}
+						if (aName > bName) {
+							return 1;
+						}
+						return 0;
+					});
+				default:
+					break;
+			}
 		}
 
 		return filteredProjects;

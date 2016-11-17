@@ -5,7 +5,7 @@
 	font-size: 1rem;
 
 	@media (max-width: $primary-media-max-width) {
-		font-size: 0.75em;
+		font-size: 0.75rem;
 	}
 
 	h1 {
@@ -15,14 +15,33 @@
 		margin: 0;
 	}
 
-	input::placeholder {
-		font-weight: 300;
-		color: #ccc;
+	.inputs {
+		display: inline-block;
+
+		@media (max-width: $secondary-media-max-width) {
+			width: 50%;
+
+			.search-input {
+				width: 100%;
+			}
+		}
 	}
 
-	.search-input {
-		@media (max-width: $primary-media-max-width) {
-			width: 50%;
+	.options-top {
+		display: inline-block;
+
+		@media (max-width: $secondary-media-max-width) {
+			display: none;
 		}
+	}
+}
+
+.options-bottom {
+	display: none;
+
+	@media (max-width: $secondary-media-max-width) {
+		display: flex;
+		background-color: #2670b3;
+		padding: 10px 0;
 	}
 }

@@ -23,7 +23,7 @@
 	left: 0;
 	transition: opacity $drawer-transition-length;
 	transform: translateZ(0);
-	z-index: 10;
+	z-index: 100;
 	opacity: 0;
 	background: rgba(0, 0, 0, 0.5);
 }
@@ -34,7 +34,7 @@
 	right: 0;
 	top: 0;
 	bottom: 0;
-	z-index: 10;
+	z-index: 100;
 	background: linear-gradient(#fff, $primary-background-color);
 	transform: translate3d(256px, 0, 0);
 	transition: transform $drawer-transition-length;
