@@ -1,4 +1,4 @@
-.projects-options {
+.sort-dropdown {
 	background-color: #fff;
   display: inline-block;
   position: relative;
@@ -23,9 +23,10 @@
 	&::after {
 		content:"▾";
     position: absolute;
-    top: 0.5em;
+    top: 0.2em;
     right: 0.5em;
     z-index: 5;
+    font-size: 1.3em;
 	}
 
 	.dropdown {
@@ -42,7 +43,7 @@
 
     &:focus {
     	outline: none;
-    	background-color: rgba(0, 0, 0, 0.2);
+    	background-color: rgba(0, 0, 0, 0.1);
     }
 	}
 }

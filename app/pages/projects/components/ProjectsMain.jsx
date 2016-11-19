@@ -4,7 +4,7 @@ var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
 var ProjectCard = require('ProjectCard');
 var PageHeader = require('PageHeader');
-var ProjectsOptions = require('ProjectsOptions');
+var SortDropdown = require('SortDropdown');
 
 var ProjectsMain = React.createClass({
 	render() {
@@ -19,7 +19,11 @@ var ProjectsMain = React.createClass({
 		return (
 			<div>
 				<PageHeader title="Projects">
-					<ProjectsOptions></ProjectsOptions>
+					<SortDropdown>
+						<option value="">None</option>
+						<option value="Date">Date</option>
+						<option value="Name">Name</option>
+					</SortDropdown>
 				</PageHeader>
 				<section className="projects-list flex-center">
 					{filteredProjects.map((project) => {

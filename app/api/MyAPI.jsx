@@ -101,8 +101,6 @@ module.exports = {
 			return a - b;
 		});
 
-		console.log(sortedPosts);
-
 		if (sortedPosts.length > 0) {
 			return sortedPosts[sortedPosts.length - 1];
 		}

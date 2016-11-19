@@ -2,7 +2,7 @@ var React = require('react');
 var actions = require('actions');
 var {connect} = require('react-redux');
 
-var ProjectsOptions = React.createClass({
+var SortDropdown = React.createClass({
 	updateSelectedOption() {
 		var sort = this.refs.options.value;
 		this.props.dispatch(actions.setSort(sort));
@@ -10,11 +10,9 @@ var ProjectsOptions = React.createClass({
 	render() {
 		var {sort} = this.props;
 		return (
-			<div className="projects-options">
+			<div className="sort-dropdown">
 				<select className="dropdown" ref="options" onChange={this.updateSelectedOption} value={sort}>
-					<option value="">None</option>
-					<option value="Date">Date</option>
-					<option value="Name">Name</option>
+					{this.props.children}
 				</select>
 			</div>
 		);
@@ -25,4 +23,4 @@ module.exports = connect((state) => {
 	return {
 		sort: state.sort
 	};
-})(ProjectsOptions);
+})(SortDropdown);
