@@ -11,7 +11,8 @@ $project-page-padding: 3em;
 
 	.project-img {
 		box-sizing: border-box;
-		width: 50vw;
+		width: 49vw;
+		height: 30vw;
 		padding: 0 0 0 $project-page-padding;
 
 		:first-child {
@@ -20,18 +21,22 @@ $project-page-padding: 3em;
 
 		@media (max-width: 814px) {
 			width: 100vw;
-			height: 50vh;
+			height: 60vw;
 			padding: 0;
 
 			:first-child {
 				box-shadow: none;
 			}
 		}
+
+		@media (max-width: $primary-media-max-width) {
+			height: 80vw;
+		}
 	}
 
 	.project-info {
 		box-sizing: border-box;
-		width: 50vw;
+		width: 49vw;
 		padding: 0 $project-page-padding;
 
 		@media (max-width: 814px) {
