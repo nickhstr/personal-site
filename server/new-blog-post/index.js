@@ -12,6 +12,6 @@ module.exports = {
 	title: 'Lorem Ipsum',
 	teaser: 'Can anyone read Latin anymore?',
 	content: content,
-	url: '/blog/lorem-ipsum',
+	url: '/blog/lorem-ipsum-2',
 	category: 'Technology'
 };
