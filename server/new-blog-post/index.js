@@ -9,8 +9,9 @@ var content = fs.readFileSync(process.cwd() + '/server/new-blog-post/content.htm
 });
 
 module.exports = {
-	title: 'And Another!',
-	teaser: 'Are we having fun yet?',
+	title: 'Lorem Ipsum',
+	teaser: 'Can anyone read Latin anymore?',
 	content: content,
-	url: '/blog/another-post'
+	url: '/blog/lorem-ipsum',
+	category: 'Technology'
 };

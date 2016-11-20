@@ -1,0 +1,55 @@
+.blog-card {
+	font-size: 1rem;
+	background-color: #fff;
+	padding: 40px;
+	margin: 20px 0;
+	box-shadow: $shadow-2dp;
+	border-radius: 2px;
+	transition: $shadow-transition;
+
+	&:hover {
+		box-shadow: $shadow-6dp;
+	}
+
+	@media (max-width: $primary-media-max-width) {
+		font-size: 0.75rem;
+		padding: 20px;
+	}
+
+	h3 {
+		font-size: 2em;
+		font-weight: 500;
+		margin: 0;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.details {
+		font-weight: 300;
+		margin: 0.5em 0;
+
+		span {
+			display: block;
+		}
+	}
+
+	.content {
+		margin: 1em 0;
+		font-size: 1.3em;
+		color: $secondary-text-color;
+
+		* {
+			line-height: 1.5em;
+		}
+
+		*:nth-child(n + 2) {
+			display: none;
+		}
+	}
+
+	a {
+		color: $secondary-accent-color;
+	}
+}

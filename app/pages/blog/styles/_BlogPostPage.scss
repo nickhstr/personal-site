@@ -1,0 +1,48 @@
+.blog-post-page {
+	margin: 0 auto;
+	padding: 104px 0 0;
+	width: 80vw;
+
+	@media (max-width: $secondary-media-max-width) {
+		width: 95vw;
+	}
+
+	.blog-post {
+		margin: 0;
+		padding: 40px;
+		border-radius: 2px;
+		background-color: #fff;
+		box-shadow: $shadow-2dp;
+		font-size: 1rem;
+
+		@media (max-width: $secondary-media-max-width) {
+			font-size: 0.75rem;
+			padding: 20px;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: 2em;
+			font-weight: 500;
+		}
+
+		.details {
+			font-weight: 300;
+			margin: 0.5em 0;
+
+			span {
+				display: block;
+			}
+		}
+
+		.content {
+			margin: 1em 0;
+			font-size: 1.3em;
+			color: $secondary-text-color;
+
+			* {
+				line-height: 1.5em;
+			}
+		}
+	}
+}

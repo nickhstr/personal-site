@@ -24,6 +24,7 @@ require('projectsStyles');
 // Fetch all projects
 MyAPI.get('/api/projects').then((response) => {
 	var projects = JSON.parse(response);
+	store.dispatch(actions.setSort('date'));
 	store.dispatch(actions.addProjects(projects));
 }, (error) => {
 	console.log('Failed!', error);

@@ -16,21 +16,14 @@ router.get('/about', (req, res) => {
 	});
 });
 
-router.get('/projects', (req, res) => {
+router.get(['/projects', '/projects/*'], (req, res) => {
 	res.render('index.hbs', {
 		pageTitle: 'Projects',
 		scriptSrc: '/projects.js'
 	});
 });
 
-router.get('/projects/*', (req, res) => {
-	res.render('index.hbs', {
-		pageTitle: 'Projects',
-		scriptSrc: '/projects.js'
-	});
-});
-
-router.get('/blog', (req, res) => {
+router.get(['/blog', '/blog/*'], (req, res) => {
 	res.render('index.hbs', {
 		pageTitle: 'Blog',
 		scriptSrc: '/blog.js'

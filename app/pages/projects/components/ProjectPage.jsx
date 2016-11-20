@@ -1,8 +1,6 @@
 var React = require('react');
 var {connect} = require('react-redux');
-var {Link} = require('react-router');
 var MyAPI = require('MyAPI');
-var FourZeroFour = require('FourZeroFour');
 var ProgressiveImg = require('ProgressiveImg');
 
 var ProjectPage = React.createClass({
@@ -14,9 +12,7 @@ var ProjectPage = React.createClass({
 		})[0];
 
 		if (!project) {
-			return (
-				<FourZeroFour></FourZeroFour>
-			);
+			return null;
 		}
 		return (
 			<section className="project-page flex-center">

@@ -1,0 +1,9 @@
+.blog-list {
+	padding: 20px 0;
+	margin: 0 auto;
+	width: 80vw;
+
+	@media (max-width: $secondary-media-max-width) {
+		width: 95vw;
+	}
+}

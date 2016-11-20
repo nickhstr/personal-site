@@ -14,12 +14,9 @@ var LatestBlogPost = React.createClass({
 		return (
 			<div className="latest-post">
 				<h2 className="section-heading">Latest Post</h2>
-				<a href={url}>
-					<h3 className="post-title">{title}</h3>
-				</a>
+				<h3 className="post-title"><a href={url}>{title}</a></h3>
 				<p className="post-date">{formattedDate}</p>
 				<p className="post-teaser">{teaser}<a href={url}>Read More...</a></p>
-				<div dangerouslySetInnerHTML={{__html: content}}></div>
 				<a className="button" href="/blog">See All Posts</a>
 			</div>
 		);

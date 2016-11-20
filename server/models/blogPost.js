@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var BlogPost = mongoose.model('BlogPost', {
 	title: {
-		type: String
+		type: String,
+		required: true
 	},
 	date: {
 		type: Date,
@@ -12,10 +13,16 @@ var BlogPost = mongoose.model('BlogPost', {
 		type: String
 	},
 	content: {
-		type: String
+		type: String,
+		required: true
 	},
 	url: {
-		type: String
+		type: String,
+		required: true
+	},
+	category: {
+		type: String,
+		required: true
 	}
 });
 

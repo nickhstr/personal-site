@@ -20,7 +20,6 @@ var ProjectsMain = React.createClass({
 			<div>
 				<PageHeader title="Projects">
 					<SortDropdown>
-						<option value="">None</option>
 						<option value="Date">Date</option>
 						<option value="Name">Name</option>
 					</SortDropdown>

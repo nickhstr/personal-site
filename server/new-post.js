@@ -11,14 +11,15 @@ var post = new BlogPost({
 	title: postInfo.title,
 	teaser: postInfo.teaser,
 	content: postInfo.content,
-	url: postInfo.url
+	url: postInfo.url,
+	category: postInfo.category
 });
 
 // Save to DB and close connection
 post.save().then((doc) => {
-	console.log('Success!', doc);
+	console.log('Success!\n', doc);
 	mongoose.connection.close();
 }, (err) => {
-	console.log('Whoops!', err);
+	console.log('Whoops!\n', err);
 	mongoose.connection.close();
 });

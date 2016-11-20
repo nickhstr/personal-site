@@ -2,8 +2,6 @@ var React = require('react');
 var NavBar = require('NavBar');
 var Footer = require('Footer');
 
-var ComingSoon = require('ComingSoon');
-
 var ProjectsApp = React.createClass({
 	componentDidMount() {
 		var app = document.body;
