@@ -13,7 +13,7 @@ var BlogApp = React.createClass({
 		return (
 			<div className="app">
 				<NavBar></NavBar>
-				<main>
+				<main id="main">
 					{this.props.children}
 				</main>
 				<Footer></Footer>

@@ -3,6 +3,12 @@ var {connect} = require('react-redux');
 var MyAPI = require('MyAPI');
 
 var BlogPostPage = React.createClass({
+	componentDidMount() {
+		document.getElementById('main').classList.add('all-white');
+	},
+	componentWillUnmount() {
+		document.getElementById('main').classList.remove('all-white');
+	},
 	render() {
 		var postUrl = this.props.params.post;
 		var post = MyAPI.filteredPosts({
