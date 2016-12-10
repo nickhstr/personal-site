@@ -7,16 +7,21 @@ var SearchInput = React.createClass({
 		var searchText = this.refs.searchText.value;
 		this.props.dispatch(actions.setSearchText(searchText));
 	},
+	clearSearchText() {
+		this.props.dispatch(actions.setSearchText(''));
+	},
 	render() {
 		var {page, searchText} = this.props;
 		return (
-			<input
-				ref="searchText"
-				className="search-input"
-				type="text"
-				placeholder={`Search ${page}...`}
-				onChange={this.updateSearchText}
-				value={searchText}/>
+			<div className="search">
+				<input
+					type="search"
+					ref="searchText"
+					className="search-input"
+					placeholder={`Search ${page}...`}
+					onChange={this.updateSearchText}
+					value={searchText}/>
+			</div>
 		);
 	}
 });

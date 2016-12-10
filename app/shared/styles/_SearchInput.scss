@@ -1,18 +1,24 @@
-.search-input {
-	border: none;
-	border-radius: 2px;
-	background-color: rgba(0, 0, 0, 0.2);
-	color: #fff;
-	padding: 0.5em;
-	font-size: 1em;
+.search {
+	display: inline-block;
+	position: relative;
 
-	&:focus {
-		outline: none;
-		background-color: rgba(0, 0, 0, 0.3);
-	}
+	.search-input {
+		position: relative;
+		border: none;
+		border-radius: 2px;
+		background-color: rgba(0, 0, 0, 0.2);
+		color: #fff;
+		padding: 0.5em;
+		font-size: 1em;
 
-	&::placeholder {
-		font-weight: 300;
-		color: #ccc;
+		&:focus {
+			outline: none;
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+
+		&::placeholder {
+			font-weight: 300;
+			color: #ccc;
+		}
 	}
 }

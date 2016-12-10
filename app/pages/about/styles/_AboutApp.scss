@@ -1,0 +1,9 @@
+// For sticky footer - view height minus the footer height plus one pixel (to avoid possible whitespace)
+main {
+	min-height: calc(100vh - (1.4rem + 40px) - (36px + 1rem) + 1px);
+}
+
+.construction {
+	padding: 100px 0 0;
+	text-align: center;
+}

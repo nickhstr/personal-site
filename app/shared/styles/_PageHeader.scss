@@ -19,9 +19,9 @@
 		display: inline-block;
 
 		@media (max-width: $secondary-media-max-width) {
-			width: 50%;
+			width: 55%;
 
-			.search-input {
+			.search {
 				width: 100%;
 			}
 		}
