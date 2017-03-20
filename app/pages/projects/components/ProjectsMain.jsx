@@ -8,7 +8,14 @@ var SortDropdown = require('SortDropdown');
 
 var ProjectsMain = React.createClass({
 	render() {
-		var {projects, showFeaturedProjects, programFilter, searchText, sort, router} = this.props;
+        var {
+            projects,
+            showFeaturedProjects,
+            programFilter,
+            searchText,
+            sort,
+            router
+        } = this.props;
 		var filteredProjects = MyAPI.filteredProjects({
 			projects: projects,
 			featuredOnly: showFeaturedProjects,
@@ -27,7 +34,10 @@ var ProjectsMain = React.createClass({
 				<section className="projects-list flex-center">
 					{filteredProjects.map((project) => {
 						return (
-							<ProjectCard project={project} cardDimensions={{width: '400px', margin: '20px'}} router={router}></ProjectCard>
+                            <ProjectCard
+                                project={project}
+                                cardDimensions={{width: '400px', margin: '20px'}}
+                                router={router}></ProjectCard>
 						);
 					})}
 				</section>

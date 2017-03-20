@@ -2,3 +2,4 @@ node_modules
 graphics
 Procfile
 server/data
+*.un~

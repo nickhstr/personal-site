@@ -154,5 +154,10 @@ module.exports = {
 			return sortedPosts[sortedPosts.length - 1];
 		}
 		return sortedPosts;
+	},
+
+	// Return selected project for Project Page
+	selectedProject: function(project) {
+		return this.filteredProjects(project)[0];
 	}
 };

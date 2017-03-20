@@ -6,14 +6,15 @@ var ProgressiveImg = require('ProgressiveImg');
 var ProjectPage = React.createClass({
 	render() {
 		var projectUrl = this.props.params.project;
-		var project = MyAPI.filteredProjects({
+		var project = MyAPI.selectedProject({
 			projects: this.props.projects,
 			projectPage: projectUrl
-		})[0];
+		});
 
 		if (!project) {
 			return null;
 		}
+		
 		return (
 			<section className="project-page flex-center">
 				<div className="project-img">
@@ -28,8 +29,14 @@ var ProjectPage = React.createClass({
 				<div className="project-info">
 					<h1>{project.name}</h1>
 					<p>{project.description}</p>
-					<a className="button" href={project.projectUrl} target="_blank">Project URL</a>
-					<a className="button" href={project.sourceCode} target="_blank">Source Code</a>
+                    <a
+                        className="button"
+                        href={project.projectUrl}
+                        target="_blank">Project URL</a>
+                    <a
+                        className="button"
+                        href={project.sourceCode}
+                        target="_blank">Source Code</a>
 				</div>
 			</section>
 		);

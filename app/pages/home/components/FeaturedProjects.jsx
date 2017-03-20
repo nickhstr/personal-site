@@ -29,7 +29,10 @@ var FeaturedProjects = React.createClass({
 					<div className="flex-center">
 						{filteredProjects.map((project) => {
 							return (
-								<ProjectCard project={project} cardDimensions={{width, height, margin}}></ProjectCard>
+                                <ProjectCard 
+                                    project={project} 
+                                    cardDimensions={{width, height, margin}}>
+                                </ProjectCard>
 							);
 						})}
 					</div>

@@ -16,7 +16,10 @@ var HomeMain = React.createClass({
 						imgAlt={alt}
 						placeholder={placeholder}
 						flexClass="flex-start-end">
-					<MainTitle primary="Nick Hester" secondary="Web Developer"></MainTitle>
+                    <MainTitle 
+                        primary="Nick Hester" 
+                        secondary="Software Engineer">
+                    </MainTitle>
 				</ProgressiveImg>
 				<LatestBlogPost></LatestBlogPost>
 				<FeaturedProjects></FeaturedProjects>
