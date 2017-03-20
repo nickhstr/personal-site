@@ -28,15 +28,15 @@ var ProjectPage = React.createClass({
 				</div>
 				<div className="project-info">
 					<h1>{project.name}</h1>
-					<p>{project.description}</p>
-                    <a
-                        className="button"
-                        href={project.projectUrl}
-                        target="_blank">Project URL</a>
-                    <a
-                        className="button"
-                        href={project.sourceCode}
-                        target="_blank">Source Code</a>
+					<div className="description" dangerouslySetInnerHTML={{__html: project.description}}></div>
+          <a
+              className="button"
+              href={project.projectUrl}
+              target="_blank">Project URL</a>
+          <a
+              className="button"
+              href={project.sourceCode}
+              target="_blank">Source Code</a>
 				</div>
 			</section>
 		);

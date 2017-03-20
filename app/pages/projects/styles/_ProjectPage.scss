@@ -39,6 +39,14 @@ $project-page-padding: 3em;
 		width: 49vw;
 		padding: 0 $project-page-padding;
 
+		.description {
+			margin: 1.5em 0 2em;
+			line-height: 1.4em;
+			color: #3b3b3b;
+			font-size: 1.1em;
+		}
+
+
 		@media (max-width: 814px) {
 			width: 100vw;
 			padding: 40px $project-page-padding;
@@ -51,13 +59,6 @@ $project-page-padding: 3em;
 		font-size: 2em;
 		font-weight: 400;
 		border-bottom: 1px solid $primary-accent-color;
-	}
-
-	p {
-		margin: 1.5em 0 2em;
-		line-height: 1.4em;
-		color: #3b3b3b;
-		font-size: 1.1em;
 	}
 
 	a {
